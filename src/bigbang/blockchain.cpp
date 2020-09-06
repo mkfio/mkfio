@@ -472,6 +472,23 @@ Errno CBlockChain::AddNewBlock(const CBlock& block, CBlockChainUpdate& update)
         CTxContxt txContxt;
         if (i == 0 && tx.nType == CTransaction::TX_GENESIS)
         {
+            int nTakeEffectHeight;
+            int64 nIncreaseCoin;
+            int64 nBlockReward;
+            if (!RetrieveIncreaseCoin(block.GetBlockHeight(), nTakeEffectHeight, nIncreaseCoin, nBlockReward)
+                || nTakeEffectHeight != block.GetBlockHeight())
+            {
+                Log("AddNewBlock: Verify BlockTx increase coin fail: tx: %s, block: %s",
+                    tx.nTimeStamp, block.nTimeStamp, txid.ToString().c_str(), hash.GetHex().c_str());
+                return ERR_BLOCK_COINBASE_INVALID;
+            }
+
+            if (!pCoreProtocol->VerifyIncreaseCoinTx(hash, block, nIncreaseCoin))
+            {
+                StdError("BlockChain", "AddNewBlock: Verify increase coin fail, block: %s", hash.GetHex().c_str());
+                return ERR_BLOCK_COINBASE_INVALID;
+            }
+
             view.AddTx(txid, tx);
             vTxContxt.push_back(txContxt);
             StdTrace("BlockChain", "AddNewBlock: verify genesis tx success, new tx: %s, new block: %s", txid.GetHex().c_str(), hash.GetHex().c_str());
