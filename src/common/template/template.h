@@ -21,6 +21,12 @@ class CSpendableTemplate
 {
 };
 
+class CIncreaseCoinParamTemplate
+{
+public:
+    virtual void GetIncreaseCoinParam(int& nTakeEffectHeightOut, int64& nIncreaseCoinOut, int64& nBlockRewardOut, CDestination& destOwnerOut) const = 0;
+};
+
 enum TemplateType
 {
     TEMPLATE_MIN = 0,
@@ -29,6 +35,7 @@ enum TemplateType
     TEMPLATE_PROOF = 4,
     TEMPLATE_EXCHANGE = 6,
     TEMPLATE_PAYMENT = 8,
+    TEMPLATE_INCREASECOIN = 9,
     TEMPLATE_MAX
 };
 

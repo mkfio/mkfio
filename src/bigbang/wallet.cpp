@@ -602,6 +602,32 @@ bool CWallet::SignTransaction(const CDestination& destIn, CTransaction& tx, cons
         }
     }
 
+    vector<uint8> vchSig;
+    if (!tx.vchSig.empty())
+    {
+        if (tx.sendTo.IsTemplate() && tx.sendTo.GetTemplateId().GetType() == TEMPLATE_INCREASECOIN)
+        {
+            CTemplatePtr ptr = GetTemplate(tx.sendTo.GetTemplateId());
+            if (!ptr)
+            {
+                Error("SignTransaction: GetTemplate fail, sendTo: %s, txid: %s",
+                      tx.sendTo.ToString().c_str(), tx.GetHash().GetHex().c_str());
+                return false;
+            }
+            set<CDestination> setSubDest;
+            if (!ptr->GetSignDestination(tx, tx.vchSig, setSubDest, vchSig))
+            {
+                Error("SignTransaction: GetSignDestination fail, sendTo: %s, txid: %s",
+                      tx.sendTo.ToString().c_str(), tx.GetHash().GetHex().c_str());
+                return false;
+            }
+        }
+        else
+        {
+            vchSig = tx.vchSig;
+        }
+    }
+
     set<crypto::CPubKey> setSignedKey;
     {
         boost::shared_lock<boost::shared_mutex> rlock(rwKeyStore);
@@ -614,6 +640,24 @@ bool CWallet::SignTransaction(const CDestination& destIn, CTransaction& tx, cons
     }
 
     UpdateAutoLock(setSignedKey);
+
+    if (tx.sendTo.IsTemplate() && tx.sendTo.GetTemplateId().GetType() == TEMPLATE_INCREASECOIN)
+    {
+        CTemplatePtr ptr = GetTemplate(tx.sendTo.GetTemplateId());
+        if (!ptr)
+        {
+            Error("SignTransaction: GetTemplate fail, sendTo: %s, txid: %s",
+                  tx.sendTo.ToString().c_str(), tx.GetHash().GetHex().c_str());
+            return false;
+        }
+        std::vector<uint8> vPreSubSign = ptr->GetTemplateData();
+        tx.vchSig.assign(vPreSubSign.begin(), vPreSubSign.end());
+        tx.vchSig.insert(tx.vchSig.end(), vchSig.begin(), vchSig.end());
+    }
+    else
+    {
+        tx.vchSig = move(vchSig);
+    }
 
     return true;
 }
