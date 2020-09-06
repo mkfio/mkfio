@@ -1,0 +1,3 @@
+# Hashes of file build rules.
+8507193a74ed5006da29a0d91b716d3b src/bigbang/mode/auto_options.h
+d94ac7f31bcc95fb46f4aabf0f54489e src/jsonrpc/rpc/auto_protocol.cpp

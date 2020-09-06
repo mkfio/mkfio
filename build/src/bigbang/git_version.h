@@ -1,0 +1,4 @@
+#ifndef __GIT_VERSION
+#define __GIT_VERSION
+#define GIT_VERSION "afb8935bb2db98c74b37081e024b337251972716:r"
+#endif

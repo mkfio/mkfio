@@ -1,0 +1,2 @@
+/usr/bin/ar qc libnetwork.a  CMakeFiles/network.dir/proto.cpp.o CMakeFiles/network.dir/peer.cpp.o CMakeFiles/network.dir/peernet.cpp.o
+/usr/bin/ranlib libnetwork.a

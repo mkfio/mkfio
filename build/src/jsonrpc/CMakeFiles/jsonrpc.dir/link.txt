@@ -1,0 +1,2 @@
+/usr/bin/ar qc libjsonrpc.a  CMakeFiles/jsonrpc.dir/rpc/rpc_error.cpp.o CMakeFiles/jsonrpc.dir/rpc/rpc_req.cpp.o CMakeFiles/jsonrpc.dir/rpc/rpc_resp.cpp.o CMakeFiles/jsonrpc.dir/rpc/auto_protocol.cpp.o
+/usr/bin/ranlib libjsonrpc.a

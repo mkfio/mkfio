@@ -1,0 +1,792 @@
+[
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/bigbang",
+  "command": "/usr/bin/c++  -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../xengine -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../crypto -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../common -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../storage -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../network -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../delegate -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../mpvss -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../jsonrpc -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/. -I/home/ubuntu/work/mkf/MarketFinance/build/src/bigbang -I/home/ubuntu/work/mkf/MarketFinance/build/src/jsonrpc -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/build/src/snappy -I/home/ubuntu/work/mkf/MarketFinance/src/snappy   -O2 -Wall -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/mkf.dir/bigbang.cpp.o -c /home/ubuntu/work/mkf/MarketFinance/src/bigbang/bigbang.cpp",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/bigbang/bigbang.cpp"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/bigbang",
+  "command": "/usr/bin/c++  -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../xengine -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../crypto -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../common -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../storage -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../network -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../delegate -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../mpvss -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../jsonrpc -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/. -I/home/ubuntu/work/mkf/MarketFinance/build/src/bigbang -I/home/ubuntu/work/mkf/MarketFinance/build/src/jsonrpc -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/build/src/snappy -I/home/ubuntu/work/mkf/MarketFinance/src/snappy   -O2 -Wall -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/libbigbang.dir/address.cpp.o -c /home/ubuntu/work/mkf/MarketFinance/src/bigbang/address.cpp",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/bigbang/address.cpp"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/bigbang",
+  "command": "/usr/bin/c++  -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../xengine -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../crypto -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../common -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../storage -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../network -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../delegate -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../mpvss -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../jsonrpc -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/. -I/home/ubuntu/work/mkf/MarketFinance/build/src/bigbang -I/home/ubuntu/work/mkf/MarketFinance/build/src/jsonrpc -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/build/src/snappy -I/home/ubuntu/work/mkf/MarketFinance/src/snappy   -O2 -Wall -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/libbigbang.dir/blockmaker.cpp.o -c /home/ubuntu/work/mkf/MarketFinance/src/bigbang/blockmaker.cpp",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/bigbang/blockmaker.cpp"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/bigbang",
+  "command": "/usr/bin/c++  -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../xengine -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../crypto -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../common -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../storage -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../network -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../delegate -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../mpvss -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../jsonrpc -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/. -I/home/ubuntu/work/mkf/MarketFinance/build/src/bigbang -I/home/ubuntu/work/mkf/MarketFinance/build/src/jsonrpc -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/build/src/snappy -I/home/ubuntu/work/mkf/MarketFinance/src/snappy   -O2 -Wall -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/libbigbang.dir/config.cpp.o -c /home/ubuntu/work/mkf/MarketFinance/src/bigbang/config.cpp",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/bigbang/config.cpp"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/bigbang",
+  "command": "/usr/bin/c++  -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../xengine -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../crypto -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../common -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../storage -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../network -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../delegate -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../mpvss -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../jsonrpc -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/. -I/home/ubuntu/work/mkf/MarketFinance/build/src/bigbang -I/home/ubuntu/work/mkf/MarketFinance/build/src/jsonrpc -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/build/src/snappy -I/home/ubuntu/work/mkf/MarketFinance/src/snappy   -O2 -Wall -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/libbigbang.dir/core.cpp.o -c /home/ubuntu/work/mkf/MarketFinance/src/bigbang/core.cpp",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/bigbang/core.cpp"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/bigbang",
+  "command": "/usr/bin/c++  -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../xengine -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../crypto -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../common -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../storage -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../network -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../delegate -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../mpvss -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../jsonrpc -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/. -I/home/ubuntu/work/mkf/MarketFinance/build/src/bigbang -I/home/ubuntu/work/mkf/MarketFinance/build/src/jsonrpc -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/build/src/snappy -I/home/ubuntu/work/mkf/MarketFinance/src/snappy   -O2 -Wall -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/libbigbang.dir/dispatcher.cpp.o -c /home/ubuntu/work/mkf/MarketFinance/src/bigbang/dispatcher.cpp",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/bigbang/dispatcher.cpp"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/bigbang",
+  "command": "/usr/bin/c++  -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../xengine -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../crypto -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../common -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../storage -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../network -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../delegate -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../mpvss -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../jsonrpc -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/. -I/home/ubuntu/work/mkf/MarketFinance/build/src/bigbang -I/home/ubuntu/work/mkf/MarketFinance/build/src/jsonrpc -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/build/src/snappy -I/home/ubuntu/work/mkf/MarketFinance/src/snappy   -O2 -Wall -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/libbigbang.dir/entry.cpp.o -c /home/ubuntu/work/mkf/MarketFinance/src/bigbang/entry.cpp",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/bigbang/entry.cpp"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/bigbang",
+  "command": "/usr/bin/c++  -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../xengine -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../crypto -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../common -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../storage -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../network -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../delegate -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../mpvss -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../jsonrpc -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/. -I/home/ubuntu/work/mkf/MarketFinance/build/src/bigbang -I/home/ubuntu/work/mkf/MarketFinance/build/src/jsonrpc -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/build/src/snappy -I/home/ubuntu/work/mkf/MarketFinance/src/snappy   -O2 -Wall -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/libbigbang.dir/error.cpp.o -c /home/ubuntu/work/mkf/MarketFinance/src/bigbang/error.cpp",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/bigbang/error.cpp"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/bigbang",
+  "command": "/usr/bin/c++  -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../xengine -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../crypto -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../common -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../storage -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../network -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../delegate -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../mpvss -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../jsonrpc -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/. -I/home/ubuntu/work/mkf/MarketFinance/build/src/bigbang -I/home/ubuntu/work/mkf/MarketFinance/build/src/jsonrpc -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/build/src/snappy -I/home/ubuntu/work/mkf/MarketFinance/src/snappy   -O2 -Wall -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/libbigbang.dir/miner.cpp.o -c /home/ubuntu/work/mkf/MarketFinance/src/bigbang/miner.cpp",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/bigbang/miner.cpp"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/bigbang",
+  "command": "/usr/bin/c++  -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../xengine -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../crypto -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../common -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../storage -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../network -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../delegate -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../mpvss -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../jsonrpc -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/. -I/home/ubuntu/work/mkf/MarketFinance/build/src/bigbang -I/home/ubuntu/work/mkf/MarketFinance/build/src/jsonrpc -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/build/src/snappy -I/home/ubuntu/work/mkf/MarketFinance/src/snappy   -O2 -Wall -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/libbigbang.dir/netchn.cpp.o -c /home/ubuntu/work/mkf/MarketFinance/src/bigbang/netchn.cpp",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/bigbang/netchn.cpp"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/bigbang",
+  "command": "/usr/bin/c++  -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../xengine -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../crypto -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../common -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../storage -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../network -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../delegate -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../mpvss -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../jsonrpc -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/. -I/home/ubuntu/work/mkf/MarketFinance/build/src/bigbang -I/home/ubuntu/work/mkf/MarketFinance/build/src/jsonrpc -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/build/src/snappy -I/home/ubuntu/work/mkf/MarketFinance/src/snappy   -O2 -Wall -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/libbigbang.dir/network.cpp.o -c /home/ubuntu/work/mkf/MarketFinance/src/bigbang/network.cpp",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/bigbang/network.cpp"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/bigbang",
+  "command": "/usr/bin/c++  -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../xengine -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../crypto -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../common -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../storage -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../network -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../delegate -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../mpvss -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../jsonrpc -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/. -I/home/ubuntu/work/mkf/MarketFinance/build/src/bigbang -I/home/ubuntu/work/mkf/MarketFinance/build/src/jsonrpc -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/build/src/snappy -I/home/ubuntu/work/mkf/MarketFinance/src/snappy   -O2 -Wall -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/libbigbang.dir/rpcclient.cpp.o -c /home/ubuntu/work/mkf/MarketFinance/src/bigbang/rpcclient.cpp",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/bigbang/rpcclient.cpp"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/bigbang",
+  "command": "/usr/bin/c++  -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../xengine -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../crypto -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../common -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../storage -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../network -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../delegate -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../mpvss -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../jsonrpc -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/. -I/home/ubuntu/work/mkf/MarketFinance/build/src/bigbang -I/home/ubuntu/work/mkf/MarketFinance/build/src/jsonrpc -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/build/src/snappy -I/home/ubuntu/work/mkf/MarketFinance/src/snappy   -O2 -Wall -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/libbigbang.dir/rpcmod.cpp.o -c /home/ubuntu/work/mkf/MarketFinance/src/bigbang/rpcmod.cpp",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/bigbang/rpcmod.cpp"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/bigbang",
+  "command": "/usr/bin/c++  -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../xengine -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../crypto -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../common -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../storage -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../network -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../delegate -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../mpvss -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../jsonrpc -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/. -I/home/ubuntu/work/mkf/MarketFinance/build/src/bigbang -I/home/ubuntu/work/mkf/MarketFinance/build/src/jsonrpc -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/build/src/snappy -I/home/ubuntu/work/mkf/MarketFinance/src/snappy   -O2 -Wall -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/libbigbang.dir/schedule.cpp.o -c /home/ubuntu/work/mkf/MarketFinance/src/bigbang/schedule.cpp",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/bigbang/schedule.cpp"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/bigbang",
+  "command": "/usr/bin/c++  -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../xengine -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../crypto -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../common -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../storage -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../network -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../delegate -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../mpvss -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../jsonrpc -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/. -I/home/ubuntu/work/mkf/MarketFinance/build/src/bigbang -I/home/ubuntu/work/mkf/MarketFinance/build/src/jsonrpc -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/build/src/snappy -I/home/ubuntu/work/mkf/MarketFinance/src/snappy   -O2 -Wall -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/libbigbang.dir/service.cpp.o -c /home/ubuntu/work/mkf/MarketFinance/src/bigbang/service.cpp",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/bigbang/service.cpp"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/bigbang",
+  "command": "/usr/bin/c++  -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../xengine -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../crypto -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../common -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../storage -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../network -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../delegate -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../mpvss -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../jsonrpc -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/. -I/home/ubuntu/work/mkf/MarketFinance/build/src/bigbang -I/home/ubuntu/work/mkf/MarketFinance/build/src/jsonrpc -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/build/src/snappy -I/home/ubuntu/work/mkf/MarketFinance/src/snappy   -O2 -Wall -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/libbigbang.dir/txpool.cpp.o -c /home/ubuntu/work/mkf/MarketFinance/src/bigbang/txpool.cpp",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/bigbang/txpool.cpp"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/bigbang",
+  "command": "/usr/bin/c++  -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../xengine -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../crypto -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../common -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../storage -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../network -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../delegate -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../mpvss -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../jsonrpc -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/. -I/home/ubuntu/work/mkf/MarketFinance/build/src/bigbang -I/home/ubuntu/work/mkf/MarketFinance/build/src/jsonrpc -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/build/src/snappy -I/home/ubuntu/work/mkf/MarketFinance/src/snappy   -O2 -Wall -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/libbigbang.dir/wallet.cpp.o -c /home/ubuntu/work/mkf/MarketFinance/src/bigbang/wallet.cpp",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/bigbang/wallet.cpp"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/bigbang",
+  "command": "/usr/bin/c++  -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../xengine -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../crypto -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../common -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../storage -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../network -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../delegate -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../mpvss -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../jsonrpc -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/. -I/home/ubuntu/work/mkf/MarketFinance/build/src/bigbang -I/home/ubuntu/work/mkf/MarketFinance/build/src/jsonrpc -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/build/src/snappy -I/home/ubuntu/work/mkf/MarketFinance/src/snappy   -O2 -Wall -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/libbigbang.dir/blockchain.cpp.o -c /home/ubuntu/work/mkf/MarketFinance/src/bigbang/blockchain.cpp",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/bigbang/blockchain.cpp"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/bigbang",
+  "command": "/usr/bin/c++  -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../xengine -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../crypto -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../common -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../storage -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../network -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../delegate -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../mpvss -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../jsonrpc -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/. -I/home/ubuntu/work/mkf/MarketFinance/build/src/bigbang -I/home/ubuntu/work/mkf/MarketFinance/build/src/jsonrpc -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/build/src/snappy -I/home/ubuntu/work/mkf/MarketFinance/src/snappy   -O2 -Wall -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/libbigbang.dir/forkmanager.cpp.o -c /home/ubuntu/work/mkf/MarketFinance/src/bigbang/forkmanager.cpp",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/bigbang/forkmanager.cpp"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/bigbang",
+  "command": "/usr/bin/c++  -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../xengine -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../crypto -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../common -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../storage -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../network -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../delegate -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../mpvss -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../jsonrpc -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/. -I/home/ubuntu/work/mkf/MarketFinance/build/src/bigbang -I/home/ubuntu/work/mkf/MarketFinance/build/src/jsonrpc -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/build/src/snappy -I/home/ubuntu/work/mkf/MarketFinance/src/snappy   -O2 -Wall -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/libbigbang.dir/datastat.cpp.o -c /home/ubuntu/work/mkf/MarketFinance/src/bigbang/datastat.cpp",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/bigbang/datastat.cpp"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/bigbang",
+  "command": "/usr/bin/c++  -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../xengine -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../crypto -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../common -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../storage -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../network -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../delegate -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../mpvss -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../jsonrpc -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/. -I/home/ubuntu/work/mkf/MarketFinance/build/src/bigbang -I/home/ubuntu/work/mkf/MarketFinance/build/src/jsonrpc -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/build/src/snappy -I/home/ubuntu/work/mkf/MarketFinance/src/snappy   -O2 -Wall -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/libbigbang.dir/recovery.cpp.o -c /home/ubuntu/work/mkf/MarketFinance/src/bigbang/recovery.cpp",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/bigbang/recovery.cpp"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/bigbang",
+  "command": "/usr/bin/c++  -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../xengine -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../crypto -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../common -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../storage -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../network -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../delegate -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../mpvss -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../jsonrpc -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/. -I/home/ubuntu/work/mkf/MarketFinance/build/src/bigbang -I/home/ubuntu/work/mkf/MarketFinance/build/src/jsonrpc -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/build/src/snappy -I/home/ubuntu/work/mkf/MarketFinance/src/snappy   -O2 -Wall -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/libbigbang.dir/checkrepair.cpp.o -c /home/ubuntu/work/mkf/MarketFinance/src/bigbang/checkrepair.cpp",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/bigbang/checkrepair.cpp"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/bigbang",
+  "command": "/usr/bin/c++  -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../xengine -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../crypto -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../common -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../storage -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../network -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../delegate -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../mpvss -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../jsonrpc -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/. -I/home/ubuntu/work/mkf/MarketFinance/build/src/bigbang -I/home/ubuntu/work/mkf/MarketFinance/build/src/jsonrpc -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/build/src/snappy -I/home/ubuntu/work/mkf/MarketFinance/src/snappy   -O2 -Wall -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/libbigbang.dir/mode/basic_config.cpp.o -c /home/ubuntu/work/mkf/MarketFinance/src/bigbang/mode/basic_config.cpp",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/bigbang/mode/basic_config.cpp"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/bigbang",
+  "command": "/usr/bin/c++  -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../xengine -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../crypto -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../common -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../storage -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../network -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../delegate -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../mpvss -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../jsonrpc -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/. -I/home/ubuntu/work/mkf/MarketFinance/build/src/bigbang -I/home/ubuntu/work/mkf/MarketFinance/build/src/jsonrpc -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/build/src/snappy -I/home/ubuntu/work/mkf/MarketFinance/src/snappy   -O2 -Wall -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/libbigbang.dir/mode/fork_config.cpp.o -c /home/ubuntu/work/mkf/MarketFinance/src/bigbang/mode/fork_config.cpp",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/bigbang/mode/fork_config.cpp"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/bigbang",
+  "command": "/usr/bin/c++  -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../xengine -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../crypto -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../common -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../storage -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../network -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../delegate -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../mpvss -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../jsonrpc -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/. -I/home/ubuntu/work/mkf/MarketFinance/build/src/bigbang -I/home/ubuntu/work/mkf/MarketFinance/build/src/jsonrpc -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/build/src/snappy -I/home/ubuntu/work/mkf/MarketFinance/src/snappy   -O2 -Wall -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/libbigbang.dir/mode/mint_config.cpp.o -c /home/ubuntu/work/mkf/MarketFinance/src/bigbang/mode/mint_config.cpp",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/bigbang/mode/mint_config.cpp"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/bigbang",
+  "command": "/usr/bin/c++  -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../xengine -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../crypto -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../common -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../storage -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../network -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../delegate -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../mpvss -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../jsonrpc -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/. -I/home/ubuntu/work/mkf/MarketFinance/build/src/bigbang -I/home/ubuntu/work/mkf/MarketFinance/build/src/jsonrpc -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/build/src/snappy -I/home/ubuntu/work/mkf/MarketFinance/src/snappy   -O2 -Wall -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/libbigbang.dir/mode/network_config.cpp.o -c /home/ubuntu/work/mkf/MarketFinance/src/bigbang/mode/network_config.cpp",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/bigbang/mode/network_config.cpp"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/bigbang",
+  "command": "/usr/bin/c++  -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../xengine -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../crypto -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../common -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../storage -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../network -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../delegate -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../mpvss -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../jsonrpc -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/. -I/home/ubuntu/work/mkf/MarketFinance/build/src/bigbang -I/home/ubuntu/work/mkf/MarketFinance/build/src/jsonrpc -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/build/src/snappy -I/home/ubuntu/work/mkf/MarketFinance/src/snappy   -O2 -Wall -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/libbigbang.dir/mode/rpc_config.cpp.o -c /home/ubuntu/work/mkf/MarketFinance/src/bigbang/mode/rpc_config.cpp",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/bigbang/mode/rpc_config.cpp"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/bigbang",
+  "command": "/usr/bin/c++  -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../xengine -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../crypto -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../common -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../storage -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../network -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../delegate -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../mpvss -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../jsonrpc -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/. -I/home/ubuntu/work/mkf/MarketFinance/build/src/bigbang -I/home/ubuntu/work/mkf/MarketFinance/build/src/jsonrpc -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/build/src/snappy -I/home/ubuntu/work/mkf/MarketFinance/src/snappy   -O2 -Wall -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/libbigbang.dir/mode/storage_config.cpp.o -c /home/ubuntu/work/mkf/MarketFinance/src/bigbang/mode/storage_config.cpp",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/bigbang/mode/storage_config.cpp"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/bigbang",
+  "command": "/usr/bin/c++  -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../xengine -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../crypto -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../common -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../storage -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../network -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../delegate -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../mpvss -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/../jsonrpc -I/home/ubuntu/work/mkf/MarketFinance/src/bigbang/. -I/home/ubuntu/work/mkf/MarketFinance/build/src/bigbang -I/home/ubuntu/work/mkf/MarketFinance/build/src/jsonrpc -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/build/src/snappy -I/home/ubuntu/work/mkf/MarketFinance/src/snappy   -O2 -Wall -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/libbigbang.dir/mode/auto_config.cpp.o -c /home/ubuntu/work/mkf/MarketFinance/build/src/bigbang/mode/auto_config.cpp",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/build/src/bigbang/mode/auto_config.cpp"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/xengine",
+  "command": "/usr/bin/c++  -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/build/src/xengine -I/home/ubuntu/work/mkf/MarketFinance/src/xengine/.   -O2 -Wall -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/xengine.dir/util.cpp.o -c /home/ubuntu/work/mkf/MarketFinance/src/xengine/util.cpp",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/xengine/util.cpp"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/xengine",
+  "command": "/usr/bin/c++  -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/build/src/xengine -I/home/ubuntu/work/mkf/MarketFinance/src/xengine/.   -O2 -Wall -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/xengine.dir/entry/entry.cpp.o -c /home/ubuntu/work/mkf/MarketFinance/src/xengine/entry/entry.cpp",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/xengine/entry/entry.cpp"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/xengine",
+  "command": "/usr/bin/c++  -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/build/src/xengine -I/home/ubuntu/work/mkf/MarketFinance/src/xengine/.   -O2 -Wall -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/xengine.dir/event/event.cpp.o -c /home/ubuntu/work/mkf/MarketFinance/src/xengine/event/event.cpp",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/xengine/event/event.cpp"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/xengine",
+  "command": "/usr/bin/c++  -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/build/src/xengine -I/home/ubuntu/work/mkf/MarketFinance/src/xengine/.   -O2 -Wall -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/xengine.dir/event/eventproc.cpp.o -c /home/ubuntu/work/mkf/MarketFinance/src/xengine/event/eventproc.cpp",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/xengine/event/eventproc.cpp"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/xengine",
+  "command": "/usr/bin/c++  -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/build/src/xengine -I/home/ubuntu/work/mkf/MarketFinance/src/xengine/.   -O2 -Wall -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/xengine.dir/stream/circular.cpp.o -c /home/ubuntu/work/mkf/MarketFinance/src/xengine/stream/circular.cpp",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/xengine/stream/circular.cpp"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/xengine",
+  "command": "/usr/bin/c++  -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/build/src/xengine -I/home/ubuntu/work/mkf/MarketFinance/src/xengine/.   -O2 -Wall -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/xengine.dir/stream/stream.cpp.o -c /home/ubuntu/work/mkf/MarketFinance/src/xengine/stream/stream.cpp",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/xengine/stream/stream.cpp"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/xengine",
+  "command": "/usr/bin/c++  -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/build/src/xengine -I/home/ubuntu/work/mkf/MarketFinance/src/xengine/.   -O2 -Wall -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/xengine.dir/base/base.cpp.o -c /home/ubuntu/work/mkf/MarketFinance/src/xengine/base/base.cpp",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/xengine/base/base.cpp"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/xengine",
+  "command": "/usr/bin/c++  -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/build/src/xengine -I/home/ubuntu/work/mkf/MarketFinance/src/xengine/.   -O2 -Wall -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/xengine.dir/docker/config.cpp.o -c /home/ubuntu/work/mkf/MarketFinance/src/xengine/docker/config.cpp",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/xengine/docker/config.cpp"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/xengine",
+  "command": "/usr/bin/c++  -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/build/src/xengine -I/home/ubuntu/work/mkf/MarketFinance/src/xengine/.   -O2 -Wall -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/xengine.dir/docker/docker.cpp.o -c /home/ubuntu/work/mkf/MarketFinance/src/xengine/docker/docker.cpp",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/xengine/docker/docker.cpp"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/xengine",
+  "command": "/usr/bin/c++  -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/build/src/xengine -I/home/ubuntu/work/mkf/MarketFinance/src/xengine/.   -O2 -Wall -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/xengine.dir/netio/nethost.cpp.o -c /home/ubuntu/work/mkf/MarketFinance/src/xengine/netio/nethost.cpp",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/xengine/netio/nethost.cpp"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/xengine",
+  "command": "/usr/bin/c++  -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/build/src/xengine -I/home/ubuntu/work/mkf/MarketFinance/src/xengine/.   -O2 -Wall -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/xengine.dir/netio/ioclient.cpp.o -c /home/ubuntu/work/mkf/MarketFinance/src/xengine/netio/ioclient.cpp",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/xengine/netio/ioclient.cpp"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/xengine",
+  "command": "/usr/bin/c++  -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/build/src/xengine -I/home/ubuntu/work/mkf/MarketFinance/src/xengine/.   -O2 -Wall -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/xengine.dir/netio/iocontainer.cpp.o -c /home/ubuntu/work/mkf/MarketFinance/src/xengine/netio/iocontainer.cpp",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/xengine/netio/iocontainer.cpp"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/xengine",
+  "command": "/usr/bin/c++  -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/build/src/xengine -I/home/ubuntu/work/mkf/MarketFinance/src/xengine/.   -O2 -Wall -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/xengine.dir/netio/ioproc.cpp.o -c /home/ubuntu/work/mkf/MarketFinance/src/xengine/netio/ioproc.cpp",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/xengine/netio/ioproc.cpp"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/xengine",
+  "command": "/usr/bin/c++  -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/build/src/xengine -I/home/ubuntu/work/mkf/MarketFinance/src/xengine/.   -O2 -Wall -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/xengine.dir/console/console.cpp.o -c /home/ubuntu/work/mkf/MarketFinance/src/xengine/console/console.cpp",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/xengine/console/console.cpp"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/xengine",
+  "command": "/usr/bin/c++  -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/build/src/xengine -I/home/ubuntu/work/mkf/MarketFinance/src/xengine/.   -O2 -Wall -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/xengine.dir/peernet/nodemngr.cpp.o -c /home/ubuntu/work/mkf/MarketFinance/src/xengine/peernet/nodemngr.cpp",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/xengine/peernet/nodemngr.cpp"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/xengine",
+  "command": "/usr/bin/c++  -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/build/src/xengine -I/home/ubuntu/work/mkf/MarketFinance/src/xengine/.   -O2 -Wall -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/xengine.dir/peernet/epmngr.cpp.o -c /home/ubuntu/work/mkf/MarketFinance/src/xengine/peernet/epmngr.cpp",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/xengine/peernet/epmngr.cpp"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/xengine",
+  "command": "/usr/bin/c++  -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/build/src/xengine -I/home/ubuntu/work/mkf/MarketFinance/src/xengine/.   -O2 -Wall -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/xengine.dir/peernet/peer.cpp.o -c /home/ubuntu/work/mkf/MarketFinance/src/xengine/peernet/peer.cpp",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/xengine/peernet/peer.cpp"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/xengine",
+  "command": "/usr/bin/c++  -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/build/src/xengine -I/home/ubuntu/work/mkf/MarketFinance/src/xengine/.   -O2 -Wall -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/xengine.dir/peernet/peernet.cpp.o -c /home/ubuntu/work/mkf/MarketFinance/src/xengine/peernet/peernet.cpp",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/xengine/peernet/peernet.cpp"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/xengine",
+  "command": "/usr/bin/c++  -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/build/src/xengine -I/home/ubuntu/work/mkf/MarketFinance/src/xengine/.   -O2 -Wall -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/xengine.dir/http/httpcookie.cpp.o -c /home/ubuntu/work/mkf/MarketFinance/src/xengine/http/httpcookie.cpp",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/xengine/http/httpcookie.cpp"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/xengine",
+  "command": "/usr/bin/c++  -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/build/src/xengine -I/home/ubuntu/work/mkf/MarketFinance/src/xengine/.   -O2 -Wall -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/xengine.dir/http/httpsse.cpp.o -c /home/ubuntu/work/mkf/MarketFinance/src/xengine/http/httpsse.cpp",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/xengine/http/httpsse.cpp"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/xengine",
+  "command": "/usr/bin/c++  -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/build/src/xengine -I/home/ubuntu/work/mkf/MarketFinance/src/xengine/.   -O2 -Wall -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/xengine.dir/http/httputil.cpp.o -c /home/ubuntu/work/mkf/MarketFinance/src/xengine/http/httputil.cpp",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/xengine/http/httputil.cpp"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/xengine",
+  "command": "/usr/bin/c++  -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/build/src/xengine -I/home/ubuntu/work/mkf/MarketFinance/src/xengine/.   -O2 -Wall -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/xengine.dir/http/httpserver.cpp.o -c /home/ubuntu/work/mkf/MarketFinance/src/xengine/http/httpserver.cpp",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/xengine/http/httpserver.cpp"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/xengine",
+  "command": "/usr/bin/c++  -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/build/src/xengine -I/home/ubuntu/work/mkf/MarketFinance/src/xengine/.   -O2 -Wall -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/xengine.dir/http/httpget.cpp.o -c /home/ubuntu/work/mkf/MarketFinance/src/xengine/http/httpget.cpp",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/xengine/http/httpget.cpp"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/crypto",
+  "command": "/usr/bin/c++  -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/src/crypto/../xengine -I/home/ubuntu/work/mkf/MarketFinance/src/crypto/../common -I/home/ubuntu/work/mkf/MarketFinance/src/crypto/. -I/usr/local/include   -O2 -Wall -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/crypto.dir/crc24q.cpp.o -c /home/ubuntu/work/mkf/MarketFinance/src/crypto/crc24q.cpp",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/crypto/crc24q.cpp"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/crypto",
+  "command": "/usr/bin/c++  -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/src/crypto/../xengine -I/home/ubuntu/work/mkf/MarketFinance/src/crypto/../common -I/home/ubuntu/work/mkf/MarketFinance/src/crypto/. -I/usr/local/include   -O2 -Wall -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/crypto.dir/base32.cpp.o -c /home/ubuntu/work/mkf/MarketFinance/src/crypto/base32.cpp",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/crypto/base32.cpp"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/crypto",
+  "command": "/usr/bin/c++  -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/src/crypto/../xengine -I/home/ubuntu/work/mkf/MarketFinance/src/crypto/../common -I/home/ubuntu/work/mkf/MarketFinance/src/crypto/. -I/usr/local/include   -O2 -Wall -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/crypto.dir/crypto.cpp.o -c /home/ubuntu/work/mkf/MarketFinance/src/crypto/crypto.cpp",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/crypto/crypto.cpp"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/crypto",
+  "command": "/usr/bin/c++  -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/src/crypto/../xengine -I/home/ubuntu/work/mkf/MarketFinance/src/crypto/../common -I/home/ubuntu/work/mkf/MarketFinance/src/crypto/. -I/usr/local/include   -O2 -Wall -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/crypto.dir/key.cpp.o -c /home/ubuntu/work/mkf/MarketFinance/src/crypto/key.cpp",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/crypto/key.cpp"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/crypto",
+  "command": "/usr/bin/c++  -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/src/crypto/../xengine -I/home/ubuntu/work/mkf/MarketFinance/src/crypto/../common -I/home/ubuntu/work/mkf/MarketFinance/src/crypto/. -I/usr/local/include   -O2 -Wall -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/crypto.dir/keystore.cpp.o -c /home/ubuntu/work/mkf/MarketFinance/src/crypto/keystore.cpp",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/crypto/keystore.cpp"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/crypto",
+  "command": "/usr/bin/c++  -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/src/crypto/../xengine -I/home/ubuntu/work/mkf/MarketFinance/src/crypto/../common -I/home/ubuntu/work/mkf/MarketFinance/src/crypto/. -I/usr/local/include   -O2 -Wall -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/crypto.dir/curve25519/base25519.cpp.o -c /home/ubuntu/work/mkf/MarketFinance/src/crypto/curve25519/base25519.cpp",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/crypto/curve25519/base25519.cpp"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/crypto",
+  "command": "/usr/bin/c++  -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/src/crypto/../xengine -I/home/ubuntu/work/mkf/MarketFinance/src/crypto/../common -I/home/ubuntu/work/mkf/MarketFinance/src/crypto/. -I/usr/local/include   -O2 -Wall -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/crypto.dir/curve25519/fp25519.cpp.o -c /home/ubuntu/work/mkf/MarketFinance/src/crypto/curve25519/fp25519.cpp",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/crypto/curve25519/fp25519.cpp"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/crypto",
+  "command": "/usr/bin/c++  -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/src/crypto/../xengine -I/home/ubuntu/work/mkf/MarketFinance/src/crypto/../common -I/home/ubuntu/work/mkf/MarketFinance/src/crypto/. -I/usr/local/include   -O2 -Wall -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/crypto.dir/curve25519/sc25519.cpp.o -c /home/ubuntu/work/mkf/MarketFinance/src/crypto/curve25519/sc25519.cpp",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/crypto/curve25519/sc25519.cpp"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/crypto",
+  "command": "/usr/bin/c++  -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/src/crypto/../xengine -I/home/ubuntu/work/mkf/MarketFinance/src/crypto/../common -I/home/ubuntu/work/mkf/MarketFinance/src/crypto/. -I/usr/local/include   -O2 -Wall -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/crypto.dir/curve25519/ed25519.cpp.o -c /home/ubuntu/work/mkf/MarketFinance/src/crypto/curve25519/ed25519.cpp",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/crypto/curve25519/ed25519.cpp"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/crypto",
+  "command": "/usr/bin/cc -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/src/crypto/../xengine -I/home/ubuntu/work/mkf/MarketFinance/src/crypto/../common -I/home/ubuntu/work/mkf/MarketFinance/src/crypto/. -I/usr/local/include  -msse2 -maes -O3 -DNDEBUG   -o CMakeFiles/crypto.dir/pow_hash/aesb.c.o   -c /home/ubuntu/work/mkf/MarketFinance/src/crypto/pow_hash/aesb.c",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/crypto/pow_hash/aesb.c"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/crypto",
+  "command": "/usr/bin/cc -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/src/crypto/../xengine -I/home/ubuntu/work/mkf/MarketFinance/src/crypto/../common -I/home/ubuntu/work/mkf/MarketFinance/src/crypto/. -I/usr/local/include  -msse2 -maes -O3 -DNDEBUG   -o CMakeFiles/crypto.dir/pow_hash/hash.c.o   -c /home/ubuntu/work/mkf/MarketFinance/src/crypto/pow_hash/hash.c",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/crypto/pow_hash/hash.c"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/crypto",
+  "command": "/usr/bin/cc -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/src/crypto/../xengine -I/home/ubuntu/work/mkf/MarketFinance/src/crypto/../common -I/home/ubuntu/work/mkf/MarketFinance/src/crypto/. -I/usr/local/include  -msse2 -maes -O3 -DNDEBUG   -o CMakeFiles/crypto.dir/pow_hash/hash-extra-skein.c.o   -c /home/ubuntu/work/mkf/MarketFinance/src/crypto/pow_hash/hash-extra-skein.c",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/crypto/pow_hash/hash-extra-skein.c"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/crypto",
+  "command": "/usr/bin/cc -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/src/crypto/../xengine -I/home/ubuntu/work/mkf/MarketFinance/src/crypto/../common -I/home/ubuntu/work/mkf/MarketFinance/src/crypto/. -I/usr/local/include  -msse2 -maes -O3 -DNDEBUG   -o CMakeFiles/crypto.dir/pow_hash/slow-hash.c.o   -c /home/ubuntu/work/mkf/MarketFinance/src/crypto/pow_hash/slow-hash.c",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/crypto/pow_hash/slow-hash.c"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/crypto",
+  "command": "/usr/bin/cc -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/src/crypto/../xengine -I/home/ubuntu/work/mkf/MarketFinance/src/crypto/../common -I/home/ubuntu/work/mkf/MarketFinance/src/crypto/. -I/usr/local/include  -msse2 -maes -O3 -DNDEBUG   -o CMakeFiles/crypto.dir/pow_hash/blake256.c.o   -c /home/ubuntu/work/mkf/MarketFinance/src/crypto/pow_hash/blake256.c",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/crypto/pow_hash/blake256.c"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/crypto",
+  "command": "/usr/bin/cc -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/src/crypto/../xengine -I/home/ubuntu/work/mkf/MarketFinance/src/crypto/../common -I/home/ubuntu/work/mkf/MarketFinance/src/crypto/. -I/usr/local/include  -msse2 -maes -O3 -DNDEBUG   -o CMakeFiles/crypto.dir/pow_hash/groestl.c.o   -c /home/ubuntu/work/mkf/MarketFinance/src/crypto/pow_hash/groestl.c",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/crypto/pow_hash/groestl.c"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/crypto",
+  "command": "/usr/bin/cc -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/src/crypto/../xengine -I/home/ubuntu/work/mkf/MarketFinance/src/crypto/../common -I/home/ubuntu/work/mkf/MarketFinance/src/crypto/. -I/usr/local/include  -msse2 -maes -O3 -DNDEBUG   -o CMakeFiles/crypto.dir/pow_hash/hash-extra-blake.c.o   -c /home/ubuntu/work/mkf/MarketFinance/src/crypto/pow_hash/hash-extra-blake.c",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/crypto/pow_hash/hash-extra-blake.c"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/crypto",
+  "command": "/usr/bin/cc -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/src/crypto/../xengine -I/home/ubuntu/work/mkf/MarketFinance/src/crypto/../common -I/home/ubuntu/work/mkf/MarketFinance/src/crypto/. -I/usr/local/include  -msse2 -maes -O3 -DNDEBUG   -o CMakeFiles/crypto.dir/pow_hash/keccak.c.o   -c /home/ubuntu/work/mkf/MarketFinance/src/crypto/pow_hash/keccak.c",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/crypto/pow_hash/keccak.c"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/crypto",
+  "command": "/usr/bin/cc -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/src/crypto/../xengine -I/home/ubuntu/work/mkf/MarketFinance/src/crypto/../common -I/home/ubuntu/work/mkf/MarketFinance/src/crypto/. -I/usr/local/include  -msse2 -maes -O3 -DNDEBUG   -o CMakeFiles/crypto.dir/pow_hash/skein.c.o   -c /home/ubuntu/work/mkf/MarketFinance/src/crypto/pow_hash/skein.c",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/crypto/pow_hash/skein.c"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/crypto",
+  "command": "/usr/bin/cc -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/src/crypto/../xengine -I/home/ubuntu/work/mkf/MarketFinance/src/crypto/../common -I/home/ubuntu/work/mkf/MarketFinance/src/crypto/. -I/usr/local/include  -msse2 -maes -O3 -DNDEBUG   -o CMakeFiles/crypto.dir/pow_hash/hash-extra-groestl.c.o   -c /home/ubuntu/work/mkf/MarketFinance/src/crypto/pow_hash/hash-extra-groestl.c",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/crypto/pow_hash/hash-extra-groestl.c"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/crypto",
+  "command": "/usr/bin/cc -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/src/crypto/../xengine -I/home/ubuntu/work/mkf/MarketFinance/src/crypto/../common -I/home/ubuntu/work/mkf/MarketFinance/src/crypto/. -I/usr/local/include  -msse2 -maes -O3 -DNDEBUG   -o CMakeFiles/crypto.dir/pow_hash/oaes_lib.c.o   -c /home/ubuntu/work/mkf/MarketFinance/src/crypto/pow_hash/oaes_lib.c",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/crypto/pow_hash/oaes_lib.c"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/crypto",
+  "command": "/usr/bin/cc -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/src/crypto/../xengine -I/home/ubuntu/work/mkf/MarketFinance/src/crypto/../common -I/home/ubuntu/work/mkf/MarketFinance/src/crypto/. -I/usr/local/include  -msse2 -maes -O3 -DNDEBUG   -o CMakeFiles/crypto.dir/pow_hash/hash-extra-jh.c.o   -c /home/ubuntu/work/mkf/MarketFinance/src/crypto/pow_hash/hash-extra-jh.c",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/crypto/pow_hash/hash-extra-jh.c"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/crypto",
+  "command": "/usr/bin/cc -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/src/crypto/../xengine -I/home/ubuntu/work/mkf/MarketFinance/src/crypto/../common -I/home/ubuntu/work/mkf/MarketFinance/src/crypto/. -I/usr/local/include  -msse2 -maes -O3 -DNDEBUG   -o CMakeFiles/crypto.dir/pow_hash/jh.c.o   -c /home/ubuntu/work/mkf/MarketFinance/src/crypto/pow_hash/jh.c",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/crypto/pow_hash/jh.c"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/common",
+  "command": "/usr/bin/c++  -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/src/common/../xengine -I/home/ubuntu/work/mkf/MarketFinance/src/common/../crypto -I/home/ubuntu/work/mkf/MarketFinance/src/common/../jsonrpc -I/home/ubuntu/work/mkf/MarketFinance/src/common/. -I/home/ubuntu/work/mkf/MarketFinance/build/src/jsonrpc   -O2 -Wall -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/common.dir/destination.cpp.o -c /home/ubuntu/work/mkf/MarketFinance/src/common/destination.cpp",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/common/destination.cpp"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/common",
+  "command": "/usr/bin/c++  -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/src/common/../xengine -I/home/ubuntu/work/mkf/MarketFinance/src/common/../crypto -I/home/ubuntu/work/mkf/MarketFinance/src/common/../jsonrpc -I/home/ubuntu/work/mkf/MarketFinance/src/common/. -I/home/ubuntu/work/mkf/MarketFinance/build/src/jsonrpc   -O2 -Wall -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/common.dir/profile.cpp.o -c /home/ubuntu/work/mkf/MarketFinance/src/common/profile.cpp",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/common/profile.cpp"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/common",
+  "command": "/usr/bin/c++  -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/src/common/../xengine -I/home/ubuntu/work/mkf/MarketFinance/src/common/../crypto -I/home/ubuntu/work/mkf/MarketFinance/src/common/../jsonrpc -I/home/ubuntu/work/mkf/MarketFinance/src/common/. -I/home/ubuntu/work/mkf/MarketFinance/build/src/jsonrpc   -O2 -Wall -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/common.dir/template/templateid.cpp.o -c /home/ubuntu/work/mkf/MarketFinance/src/common/template/templateid.cpp",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/common/template/templateid.cpp"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/common",
+  "command": "/usr/bin/c++  -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/src/common/../xengine -I/home/ubuntu/work/mkf/MarketFinance/src/common/../crypto -I/home/ubuntu/work/mkf/MarketFinance/src/common/../jsonrpc -I/home/ubuntu/work/mkf/MarketFinance/src/common/. -I/home/ubuntu/work/mkf/MarketFinance/build/src/jsonrpc   -O2 -Wall -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/common.dir/template/template.cpp.o -c /home/ubuntu/work/mkf/MarketFinance/src/common/template/template.cpp",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/common/template/template.cpp"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/common",
+  "command": "/usr/bin/c++  -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/src/common/../xengine -I/home/ubuntu/work/mkf/MarketFinance/src/common/../crypto -I/home/ubuntu/work/mkf/MarketFinance/src/common/../jsonrpc -I/home/ubuntu/work/mkf/MarketFinance/src/common/. -I/home/ubuntu/work/mkf/MarketFinance/build/src/jsonrpc   -O2 -Wall -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/common.dir/template/weighted.cpp.o -c /home/ubuntu/work/mkf/MarketFinance/src/common/template/weighted.cpp",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/common/template/weighted.cpp"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/common",
+  "command": "/usr/bin/c++  -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/src/common/../xengine -I/home/ubuntu/work/mkf/MarketFinance/src/common/../crypto -I/home/ubuntu/work/mkf/MarketFinance/src/common/../jsonrpc -I/home/ubuntu/work/mkf/MarketFinance/src/common/. -I/home/ubuntu/work/mkf/MarketFinance/build/src/jsonrpc   -O2 -Wall -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/common.dir/template/multisig.cpp.o -c /home/ubuntu/work/mkf/MarketFinance/src/common/template/multisig.cpp",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/common/template/multisig.cpp"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/common",
+  "command": "/usr/bin/c++  -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/src/common/../xengine -I/home/ubuntu/work/mkf/MarketFinance/src/common/../crypto -I/home/ubuntu/work/mkf/MarketFinance/src/common/../jsonrpc -I/home/ubuntu/work/mkf/MarketFinance/src/common/. -I/home/ubuntu/work/mkf/MarketFinance/build/src/jsonrpc   -O2 -Wall -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/common.dir/template/mint.cpp.o -c /home/ubuntu/work/mkf/MarketFinance/src/common/template/mint.cpp",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/common/template/mint.cpp"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/common",
+  "command": "/usr/bin/c++  -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/src/common/../xengine -I/home/ubuntu/work/mkf/MarketFinance/src/common/../crypto -I/home/ubuntu/work/mkf/MarketFinance/src/common/../jsonrpc -I/home/ubuntu/work/mkf/MarketFinance/src/common/. -I/home/ubuntu/work/mkf/MarketFinance/build/src/jsonrpc   -O2 -Wall -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/common.dir/template/proof.cpp.o -c /home/ubuntu/work/mkf/MarketFinance/src/common/template/proof.cpp",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/common/template/proof.cpp"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/common",
+  "command": "/usr/bin/c++  -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/src/common/../xengine -I/home/ubuntu/work/mkf/MarketFinance/src/common/../crypto -I/home/ubuntu/work/mkf/MarketFinance/src/common/../jsonrpc -I/home/ubuntu/work/mkf/MarketFinance/src/common/. -I/home/ubuntu/work/mkf/MarketFinance/build/src/jsonrpc   -O2 -Wall -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/common.dir/template/exchange.cpp.o -c /home/ubuntu/work/mkf/MarketFinance/src/common/template/exchange.cpp",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/common/template/exchange.cpp"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/common",
+  "command": "/usr/bin/c++  -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/src/common/../xengine -I/home/ubuntu/work/mkf/MarketFinance/src/common/../crypto -I/home/ubuntu/work/mkf/MarketFinance/src/common/../jsonrpc -I/home/ubuntu/work/mkf/MarketFinance/src/common/. -I/home/ubuntu/work/mkf/MarketFinance/build/src/jsonrpc   -O2 -Wall -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/common.dir/template/payment.cpp.o -c /home/ubuntu/work/mkf/MarketFinance/src/common/template/payment.cpp",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/common/template/payment.cpp"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/storage",
+  "command": "/usr/bin/c++  -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/src/storage/../xengine -I/home/ubuntu/work/mkf/MarketFinance/src/storage/../crypto -I/home/ubuntu/work/mkf/MarketFinance/src/storage/../common -I/home/ubuntu/work/mkf/MarketFinance/src/storage/../leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/src/storage/../snappy -I/home/ubuntu/work/mkf/MarketFinance/src/storage/../delegate -I/home/ubuntu/work/mkf/MarketFinance/src/storage/../mpvss -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/build/src/snappy -I/home/ubuntu/work/mkf/MarketFinance/src/snappy   -O2 -Wall -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/storage.dir/timeseries.cpp.o -c /home/ubuntu/work/mkf/MarketFinance/src/storage/timeseries.cpp",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/storage/timeseries.cpp"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/storage",
+  "command": "/usr/bin/c++  -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/src/storage/../xengine -I/home/ubuntu/work/mkf/MarketFinance/src/storage/../crypto -I/home/ubuntu/work/mkf/MarketFinance/src/storage/../common -I/home/ubuntu/work/mkf/MarketFinance/src/storage/../leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/src/storage/../snappy -I/home/ubuntu/work/mkf/MarketFinance/src/storage/../delegate -I/home/ubuntu/work/mkf/MarketFinance/src/storage/../mpvss -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/build/src/snappy -I/home/ubuntu/work/mkf/MarketFinance/src/snappy   -O2 -Wall -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/storage.dir/blockdb.cpp.o -c /home/ubuntu/work/mkf/MarketFinance/src/storage/blockdb.cpp",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/storage/blockdb.cpp"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/storage",
+  "command": "/usr/bin/c++  -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/src/storage/../xengine -I/home/ubuntu/work/mkf/MarketFinance/src/storage/../crypto -I/home/ubuntu/work/mkf/MarketFinance/src/storage/../common -I/home/ubuntu/work/mkf/MarketFinance/src/storage/../leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/src/storage/../snappy -I/home/ubuntu/work/mkf/MarketFinance/src/storage/../delegate -I/home/ubuntu/work/mkf/MarketFinance/src/storage/../mpvss -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/build/src/snappy -I/home/ubuntu/work/mkf/MarketFinance/src/snappy   -O2 -Wall -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/storage.dir/blockbase.cpp.o -c /home/ubuntu/work/mkf/MarketFinance/src/storage/blockbase.cpp",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/storage/blockbase.cpp"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/storage",
+  "command": "/usr/bin/c++  -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/src/storage/../xengine -I/home/ubuntu/work/mkf/MarketFinance/src/storage/../crypto -I/home/ubuntu/work/mkf/MarketFinance/src/storage/../common -I/home/ubuntu/work/mkf/MarketFinance/src/storage/../leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/src/storage/../snappy -I/home/ubuntu/work/mkf/MarketFinance/src/storage/../delegate -I/home/ubuntu/work/mkf/MarketFinance/src/storage/../mpvss -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/build/src/snappy -I/home/ubuntu/work/mkf/MarketFinance/src/snappy   -O2 -Wall -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/storage.dir/blockindexdb.cpp.o -c /home/ubuntu/work/mkf/MarketFinance/src/storage/blockindexdb.cpp",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/storage/blockindexdb.cpp"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/storage",
+  "command": "/usr/bin/c++  -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/src/storage/../xengine -I/home/ubuntu/work/mkf/MarketFinance/src/storage/../crypto -I/home/ubuntu/work/mkf/MarketFinance/src/storage/../common -I/home/ubuntu/work/mkf/MarketFinance/src/storage/../leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/src/storage/../snappy -I/home/ubuntu/work/mkf/MarketFinance/src/storage/../delegate -I/home/ubuntu/work/mkf/MarketFinance/src/storage/../mpvss -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/build/src/snappy -I/home/ubuntu/work/mkf/MarketFinance/src/snappy   -O2 -Wall -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/storage.dir/walletdb.cpp.o -c /home/ubuntu/work/mkf/MarketFinance/src/storage/walletdb.cpp",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/storage/walletdb.cpp"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/storage",
+  "command": "/usr/bin/c++  -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/src/storage/../xengine -I/home/ubuntu/work/mkf/MarketFinance/src/storage/../crypto -I/home/ubuntu/work/mkf/MarketFinance/src/storage/../common -I/home/ubuntu/work/mkf/MarketFinance/src/storage/../leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/src/storage/../snappy -I/home/ubuntu/work/mkf/MarketFinance/src/storage/../delegate -I/home/ubuntu/work/mkf/MarketFinance/src/storage/../mpvss -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/build/src/snappy -I/home/ubuntu/work/mkf/MarketFinance/src/snappy   -O2 -Wall -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/storage.dir/txpooldata.cpp.o -c /home/ubuntu/work/mkf/MarketFinance/src/storage/txpooldata.cpp",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/storage/txpooldata.cpp"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/storage",
+  "command": "/usr/bin/c++  -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/src/storage/../xengine -I/home/ubuntu/work/mkf/MarketFinance/src/storage/../crypto -I/home/ubuntu/work/mkf/MarketFinance/src/storage/../common -I/home/ubuntu/work/mkf/MarketFinance/src/storage/../leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/src/storage/../snappy -I/home/ubuntu/work/mkf/MarketFinance/src/storage/../delegate -I/home/ubuntu/work/mkf/MarketFinance/src/storage/../mpvss -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/build/src/snappy -I/home/ubuntu/work/mkf/MarketFinance/src/snappy   -O2 -Wall -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/storage.dir/unspentdb.cpp.o -c /home/ubuntu/work/mkf/MarketFinance/src/storage/unspentdb.cpp",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/storage/unspentdb.cpp"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/storage",
+  "command": "/usr/bin/c++  -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/src/storage/../xengine -I/home/ubuntu/work/mkf/MarketFinance/src/storage/../crypto -I/home/ubuntu/work/mkf/MarketFinance/src/storage/../common -I/home/ubuntu/work/mkf/MarketFinance/src/storage/../leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/src/storage/../snappy -I/home/ubuntu/work/mkf/MarketFinance/src/storage/../delegate -I/home/ubuntu/work/mkf/MarketFinance/src/storage/../mpvss -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/build/src/snappy -I/home/ubuntu/work/mkf/MarketFinance/src/snappy   -O2 -Wall -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/storage.dir/delegatedb.cpp.o -c /home/ubuntu/work/mkf/MarketFinance/src/storage/delegatedb.cpp",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/storage/delegatedb.cpp"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/storage",
+  "command": "/usr/bin/c++  -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/src/storage/../xengine -I/home/ubuntu/work/mkf/MarketFinance/src/storage/../crypto -I/home/ubuntu/work/mkf/MarketFinance/src/storage/../common -I/home/ubuntu/work/mkf/MarketFinance/src/storage/../leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/src/storage/../snappy -I/home/ubuntu/work/mkf/MarketFinance/src/storage/../delegate -I/home/ubuntu/work/mkf/MarketFinance/src/storage/../mpvss -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/build/src/snappy -I/home/ubuntu/work/mkf/MarketFinance/src/snappy   -O2 -Wall -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/storage.dir/forkdb.cpp.o -c /home/ubuntu/work/mkf/MarketFinance/src/storage/forkdb.cpp",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/storage/forkdb.cpp"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/storage",
+  "command": "/usr/bin/c++  -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/src/storage/../xengine -I/home/ubuntu/work/mkf/MarketFinance/src/storage/../crypto -I/home/ubuntu/work/mkf/MarketFinance/src/storage/../common -I/home/ubuntu/work/mkf/MarketFinance/src/storage/../leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/src/storage/../snappy -I/home/ubuntu/work/mkf/MarketFinance/src/storage/../delegate -I/home/ubuntu/work/mkf/MarketFinance/src/storage/../mpvss -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/build/src/snappy -I/home/ubuntu/work/mkf/MarketFinance/src/snappy   -O2 -Wall -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/storage.dir/purger.cpp.o -c /home/ubuntu/work/mkf/MarketFinance/src/storage/purger.cpp",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/storage/purger.cpp"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/storage",
+  "command": "/usr/bin/c++  -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/src/storage/../xengine -I/home/ubuntu/work/mkf/MarketFinance/src/storage/../crypto -I/home/ubuntu/work/mkf/MarketFinance/src/storage/../common -I/home/ubuntu/work/mkf/MarketFinance/src/storage/../leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/src/storage/../snappy -I/home/ubuntu/work/mkf/MarketFinance/src/storage/../delegate -I/home/ubuntu/work/mkf/MarketFinance/src/storage/../mpvss -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/build/src/snappy -I/home/ubuntu/work/mkf/MarketFinance/src/snappy   -O2 -Wall -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/storage.dir/leveldbeng.cpp.o -c /home/ubuntu/work/mkf/MarketFinance/src/storage/leveldbeng.cpp",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/storage/leveldbeng.cpp"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/storage",
+  "command": "/usr/bin/c++  -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/src/storage/../xengine -I/home/ubuntu/work/mkf/MarketFinance/src/storage/../crypto -I/home/ubuntu/work/mkf/MarketFinance/src/storage/../common -I/home/ubuntu/work/mkf/MarketFinance/src/storage/../leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/src/storage/../snappy -I/home/ubuntu/work/mkf/MarketFinance/src/storage/../delegate -I/home/ubuntu/work/mkf/MarketFinance/src/storage/../mpvss -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/build/src/snappy -I/home/ubuntu/work/mkf/MarketFinance/src/snappy   -O2 -Wall -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/storage.dir/txindexdb.cpp.o -c /home/ubuntu/work/mkf/MarketFinance/src/storage/txindexdb.cpp",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/storage/txindexdb.cpp"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/storage",
+  "command": "/usr/bin/c++  -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/src/storage/../xengine -I/home/ubuntu/work/mkf/MarketFinance/src/storage/../crypto -I/home/ubuntu/work/mkf/MarketFinance/src/storage/../common -I/home/ubuntu/work/mkf/MarketFinance/src/storage/../leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/src/storage/../snappy -I/home/ubuntu/work/mkf/MarketFinance/src/storage/../delegate -I/home/ubuntu/work/mkf/MarketFinance/src/storage/../mpvss -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/build/src/snappy -I/home/ubuntu/work/mkf/MarketFinance/src/snappy   -O2 -Wall -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/storage.dir/ctsdb.cpp.o -c /home/ubuntu/work/mkf/MarketFinance/src/storage/ctsdb.cpp",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/storage/ctsdb.cpp"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/network",
+  "command": "/usr/bin/c++  -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/src/network/../xengine -I/home/ubuntu/work/mkf/MarketFinance/src/network/../common -I/home/ubuntu/work/mkf/MarketFinance/src/network/../crypto -I/home/ubuntu/work/mkf/MarketFinance/src/network/../storage -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/build/src/snappy -I/home/ubuntu/work/mkf/MarketFinance/src/snappy   -O2 -Wall -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/network.dir/proto.cpp.o -c /home/ubuntu/work/mkf/MarketFinance/src/network/proto.cpp",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/network/proto.cpp"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/network",
+  "command": "/usr/bin/c++  -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/src/network/../xengine -I/home/ubuntu/work/mkf/MarketFinance/src/network/../common -I/home/ubuntu/work/mkf/MarketFinance/src/network/../crypto -I/home/ubuntu/work/mkf/MarketFinance/src/network/../storage -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/build/src/snappy -I/home/ubuntu/work/mkf/MarketFinance/src/snappy   -O2 -Wall -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/network.dir/peer.cpp.o -c /home/ubuntu/work/mkf/MarketFinance/src/network/peer.cpp",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/network/peer.cpp"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/network",
+  "command": "/usr/bin/c++  -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/src/network/../xengine -I/home/ubuntu/work/mkf/MarketFinance/src/network/../common -I/home/ubuntu/work/mkf/MarketFinance/src/network/../crypto -I/home/ubuntu/work/mkf/MarketFinance/src/network/../storage -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/build/src/snappy -I/home/ubuntu/work/mkf/MarketFinance/src/snappy   -O2 -Wall -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/network.dir/peernet.cpp.o -c /home/ubuntu/work/mkf/MarketFinance/src/network/peernet.cpp",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/network/peernet.cpp"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/leveldb",
+  "command": "/usr/bin/c++  -DLEVELDB_COMPILE_LIBRARY -DLEVELDB_PLATFORM_POSIX=1 -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/build/src/leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb/include   -O2  -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -w -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/leveldb.dir/db/builder.cc.o -c /home/ubuntu/work/mkf/MarketFinance/src/leveldb/db/builder.cc",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/leveldb/db/builder.cc"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/leveldb",
+  "command": "/usr/bin/c++  -DLEVELDB_COMPILE_LIBRARY -DLEVELDB_PLATFORM_POSIX=1 -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/build/src/leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb/include   -O2  -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -w -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/leveldb.dir/db/c.cc.o -c /home/ubuntu/work/mkf/MarketFinance/src/leveldb/db/c.cc",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/leveldb/db/c.cc"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/leveldb",
+  "command": "/usr/bin/c++  -DLEVELDB_COMPILE_LIBRARY -DLEVELDB_PLATFORM_POSIX=1 -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/build/src/leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb/include   -O2  -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -w -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/leveldb.dir/db/db_impl.cc.o -c /home/ubuntu/work/mkf/MarketFinance/src/leveldb/db/db_impl.cc",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/leveldb/db/db_impl.cc"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/leveldb",
+  "command": "/usr/bin/c++  -DLEVELDB_COMPILE_LIBRARY -DLEVELDB_PLATFORM_POSIX=1 -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/build/src/leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb/include   -O2  -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -w -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/leveldb.dir/db/db_iter.cc.o -c /home/ubuntu/work/mkf/MarketFinance/src/leveldb/db/db_iter.cc",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/leveldb/db/db_iter.cc"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/leveldb",
+  "command": "/usr/bin/c++  -DLEVELDB_COMPILE_LIBRARY -DLEVELDB_PLATFORM_POSIX=1 -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/build/src/leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb/include   -O2  -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -w -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/leveldb.dir/db/dbformat.cc.o -c /home/ubuntu/work/mkf/MarketFinance/src/leveldb/db/dbformat.cc",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/leveldb/db/dbformat.cc"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/leveldb",
+  "command": "/usr/bin/c++  -DLEVELDB_COMPILE_LIBRARY -DLEVELDB_PLATFORM_POSIX=1 -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/build/src/leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb/include   -O2  -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -w -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/leveldb.dir/db/dumpfile.cc.o -c /home/ubuntu/work/mkf/MarketFinance/src/leveldb/db/dumpfile.cc",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/leveldb/db/dumpfile.cc"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/leveldb",
+  "command": "/usr/bin/c++  -DLEVELDB_COMPILE_LIBRARY -DLEVELDB_PLATFORM_POSIX=1 -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/build/src/leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb/include   -O2  -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -w -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/leveldb.dir/db/filename.cc.o -c /home/ubuntu/work/mkf/MarketFinance/src/leveldb/db/filename.cc",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/leveldb/db/filename.cc"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/leveldb",
+  "command": "/usr/bin/c++  -DLEVELDB_COMPILE_LIBRARY -DLEVELDB_PLATFORM_POSIX=1 -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/build/src/leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb/include   -O2  -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -w -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/leveldb.dir/db/log_reader.cc.o -c /home/ubuntu/work/mkf/MarketFinance/src/leveldb/db/log_reader.cc",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/leveldb/db/log_reader.cc"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/leveldb",
+  "command": "/usr/bin/c++  -DLEVELDB_COMPILE_LIBRARY -DLEVELDB_PLATFORM_POSIX=1 -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/build/src/leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb/include   -O2  -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -w -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/leveldb.dir/db/log_writer.cc.o -c /home/ubuntu/work/mkf/MarketFinance/src/leveldb/db/log_writer.cc",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/leveldb/db/log_writer.cc"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/leveldb",
+  "command": "/usr/bin/c++  -DLEVELDB_COMPILE_LIBRARY -DLEVELDB_PLATFORM_POSIX=1 -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/build/src/leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb/include   -O2  -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -w -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/leveldb.dir/db/memtable.cc.o -c /home/ubuntu/work/mkf/MarketFinance/src/leveldb/db/memtable.cc",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/leveldb/db/memtable.cc"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/leveldb",
+  "command": "/usr/bin/c++  -DLEVELDB_COMPILE_LIBRARY -DLEVELDB_PLATFORM_POSIX=1 -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/build/src/leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb/include   -O2  -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -w -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/leveldb.dir/db/repair.cc.o -c /home/ubuntu/work/mkf/MarketFinance/src/leveldb/db/repair.cc",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/leveldb/db/repair.cc"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/leveldb",
+  "command": "/usr/bin/c++  -DLEVELDB_COMPILE_LIBRARY -DLEVELDB_PLATFORM_POSIX=1 -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/build/src/leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb/include   -O2  -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -w -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/leveldb.dir/db/table_cache.cc.o -c /home/ubuntu/work/mkf/MarketFinance/src/leveldb/db/table_cache.cc",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/leveldb/db/table_cache.cc"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/leveldb",
+  "command": "/usr/bin/c++  -DLEVELDB_COMPILE_LIBRARY -DLEVELDB_PLATFORM_POSIX=1 -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/build/src/leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb/include   -O2  -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -w -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/leveldb.dir/db/version_edit.cc.o -c /home/ubuntu/work/mkf/MarketFinance/src/leveldb/db/version_edit.cc",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/leveldb/db/version_edit.cc"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/leveldb",
+  "command": "/usr/bin/c++  -DLEVELDB_COMPILE_LIBRARY -DLEVELDB_PLATFORM_POSIX=1 -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/build/src/leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb/include   -O2  -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -w -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/leveldb.dir/db/version_set.cc.o -c /home/ubuntu/work/mkf/MarketFinance/src/leveldb/db/version_set.cc",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/leveldb/db/version_set.cc"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/leveldb",
+  "command": "/usr/bin/c++  -DLEVELDB_COMPILE_LIBRARY -DLEVELDB_PLATFORM_POSIX=1 -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/build/src/leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb/include   -O2  -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -w -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/leveldb.dir/db/write_batch.cc.o -c /home/ubuntu/work/mkf/MarketFinance/src/leveldb/db/write_batch.cc",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/leveldb/db/write_batch.cc"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/leveldb",
+  "command": "/usr/bin/c++  -DLEVELDB_COMPILE_LIBRARY -DLEVELDB_PLATFORM_POSIX=1 -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/build/src/leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb/include   -O2  -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -w -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/leveldb.dir/table/block_builder.cc.o -c /home/ubuntu/work/mkf/MarketFinance/src/leveldb/table/block_builder.cc",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/leveldb/table/block_builder.cc"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/leveldb",
+  "command": "/usr/bin/c++  -DLEVELDB_COMPILE_LIBRARY -DLEVELDB_PLATFORM_POSIX=1 -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/build/src/leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb/include   -O2  -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -w -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/leveldb.dir/table/block.cc.o -c /home/ubuntu/work/mkf/MarketFinance/src/leveldb/table/block.cc",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/leveldb/table/block.cc"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/leveldb",
+  "command": "/usr/bin/c++  -DLEVELDB_COMPILE_LIBRARY -DLEVELDB_PLATFORM_POSIX=1 -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/build/src/leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb/include   -O2  -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -w -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/leveldb.dir/table/filter_block.cc.o -c /home/ubuntu/work/mkf/MarketFinance/src/leveldb/table/filter_block.cc",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/leveldb/table/filter_block.cc"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/leveldb",
+  "command": "/usr/bin/c++  -DLEVELDB_COMPILE_LIBRARY -DLEVELDB_PLATFORM_POSIX=1 -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/build/src/leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb/include   -O2  -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -w -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/leveldb.dir/table/format.cc.o -c /home/ubuntu/work/mkf/MarketFinance/src/leveldb/table/format.cc",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/leveldb/table/format.cc"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/leveldb",
+  "command": "/usr/bin/c++  -DLEVELDB_COMPILE_LIBRARY -DLEVELDB_PLATFORM_POSIX=1 -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/build/src/leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb/include   -O2  -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -w -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/leveldb.dir/table/iterator.cc.o -c /home/ubuntu/work/mkf/MarketFinance/src/leveldb/table/iterator.cc",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/leveldb/table/iterator.cc"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/leveldb",
+  "command": "/usr/bin/c++  -DLEVELDB_COMPILE_LIBRARY -DLEVELDB_PLATFORM_POSIX=1 -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/build/src/leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb/include   -O2  -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -w -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/leveldb.dir/table/merger.cc.o -c /home/ubuntu/work/mkf/MarketFinance/src/leveldb/table/merger.cc",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/leveldb/table/merger.cc"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/leveldb",
+  "command": "/usr/bin/c++  -DLEVELDB_COMPILE_LIBRARY -DLEVELDB_PLATFORM_POSIX=1 -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/build/src/leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb/include   -O2  -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -w -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/leveldb.dir/table/table_builder.cc.o -c /home/ubuntu/work/mkf/MarketFinance/src/leveldb/table/table_builder.cc",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/leveldb/table/table_builder.cc"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/leveldb",
+  "command": "/usr/bin/c++  -DLEVELDB_COMPILE_LIBRARY -DLEVELDB_PLATFORM_POSIX=1 -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/build/src/leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb/include   -O2  -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -w -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/leveldb.dir/table/table.cc.o -c /home/ubuntu/work/mkf/MarketFinance/src/leveldb/table/table.cc",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/leveldb/table/table.cc"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/leveldb",
+  "command": "/usr/bin/c++  -DLEVELDB_COMPILE_LIBRARY -DLEVELDB_PLATFORM_POSIX=1 -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/build/src/leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb/include   -O2  -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -w -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/leveldb.dir/table/two_level_iterator.cc.o -c /home/ubuntu/work/mkf/MarketFinance/src/leveldb/table/two_level_iterator.cc",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/leveldb/table/two_level_iterator.cc"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/leveldb",
+  "command": "/usr/bin/c++  -DLEVELDB_COMPILE_LIBRARY -DLEVELDB_PLATFORM_POSIX=1 -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/build/src/leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb/include   -O2  -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -w -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/leveldb.dir/util/arena.cc.o -c /home/ubuntu/work/mkf/MarketFinance/src/leveldb/util/arena.cc",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/leveldb/util/arena.cc"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/leveldb",
+  "command": "/usr/bin/c++  -DLEVELDB_COMPILE_LIBRARY -DLEVELDB_PLATFORM_POSIX=1 -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/build/src/leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb/include   -O2  -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -w -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/leveldb.dir/util/bloom.cc.o -c /home/ubuntu/work/mkf/MarketFinance/src/leveldb/util/bloom.cc",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/leveldb/util/bloom.cc"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/leveldb",
+  "command": "/usr/bin/c++  -DLEVELDB_COMPILE_LIBRARY -DLEVELDB_PLATFORM_POSIX=1 -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/build/src/leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb/include   -O2  -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -w -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/leveldb.dir/util/cache.cc.o -c /home/ubuntu/work/mkf/MarketFinance/src/leveldb/util/cache.cc",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/leveldb/util/cache.cc"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/leveldb",
+  "command": "/usr/bin/c++  -DLEVELDB_COMPILE_LIBRARY -DLEVELDB_PLATFORM_POSIX=1 -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/build/src/leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb/include   -O2  -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -w -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/leveldb.dir/util/coding.cc.o -c /home/ubuntu/work/mkf/MarketFinance/src/leveldb/util/coding.cc",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/leveldb/util/coding.cc"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/leveldb",
+  "command": "/usr/bin/c++  -DLEVELDB_COMPILE_LIBRARY -DLEVELDB_PLATFORM_POSIX=1 -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/build/src/leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb/include   -O2  -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -w -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/leveldb.dir/util/comparator.cc.o -c /home/ubuntu/work/mkf/MarketFinance/src/leveldb/util/comparator.cc",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/leveldb/util/comparator.cc"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/leveldb",
+  "command": "/usr/bin/c++  -DLEVELDB_COMPILE_LIBRARY -DLEVELDB_PLATFORM_POSIX=1 -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/build/src/leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb/include   -O2  -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -w -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/leveldb.dir/util/crc32c.cc.o -c /home/ubuntu/work/mkf/MarketFinance/src/leveldb/util/crc32c.cc",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/leveldb/util/crc32c.cc"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/leveldb",
+  "command": "/usr/bin/c++  -DLEVELDB_COMPILE_LIBRARY -DLEVELDB_PLATFORM_POSIX=1 -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/build/src/leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb/include   -O2  -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -w -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/leveldb.dir/util/env.cc.o -c /home/ubuntu/work/mkf/MarketFinance/src/leveldb/util/env.cc",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/leveldb/util/env.cc"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/leveldb",
+  "command": "/usr/bin/c++  -DLEVELDB_COMPILE_LIBRARY -DLEVELDB_PLATFORM_POSIX=1 -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/build/src/leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb/include   -O2  -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -w -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/leveldb.dir/util/filter_policy.cc.o -c /home/ubuntu/work/mkf/MarketFinance/src/leveldb/util/filter_policy.cc",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/leveldb/util/filter_policy.cc"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/leveldb",
+  "command": "/usr/bin/c++  -DLEVELDB_COMPILE_LIBRARY -DLEVELDB_PLATFORM_POSIX=1 -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/build/src/leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb/include   -O2  -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -w -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/leveldb.dir/util/hash.cc.o -c /home/ubuntu/work/mkf/MarketFinance/src/leveldb/util/hash.cc",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/leveldb/util/hash.cc"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/leveldb",
+  "command": "/usr/bin/c++  -DLEVELDB_COMPILE_LIBRARY -DLEVELDB_PLATFORM_POSIX=1 -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/build/src/leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb/include   -O2  -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -w -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/leveldb.dir/util/logging.cc.o -c /home/ubuntu/work/mkf/MarketFinance/src/leveldb/util/logging.cc",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/leveldb/util/logging.cc"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/leveldb",
+  "command": "/usr/bin/c++  -DLEVELDB_COMPILE_LIBRARY -DLEVELDB_PLATFORM_POSIX=1 -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/build/src/leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb/include   -O2  -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -w -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/leveldb.dir/util/options.cc.o -c /home/ubuntu/work/mkf/MarketFinance/src/leveldb/util/options.cc",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/leveldb/util/options.cc"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/leveldb",
+  "command": "/usr/bin/c++  -DLEVELDB_COMPILE_LIBRARY -DLEVELDB_PLATFORM_POSIX=1 -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/build/src/leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb/include   -O2  -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -w -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/leveldb.dir/util/status.cc.o -c /home/ubuntu/work/mkf/MarketFinance/src/leveldb/util/status.cc",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/leveldb/util/status.cc"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/leveldb",
+  "command": "/usr/bin/c++  -DLEVELDB_COMPILE_LIBRARY -DLEVELDB_PLATFORM_POSIX=1 -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/build/src/leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb/include   -O2  -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -w -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/leveldb.dir/util/env_posix.cc.o -c /home/ubuntu/work/mkf/MarketFinance/src/leveldb/util/env_posix.cc",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/leveldb/util/env_posix.cc"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/leveldb",
+  "command": "/usr/bin/c++  -DLEVELDB_COMPILE_LIBRARY -DLEVELDB_PLATFORM_POSIX=1 -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/build/src/leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb/include   -O2  -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -w -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/leveldb.dir/helpers/memenv/memenv.cc.o -c /home/ubuntu/work/mkf/MarketFinance/src/leveldb/helpers/memenv/memenv.cc",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/leveldb/helpers/memenv/memenv.cc"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/snappy",
+  "command": "/usr/bin/c++  -DHAVE_CONFIG_H -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/build/src/snappy -I/home/ubuntu/work/mkf/MarketFinance/src/snappy   -O2 -Wall -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/snappy.dir/snappy-c.cc.o -c /home/ubuntu/work/mkf/MarketFinance/src/snappy/snappy-c.cc",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/snappy/snappy-c.cc"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/snappy",
+  "command": "/usr/bin/c++  -DHAVE_CONFIG_H -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/build/src/snappy -I/home/ubuntu/work/mkf/MarketFinance/src/snappy   -O2 -Wall -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/snappy.dir/snappy-sinksource.cc.o -c /home/ubuntu/work/mkf/MarketFinance/src/snappy/snappy-sinksource.cc",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/snappy/snappy-sinksource.cc"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/snappy",
+  "command": "/usr/bin/c++  -DHAVE_CONFIG_H -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/build/src/snappy -I/home/ubuntu/work/mkf/MarketFinance/src/snappy   -O2 -Wall -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/snappy.dir/snappy-stubs-internal.cc.o -c /home/ubuntu/work/mkf/MarketFinance/src/snappy/snappy-stubs-internal.cc",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/snappy/snappy-stubs-internal.cc"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/snappy",
+  "command": "/usr/bin/c++  -DHAVE_CONFIG_H -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/build/src/snappy -I/home/ubuntu/work/mkf/MarketFinance/src/snappy   -O2 -Wall -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/snappy.dir/snappy.cc.o -c /home/ubuntu/work/mkf/MarketFinance/src/snappy/snappy.cc",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/snappy/snappy.cc"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/jsonrpc",
+  "command": "/usr/bin/c++  -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/src/jsonrpc/../xengine -I/home/ubuntu/work/mkf/MarketFinance/src/jsonrpc/. -I/home/ubuntu/work/mkf/MarketFinance/build/src/jsonrpc   -O2 -Wall -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/jsonrpc.dir/rpc/rpc_error.cpp.o -c /home/ubuntu/work/mkf/MarketFinance/src/jsonrpc/rpc/rpc_error.cpp",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/jsonrpc/rpc/rpc_error.cpp"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/jsonrpc",
+  "command": "/usr/bin/c++  -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/src/jsonrpc/../xengine -I/home/ubuntu/work/mkf/MarketFinance/src/jsonrpc/. -I/home/ubuntu/work/mkf/MarketFinance/build/src/jsonrpc   -O2 -Wall -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/jsonrpc.dir/rpc/rpc_req.cpp.o -c /home/ubuntu/work/mkf/MarketFinance/src/jsonrpc/rpc/rpc_req.cpp",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/jsonrpc/rpc/rpc_req.cpp"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/jsonrpc",
+  "command": "/usr/bin/c++  -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/src/jsonrpc/../xengine -I/home/ubuntu/work/mkf/MarketFinance/src/jsonrpc/. -I/home/ubuntu/work/mkf/MarketFinance/build/src/jsonrpc   -O2 -Wall -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/jsonrpc.dir/rpc/rpc_resp.cpp.o -c /home/ubuntu/work/mkf/MarketFinance/src/jsonrpc/rpc/rpc_resp.cpp",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/src/jsonrpc/rpc/rpc_resp.cpp"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/src/jsonrpc",
+  "command": "/usr/bin/c++  -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/src/jsonrpc/../xengine -I/home/ubuntu/work/mkf/MarketFinance/src/jsonrpc/. -I/home/ubuntu/work/mkf/MarketFinance/build/src/jsonrpc   -O2 -Wall -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/jsonrpc.dir/rpc/auto_protocol.cpp.o -c /home/ubuntu/work/mkf/MarketFinance/build/src/jsonrpc/rpc/auto_protocol.cpp",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/build/src/jsonrpc/rpc/auto_protocol.cpp"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/test",
+  "command": "/usr/bin/c++  -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/build/test/../src/bigbang -I/home/ubuntu/work/mkf/MarketFinance/build/test/../src/jsonrpc -I/home/ubuntu/work/mkf/MarketFinance/test/../src/jsonrpc -I/home/ubuntu/work/mkf/MarketFinance/test/../src/bigbang -I/home/ubuntu/work/mkf/MarketFinance/test/../src/xengine -I/home/ubuntu/work/mkf/MarketFinance/test/../src/crypto -I/home/ubuntu/work/mkf/MarketFinance/test/../src/common -I/home/ubuntu/work/mkf/MarketFinance/test/../src/storage -I/home/ubuntu/work/mkf/MarketFinance/test/../src/network -I/home/ubuntu/work/mkf/MarketFinance/test/../src/mpvss -I/home/ubuntu/work/mkf/MarketFinance/test/../src/delegate -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/build/src/snappy -I/home/ubuntu/work/mkf/MarketFinance/src/snappy   -O2 -Wall -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/test_ctsdb.dir/test_big_main.cpp.o -c /home/ubuntu/work/mkf/MarketFinance/test/test_big_main.cpp",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/test/test_big_main.cpp"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/test",
+  "command": "/usr/bin/c++  -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/build/test/../src/bigbang -I/home/ubuntu/work/mkf/MarketFinance/build/test/../src/jsonrpc -I/home/ubuntu/work/mkf/MarketFinance/test/../src/jsonrpc -I/home/ubuntu/work/mkf/MarketFinance/test/../src/bigbang -I/home/ubuntu/work/mkf/MarketFinance/test/../src/xengine -I/home/ubuntu/work/mkf/MarketFinance/test/../src/crypto -I/home/ubuntu/work/mkf/MarketFinance/test/../src/common -I/home/ubuntu/work/mkf/MarketFinance/test/../src/storage -I/home/ubuntu/work/mkf/MarketFinance/test/../src/network -I/home/ubuntu/work/mkf/MarketFinance/test/../src/mpvss -I/home/ubuntu/work/mkf/MarketFinance/test/../src/delegate -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/build/src/snappy -I/home/ubuntu/work/mkf/MarketFinance/src/snappy   -O2 -Wall -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/test_ctsdb.dir/test_big.cpp.o -c /home/ubuntu/work/mkf/MarketFinance/test/test_big.cpp",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/test/test_big.cpp"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/test",
+  "command": "/usr/bin/c++  -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/build/test/../src/bigbang -I/home/ubuntu/work/mkf/MarketFinance/build/test/../src/jsonrpc -I/home/ubuntu/work/mkf/MarketFinance/test/../src/jsonrpc -I/home/ubuntu/work/mkf/MarketFinance/test/../src/bigbang -I/home/ubuntu/work/mkf/MarketFinance/test/../src/xengine -I/home/ubuntu/work/mkf/MarketFinance/test/../src/crypto -I/home/ubuntu/work/mkf/MarketFinance/test/../src/common -I/home/ubuntu/work/mkf/MarketFinance/test/../src/storage -I/home/ubuntu/work/mkf/MarketFinance/test/../src/network -I/home/ubuntu/work/mkf/MarketFinance/test/../src/mpvss -I/home/ubuntu/work/mkf/MarketFinance/test/../src/delegate -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/build/src/snappy -I/home/ubuntu/work/mkf/MarketFinance/src/snappy   -O2 -Wall -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/test_ctsdb.dir/ctsdb_test.cpp.o -c /home/ubuntu/work/mkf/MarketFinance/test/ctsdb_test.cpp",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/test/ctsdb_test.cpp"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/test",
+  "command": "/usr/bin/c++  -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/build/test/../src/bigbang -I/home/ubuntu/work/mkf/MarketFinance/build/test/../src/jsonrpc -I/home/ubuntu/work/mkf/MarketFinance/test/../src/jsonrpc -I/home/ubuntu/work/mkf/MarketFinance/test/../src/bigbang -I/home/ubuntu/work/mkf/MarketFinance/test/../src/xengine -I/home/ubuntu/work/mkf/MarketFinance/test/../src/crypto -I/home/ubuntu/work/mkf/MarketFinance/test/../src/common -I/home/ubuntu/work/mkf/MarketFinance/test/../src/storage -I/home/ubuntu/work/mkf/MarketFinance/test/../src/network -I/home/ubuntu/work/mkf/MarketFinance/test/../src/mpvss -I/home/ubuntu/work/mkf/MarketFinance/test/../src/delegate -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/build/src/snappy -I/home/ubuntu/work/mkf/MarketFinance/src/snappy   -O2 -Wall -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/test_big.dir/test_big_main.cpp.o -c /home/ubuntu/work/mkf/MarketFinance/test/test_big_main.cpp",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/test/test_big_main.cpp"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/test",
+  "command": "/usr/bin/c++  -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/build/test/../src/bigbang -I/home/ubuntu/work/mkf/MarketFinance/build/test/../src/jsonrpc -I/home/ubuntu/work/mkf/MarketFinance/test/../src/jsonrpc -I/home/ubuntu/work/mkf/MarketFinance/test/../src/bigbang -I/home/ubuntu/work/mkf/MarketFinance/test/../src/xengine -I/home/ubuntu/work/mkf/MarketFinance/test/../src/crypto -I/home/ubuntu/work/mkf/MarketFinance/test/../src/common -I/home/ubuntu/work/mkf/MarketFinance/test/../src/storage -I/home/ubuntu/work/mkf/MarketFinance/test/../src/network -I/home/ubuntu/work/mkf/MarketFinance/test/../src/mpvss -I/home/ubuntu/work/mkf/MarketFinance/test/../src/delegate -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/build/src/snappy -I/home/ubuntu/work/mkf/MarketFinance/src/snappy   -O2 -Wall -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/test_big.dir/test_big.cpp.o -c /home/ubuntu/work/mkf/MarketFinance/test/test_big.cpp",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/test/test_big.cpp"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/test",
+  "command": "/usr/bin/c++  -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/build/test/../src/bigbang -I/home/ubuntu/work/mkf/MarketFinance/build/test/../src/jsonrpc -I/home/ubuntu/work/mkf/MarketFinance/test/../src/jsonrpc -I/home/ubuntu/work/mkf/MarketFinance/test/../src/bigbang -I/home/ubuntu/work/mkf/MarketFinance/test/../src/xengine -I/home/ubuntu/work/mkf/MarketFinance/test/../src/crypto -I/home/ubuntu/work/mkf/MarketFinance/test/../src/common -I/home/ubuntu/work/mkf/MarketFinance/test/../src/storage -I/home/ubuntu/work/mkf/MarketFinance/test/../src/network -I/home/ubuntu/work/mkf/MarketFinance/test/../src/mpvss -I/home/ubuntu/work/mkf/MarketFinance/test/../src/delegate -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/build/src/snappy -I/home/ubuntu/work/mkf/MarketFinance/src/snappy   -O2 -Wall -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/test_big.dir/uint256_tests.cpp.o -c /home/ubuntu/work/mkf/MarketFinance/test/uint256_tests.cpp",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/test/uint256_tests.cpp"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/test",
+  "command": "/usr/bin/c++  -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/build/test/../src/bigbang -I/home/ubuntu/work/mkf/MarketFinance/build/test/../src/jsonrpc -I/home/ubuntu/work/mkf/MarketFinance/test/../src/jsonrpc -I/home/ubuntu/work/mkf/MarketFinance/test/../src/bigbang -I/home/ubuntu/work/mkf/MarketFinance/test/../src/xengine -I/home/ubuntu/work/mkf/MarketFinance/test/../src/crypto -I/home/ubuntu/work/mkf/MarketFinance/test/../src/common -I/home/ubuntu/work/mkf/MarketFinance/test/../src/storage -I/home/ubuntu/work/mkf/MarketFinance/test/../src/network -I/home/ubuntu/work/mkf/MarketFinance/test/../src/mpvss -I/home/ubuntu/work/mkf/MarketFinance/test/../src/delegate -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/build/src/snappy -I/home/ubuntu/work/mkf/MarketFinance/src/snappy   -O2 -Wall -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/test_big.dir/rpc_tests.cpp.o -c /home/ubuntu/work/mkf/MarketFinance/test/rpc_tests.cpp",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/test/rpc_tests.cpp"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/test",
+  "command": "/usr/bin/c++  -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/build/test/../src/bigbang -I/home/ubuntu/work/mkf/MarketFinance/build/test/../src/jsonrpc -I/home/ubuntu/work/mkf/MarketFinance/test/../src/jsonrpc -I/home/ubuntu/work/mkf/MarketFinance/test/../src/bigbang -I/home/ubuntu/work/mkf/MarketFinance/test/../src/xengine -I/home/ubuntu/work/mkf/MarketFinance/test/../src/crypto -I/home/ubuntu/work/mkf/MarketFinance/test/../src/common -I/home/ubuntu/work/mkf/MarketFinance/test/../src/storage -I/home/ubuntu/work/mkf/MarketFinance/test/../src/network -I/home/ubuntu/work/mkf/MarketFinance/test/../src/mpvss -I/home/ubuntu/work/mkf/MarketFinance/test/../src/delegate -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/build/src/snappy -I/home/ubuntu/work/mkf/MarketFinance/src/snappy   -O2 -Wall -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/test_big.dir/version_tests.cpp.o -c /home/ubuntu/work/mkf/MarketFinance/test/version_tests.cpp",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/test/version_tests.cpp"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/test",
+  "command": "/usr/bin/c++  -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/build/test/../src/bigbang -I/home/ubuntu/work/mkf/MarketFinance/build/test/../src/jsonrpc -I/home/ubuntu/work/mkf/MarketFinance/test/../src/jsonrpc -I/home/ubuntu/work/mkf/MarketFinance/test/../src/bigbang -I/home/ubuntu/work/mkf/MarketFinance/test/../src/xengine -I/home/ubuntu/work/mkf/MarketFinance/test/../src/crypto -I/home/ubuntu/work/mkf/MarketFinance/test/../src/common -I/home/ubuntu/work/mkf/MarketFinance/test/../src/storage -I/home/ubuntu/work/mkf/MarketFinance/test/../src/network -I/home/ubuntu/work/mkf/MarketFinance/test/../src/mpvss -I/home/ubuntu/work/mkf/MarketFinance/test/../src/delegate -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/build/src/snappy -I/home/ubuntu/work/mkf/MarketFinance/src/snappy   -O2 -Wall -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/test_big.dir/ipv6_tests.cpp.o -c /home/ubuntu/work/mkf/MarketFinance/test/ipv6_tests.cpp",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/test/ipv6_tests.cpp"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/test",
+  "command": "/usr/bin/c++  -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/build/test/../src/bigbang -I/home/ubuntu/work/mkf/MarketFinance/build/test/../src/jsonrpc -I/home/ubuntu/work/mkf/MarketFinance/test/../src/jsonrpc -I/home/ubuntu/work/mkf/MarketFinance/test/../src/bigbang -I/home/ubuntu/work/mkf/MarketFinance/test/../src/xengine -I/home/ubuntu/work/mkf/MarketFinance/test/../src/crypto -I/home/ubuntu/work/mkf/MarketFinance/test/../src/common -I/home/ubuntu/work/mkf/MarketFinance/test/../src/storage -I/home/ubuntu/work/mkf/MarketFinance/test/../src/network -I/home/ubuntu/work/mkf/MarketFinance/test/../src/mpvss -I/home/ubuntu/work/mkf/MarketFinance/test/../src/delegate -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/build/src/snappy -I/home/ubuntu/work/mkf/MarketFinance/src/snappy   -O2 -Wall -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/test_big.dir/crypto_tests.cpp.o -c /home/ubuntu/work/mkf/MarketFinance/test/crypto_tests.cpp",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/test/crypto_tests.cpp"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/test",
+  "command": "/usr/bin/c++  -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/build/test/../src/bigbang -I/home/ubuntu/work/mkf/MarketFinance/build/test/../src/jsonrpc -I/home/ubuntu/work/mkf/MarketFinance/test/../src/jsonrpc -I/home/ubuntu/work/mkf/MarketFinance/test/../src/bigbang -I/home/ubuntu/work/mkf/MarketFinance/test/../src/xengine -I/home/ubuntu/work/mkf/MarketFinance/test/../src/crypto -I/home/ubuntu/work/mkf/MarketFinance/test/../src/common -I/home/ubuntu/work/mkf/MarketFinance/test/../src/storage -I/home/ubuntu/work/mkf/MarketFinance/test/../src/network -I/home/ubuntu/work/mkf/MarketFinance/test/../src/mpvss -I/home/ubuntu/work/mkf/MarketFinance/test/../src/delegate -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/build/src/snappy -I/home/ubuntu/work/mkf/MarketFinance/src/snappy   -O2 -Wall -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/test_big.dir/storage_tests.cpp.o -c /home/ubuntu/work/mkf/MarketFinance/test/storage_tests.cpp",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/test/storage_tests.cpp"
+},
+{
+  "directory": "/home/ubuntu/work/mkf/MarketFinance/build/test",
+  "command": "/usr/bin/c++  -DUSE_SSL_110 -I/home/ubuntu/work/mkf/MarketFinance/build/test/../src/bigbang -I/home/ubuntu/work/mkf/MarketFinance/build/test/../src/jsonrpc -I/home/ubuntu/work/mkf/MarketFinance/test/../src/jsonrpc -I/home/ubuntu/work/mkf/MarketFinance/test/../src/bigbang -I/home/ubuntu/work/mkf/MarketFinance/test/../src/xengine -I/home/ubuntu/work/mkf/MarketFinance/test/../src/crypto -I/home/ubuntu/work/mkf/MarketFinance/test/../src/common -I/home/ubuntu/work/mkf/MarketFinance/test/../src/storage -I/home/ubuntu/work/mkf/MarketFinance/test/../src/network -I/home/ubuntu/work/mkf/MarketFinance/test/../src/mpvss -I/home/ubuntu/work/mkf/MarketFinance/test/../src/delegate -I/home/ubuntu/work/mkf/MarketFinance/src/leveldb/include -I/home/ubuntu/work/mkf/MarketFinance/build/src/snappy -I/home/ubuntu/work/mkf/MarketFinance/src/snappy   -O2 -Wall -Wextra -Werror -Wno-char-subscripts -Wno-unused-parameter -Wno-sign-compare -Wno-reorder -Wno-unused-local-typedefs -Wno-implicit-fallthrough -Wno-overloaded-virtual -Wno-strict-aliasing -Wno-unused-const-variable -lrt -O2 -DNDEBUG   -std=c++11 -o CMakeFiles/test_big.dir/txpool_tests.cpp.o -c /home/ubuntu/work/mkf/MarketFinance/test/txpool_tests.cpp",
+  "file": "/home/ubuntu/work/mkf/MarketFinance/test/txpool_tests.cpp"
+}
+]

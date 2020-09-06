@@ -1,0 +1,40 @@
+file(REMOVE_RECURSE
+  "mode/auto_options.h"
+  "mode/auto_config.cpp"
+  "mode/auto_config.h"
+  "CMakeFiles/libbigbang.dir/address.cpp.o"
+  "CMakeFiles/libbigbang.dir/blockmaker.cpp.o"
+  "CMakeFiles/libbigbang.dir/config.cpp.o"
+  "CMakeFiles/libbigbang.dir/core.cpp.o"
+  "CMakeFiles/libbigbang.dir/dispatcher.cpp.o"
+  "CMakeFiles/libbigbang.dir/entry.cpp.o"
+  "CMakeFiles/libbigbang.dir/error.cpp.o"
+  "CMakeFiles/libbigbang.dir/miner.cpp.o"
+  "CMakeFiles/libbigbang.dir/netchn.cpp.o"
+  "CMakeFiles/libbigbang.dir/network.cpp.o"
+  "CMakeFiles/libbigbang.dir/rpcclient.cpp.o"
+  "CMakeFiles/libbigbang.dir/rpcmod.cpp.o"
+  "CMakeFiles/libbigbang.dir/schedule.cpp.o"
+  "CMakeFiles/libbigbang.dir/service.cpp.o"
+  "CMakeFiles/libbigbang.dir/txpool.cpp.o"
+  "CMakeFiles/libbigbang.dir/wallet.cpp.o"
+  "CMakeFiles/libbigbang.dir/blockchain.cpp.o"
+  "CMakeFiles/libbigbang.dir/forkmanager.cpp.o"
+  "CMakeFiles/libbigbang.dir/datastat.cpp.o"
+  "CMakeFiles/libbigbang.dir/recovery.cpp.o"
+  "CMakeFiles/libbigbang.dir/checkrepair.cpp.o"
+  "CMakeFiles/libbigbang.dir/mode/basic_config.cpp.o"
+  "CMakeFiles/libbigbang.dir/mode/fork_config.cpp.o"
+  "CMakeFiles/libbigbang.dir/mode/mint_config.cpp.o"
+  "CMakeFiles/libbigbang.dir/mode/network_config.cpp.o"
+  "CMakeFiles/libbigbang.dir/mode/rpc_config.cpp.o"
+  "CMakeFiles/libbigbang.dir/mode/storage_config.cpp.o"
+  "CMakeFiles/libbigbang.dir/mode/auto_config.cpp.o"
+  "liblibbigbang.pdb"
+  "liblibbigbang.a"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang CXX)
+  include(CMakeFiles/libbigbang.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()

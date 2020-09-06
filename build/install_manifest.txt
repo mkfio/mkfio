@@ -1,0 +1,13 @@
+/usr/local/bin/mkf
+/usr/local/bin/mkf-cli
+/usr/local/bin/mkf-server
+/usr/local/bin/mkf-miner
+/usr/local/lib/libsnappy.a
+/usr/local/include/snappy-c.h
+/usr/local/include/snappy-sinksource.h
+/usr/local/include/snappy.h
+/usr/local/include/snappy-stubs-public.h
+/usr/local/lib/cmake/Snappy/SnappyTargets.cmake
+/usr/local/lib/cmake/Snappy/SnappyTargets-release.cmake
+/usr/local/lib/cmake/Snappy/SnappyConfig.cmake
+/usr/local/lib/cmake/Snappy/SnappyConfigVersion.cmake
