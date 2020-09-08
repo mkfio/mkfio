@@ -385,7 +385,7 @@ public:
 
 /////////////////////////////////////////////////////////////////////////
 // CCheckBlockWalker
-class CCheckBlockWalker : public CTSWalker<CBlockEx>
+class CCheckBlockWalker : public CTSWalker<CBlockChange>
 {
 public:
     CCheckBlockWalker(bool fTestnetIn, bool fOnlyCheckIn)
@@ -394,7 +394,7 @@ public:
 
     bool Initialize(const string& strPath);
 
-    bool Walk(const CBlockEx& block, uint32 nFile, uint32 nOffset) override;
+    bool Walk(const CBlockChange& block, uint32 nFile, uint32 nOffset) override;
 
     bool UpdateBlockNext();
     bool UpdateBlockTx(CCheckForkManager& objForkMn);

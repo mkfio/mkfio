@@ -4,6 +4,7 @@
 
 #include "blockbase.h"
 
+#include <boost/range/adaptor/reversed.hpp>
 #include <boost/timer/timer.hpp>
 #include <cstdio>
 
@@ -400,7 +401,7 @@ bool CBlockBase::Initiate(const uint256& hashGenesis, const CBlock& blockGenesis
         return false;
     }
     uint32 nFile, nOffset;
-    if (!tsBlock.Write(CBlockEx(blockGenesis), nFile, nOffset))
+    if (!tsBlock.Write(CBlockChange(blockGenesis, CBlockChange::BLOCK_CHANGE_ADD), nFile, nOffset))
     {
         StdTrace("BlockBase", "Write genesis %s block failed", hashGenesis.ToString().c_str());
         return false;
@@ -489,7 +490,7 @@ bool CBlockBase::AddNew(const uint256& hash, CBlockEx& block, CBlockIndex** ppIn
     }
 
     uint32 nFile, nOffset;
-    if (!tsBlock.Write(block, nFile, nOffset))
+    if (!tsBlock.Write(CBlockChange(block, CBlockChange::BLOCK_CHANGE_ADD), nFile, nOffset))
     {
         StdError("BlockBase", "Add new block: write block failed, block: %s", hash.ToString().c_str());
         return false;
@@ -1724,6 +1725,39 @@ bool CBlockBase::VerifyRepeatBlock(const uint256& hashFork, uint32 height, const
                 }
             }
         }
+    }
+    return true;
+}
+
+bool CBlockBase::RecordRollback(const vector<CBlockEx>& vBlockAddNew, const vector<CBlockEx>& vBlockRemove)
+{
+    CDiskPos pos;
+    for (const CBlockEx& removed : vBlockRemove)
+    {
+        if (!tsBlock.Write(CBlockChange(removed, CBlockChange::BLOCK_CHANGE_REMOVE), pos))
+        {
+            StdError("[BlockBase][ERROR]", "Write removed %s block failed", removed.GetHash().ToString().c_str());
+            return false;
+        }
+    }
+    for (const CBlockEx& added : boost::adaptors::reverse(vBlockAddNew))
+    {
+        if (!tsBlock.Write(CBlockChange(added, CBlockChange::BLOCK_CHANGE_ADD), pos))
+        {
+            StdError("[BlockBase][ERROR]", "Write added %s block failed", added.GetHash().ToString().c_str());
+            return false;
+        }
+    }
+    return true;
+}
+
+bool CBlockBase::RecordRemove(const CBlockEx& block)
+{
+    CDiskPos pos;
+    if (!tsBlock.Write(CBlockChange(block, CBlockChange::BLOCK_CHANGE_REMOVE), pos))
+    {
+        StdError("[BlockBase][ERROR]", "Record removed %s block failed", block.GetHash().ToString().c_str());
+        return false;
     }
     return true;
 }

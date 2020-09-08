@@ -264,6 +264,8 @@ public:
     bool ListForkUnspent(const uint256& hashFork, const CDestination& dest, uint32 nMax, std::vector<CTxUnspent>& vUnspent);
     bool ListForkUnspentBatch(const uint256& hashFork, uint32 nMax, std::map<CDestination, std::vector<CTxUnspent>>& mapUnspent);
     bool VerifyRepeatBlock(const uint256& hashFork, uint32 height, const CDestination& destMint);
+    bool RecordRollback(const std::vector<CBlockEx>& vBlockAddNew, const std::vector<CBlockEx>& vBlockRemove);
+    bool RecordRemove(const CBlockEx& block);
 
 protected:
     CBlockIndex* GetIndex(const uint256& hash) const;
