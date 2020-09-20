@@ -9,6 +9,9 @@
 #include <boost/multi_index/ordered_index.hpp>
 #include <boost/multi_index_container.hpp>
 
+
+#include "dexmatch.h"
+#include "dexorder.h"
 #include "exchange.h"
 #include "multisig.h"
 #include "payment.h"
@@ -24,6 +27,9 @@ using namespace std;
 using namespace xengine;
 using namespace bigbang::crypto;
 using namespace bigbang::rpc;
+
+//////////////////////////////
+// CTypeInfo
 
 struct CTypeInfo
 {
@@ -44,6 +50,8 @@ static const CTypeInfoSet setTypeInfo = {
     { TEMPLATE_PROOF, new CTemplateProof, "mint" },
     { TEMPLATE_EXCHANGE, new CTemplateExchange, "exchange" },
     { TEMPLATE_PAYMENT, new CTemplatePayment, "payment" },
+    { TEMPLATE_DEXORDER, new CTemplateDexOrder, "dexorder" },
+    { TEMPLATE_DEXMATCH, new CTemplateDexMatch, "dexmatch" },
 };
 
 static const CTypeInfo* GetTypeInfoByType(uint16 nTypeIn)
@@ -61,7 +69,35 @@ const CTypeInfo* GetTypeInfoByName(std::string strNameIn)
 }
 
 //////////////////////////////
+// CCoinPairType
+
+using CCoinPairSet = boost::multi_index_container<
+    CCoinPairType,
+    boost::multi_index::indexed_by<
+        boost::multi_index::ordered_unique<boost::multi_index::member<CCoinPairType, int, &CCoinPairType::nType>>,
+        boost::multi_index::ordered_unique<boost::multi_index::member<CCoinPairType, std::string, &CCoinPairType::strName>>>>;
+
+static const CCoinPairSet setCoinPair = {
+    { COINPAIR_BBC_MKF, "bbc/mkf" },
+};
+
+const CCoinPairType* GetCoinPairByType(int nTypeIn)
+{
+    const auto& idxType = setCoinPair.get<0>();
+    auto it = idxType.find(nTypeIn);
+    return (it == idxType.end()) ? nullptr : &(*it);
+}
+
+const CCoinPairType* GetCoinPairByName(std::string strNameIn)
+{
+    const auto& idxName = setCoinPair.get<1>();
+    auto it = idxName.find(strNameIn);
+    return (it == idxName.end()) ? nullptr : &(*it);
+}
+
+//////////////////////////////
 // CTemplate
+
 const CTemplatePtr CTemplate::CreateTemplatePtr(CTemplate* ptr)
 {
     if (ptr)
@@ -190,6 +226,49 @@ bool CTemplate::IsTxSpendable(const CDestination& dest)
     return false;
 }
 
+bool CTemplate::IsDestInRecorded(const CDestination& dest)
+{
+    if (dest.IsTemplate())
+    {
+        uint16 nType = dest.GetTemplateId().GetType();
+        const CTypeInfo* pTypeInfo = GetTypeInfoByType(nType);
+        if (pTypeInfo)
+        {
+            return (dynamic_cast<CSendToRecordedTemplate*>(pTypeInfo->ptr) != nullptr);
+        }
+    }
+    return false;
+}
+
+bool CTemplate::VerifyDestRecorded(const CTransaction& tx, vector<uint8>& vchSigOut)
+{
+    if (!tx.vchSig.empty())
+    {
+        if (tx.sendTo.IsTemplate() && CTemplate::IsDestInRecorded(tx.sendTo))
+        {
+            CTemplatePtr ptr = CTemplate::CreateTemplatePtr(tx.sendTo.GetTemplateId().GetType(), tx.vchSig);
+            if (!ptr)
+            {
+                return false;
+            }
+            if (ptr->GetTemplateId() != tx.sendTo.GetTemplateId())
+            {
+                return false;
+            }
+            set<CDestination> setSubDest;
+            if (!ptr->GetSignDestination(tx, uint256(), 0, tx.vchSig, setSubDest, vchSigOut))
+            {
+                return false;
+            }
+        }
+        else
+        {
+            vchSigOut = tx.vchSig;
+        }
+    }
+    return true;
+}
+
 const uint16& CTemplate::GetTemplateType() const
 {
     return nType;
@@ -220,7 +299,7 @@ vector<uint8> CTemplate::Export() const
     return vchTemplate;
 }
 
-bool CTemplate::GetSignDestination(const CTransaction& tx, const vector<uint8>& vchSig,
+bool CTemplate::GetSignDestination(const CTransaction& tx, const uint256& hashFork, int nHeight, const vector<uint8>& vchSig,
                                    set<CDestination>& setSubDest, vector<uint8>& vchSubSig) const
 {
     if (!vchSig.empty())

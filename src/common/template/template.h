@@ -21,6 +21,18 @@ class CSpendableTemplate
 {
 };
 
+class CSendToRecordedTemplate
+{
+};
+
+enum TNS_PARAM
+{
+    TNS_DEX_MIN_SECT_HEIGHT = 2,
+    TNS_DEX_MAX_SECT_HEIGHT = 1440,
+    TNS_DEX_MIN_TX_FEE = 50000,
+    TNS_DEX_MIN_MATCH_AMOUNT = 10000
+};
+
 enum TemplateType
 {
     TEMPLATE_MIN = 0,
@@ -29,8 +41,26 @@ enum TemplateType
     TEMPLATE_PROOF = 4,
     TEMPLATE_EXCHANGE = 6,
     TEMPLATE_PAYMENT = 8,
+    TEMPLATE_DEXORDER = 9,
+    TEMPLATE_DEXMATCH = 10,
     TEMPLATE_MAX
 };
+
+enum DexOrderCoinPairType
+{
+    COINPAIR_MIN,
+    COINPAIR_BBC_MKF,
+    COINPAIR_MAX
+};
+
+struct CCoinPairType
+{
+    int nType;
+    std::string strName;
+};
+
+const CCoinPairType* GetCoinPairByType(int nTypeIn);
+const CCoinPairType* GetCoinPairByName(std::string strNameIn);
 
 class CTemplate;
 typedef boost::shared_ptr<CTemplate> CTemplatePtr;
@@ -83,6 +113,11 @@ public:
     // Return dest is spendable or not.
     static bool IsTxSpendable(const CDestination& dest);
 
+    // Return dest is destIn recorded or not.
+    static bool IsDestInRecorded(const CDestination& dest);
+
+    static bool VerifyDestRecorded(const CTransaction& tx, std::vector<uint8>& vchSigOut);
+
 public:
     // Deconstructor
     virtual ~CTemplate(){};
@@ -107,7 +142,7 @@ public:
                           const std::vector<uint8>& vchPreSig, std::vector<uint8>& vchSig, bool& fCompleted) const;
 
     // Build transaction signature by concrete template.
-    virtual bool GetSignDestination(const CTransaction& tx, const std::vector<uint8>& vchSig,
+    virtual bool GetSignDestination(const CTransaction& tx, const uint256& hashFork, int nHeight, const std::vector<uint8>& vchSig,
                                     std::set<CDestination>& setSubDest, std::vector<uint8>& vchSubSig) const;
 
     // Convert params of template to json object

@@ -81,7 +81,7 @@ bool CTemplatePayment::ValidateParam() const
     return true;
 }
 
-bool CTemplatePayment::GetSignDestination(const CTransaction& tx, const std::vector<uint8>& vchSig,
+bool CTemplatePayment::GetSignDestination(const CTransaction& tx, const uint256& hashFork, int nHeight, const std::vector<uint8>& vchSig,
                                           std::set<CDestination>& setSubDest, std::vector<uint8>& vchSubSig) const
 {
     uint32 height;

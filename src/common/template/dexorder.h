@@ -2,18 +2,18 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef COMMON_TEMPLATE_PROOF_H
-#define COMMON_TEMPLATE_PROOF_H
+#ifndef COMMON_TEMPLATE_DEXORDER_H
+#define COMMON_TEMPLATE_DEXORDER_H
 
-#include "destination.h"
-#include "mint.h"
+#include "template.h"
 
-class CTemplateProof : virtual public CTemplateMint
+class CTemplateDexOrder : virtual public CTemplate, virtual public CSendToRecordedTemplate
 {
 public:
-    CTemplateProof(const bigbang::crypto::CPubKey keyMintIn = bigbang::crypto::CPubKey(),
-                   const CDestination& destSpendIn = CDestination());
-    virtual CTemplateProof* clone() const;
+    CTemplateDexOrder(const CDestination& destSellerIn = CDestination(), int nCoinPairIn = 0,
+                      double dPriceIn = 0.0, double dFeeIn = 0.0, const uint256& hashSecretIn = uint256(), const std::vector<uint256>& vHashEncryptionIn = std::vector<uint256>(),
+                      int nValidHeightIn = 0, int nSectHeight = 0, const std::vector<CDestination>& vDestMatchIn = std::vector<CDestination>(), const std::vector<CDestination>& vDestDealIn = std::vector<CDestination>());
+    virtual CTemplateDexOrder* clone() const;
     virtual bool GetSignDestination(const CTransaction& tx, const uint256& hashFork, int nHeight, const std::vector<uint8>& vchSig,
                                     std::set<CDestination>& setSubDest, std::vector<uint8>& vchSubSig) const;
     virtual void GetTemplateData(bigbang::rpc::CTemplateResponse& obj, CDestination&& destInstance) const;
@@ -25,11 +25,18 @@ protected:
     virtual void BuildTemplateData();
     virtual bool VerifyTxSignature(const uint256& hash, const uint16 nType, const uint256& hashAnchor, const CDestination& destTo,
                                    const std::vector<uint8>& vchSig, const int32 nForkHeight, bool& fCompleted) const;
-    virtual bool VerifyBlockSignature(const uint256& hash, const std::vector<uint8>& vchSig) const;
 
-protected:
-    bigbang::crypto::CPubKey keyMint;
-    CDestination destSpend;
+public:
+    CDestination destSeller;
+    int nCoinPair;
+    double dPrice;
+    double dFee;
+    uint256 hashSecret;
+    std::vector<uint256> vHashEncryption;
+    int nValidHeight;
+    int nSectHeight;
+    std::vector<CDestination> vDestMatch;
+    std::vector<CDestination> vDestDeal;
 };
 
-#endif // COMMON_TEMPLATE_PROOF_H
+#endif // COMMON_TEMPLATE_DEXORDER_H
