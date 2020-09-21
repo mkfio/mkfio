@@ -146,13 +146,13 @@ Errno CCoreProtocol::ValidateTransaction(const CTransaction& tx, int nHeight)
         return DEBUG(ERR_TRANSACTION_OUTPUT_INVALID, "amount overflow %ld\n", tx.nAmount);
     }
 
-    if (!MoneyRange(tx.nTxFee)
+    /*if (!MoneyRange(tx.nTxFee)
         || (tx.nType != CTransaction::TX_TOKEN && tx.nTxFee != 0)
         || (tx.nType == CTransaction::TX_TOKEN
             && (tx.nTxFee < CalcMinTxFee(tx, MIN_TX_FEE))))
     {
         return DEBUG(ERR_TRANSACTION_OUTPUT_INVALID, "txfee invalid %ld", tx.nTxFee);
-    }
+    }*/
 
     if (tx.sendTo.IsTemplate())
     {
@@ -345,6 +345,13 @@ Errno CCoreProtocol::VerifyBlockTx(const CTransaction& tx, const CTxContxt& txCo
     {
         return DEBUG(ERR_TRANSACTION_INPUT_INVALID, "valuein invalid %ld\n", nValueIn);
     }
+    if (!MoneyRange(tx.nTxFee)
+        || (tx.nType != CTransaction::TX_TOKEN && tx.nTxFee != 0)
+        || (tx.nType == CTransaction::TX_TOKEN
+            && (tx.nTxFee < CalcMinTxFee(tx, destIn, MIN_TX_FEE))))
+    {
+        return DEBUG(ERR_TRANSACTION_OUTPUT_INVALID, "txfee invalid %ld", tx.nTxFee);
+    }
     if (nValueIn < tx.nAmount + tx.nTxFee)
     {
         return DEBUG(ERR_TRANSACTION_INPUT_INVALID, "valuein is not enough (%ld : %ld)\n", nValueIn, tx.nAmount + tx.nTxFee);
@@ -431,6 +438,13 @@ Errno CCoreProtocol::VerifyTransaction(const CTransaction& tx, const vector<CTxO
     if (!MoneyRange(nValueIn))
     {
         return DEBUG(ERR_TRANSACTION_INPUT_INVALID, "valuein invalid %ld\n", nValueIn);
+    }
+    if (!MoneyRange(tx.nTxFee)
+        || (tx.nType != CTransaction::TX_TOKEN && tx.nTxFee != 0)
+        || (tx.nType == CTransaction::TX_TOKEN
+            && (tx.nTxFee < CalcMinTxFee(tx, destIn, MIN_TX_FEE))))
+    {
+        return DEBUG(ERR_TRANSACTION_OUTPUT_INVALID, "txfee invalid %ld", tx.nTxFee);
     }
     if (nValueIn < tx.nAmount + tx.nTxFee)
     {

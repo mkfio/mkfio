@@ -1649,6 +1649,7 @@ CRPCResultPtr CRPCMod::RPCSendFrom(CRPCParamPtr param)
         vchSendToData = ParseHexString(spParam->strSendtodata);
     }
 
+    CTransaction txTemp = txNew;
     if (!pService->SignTransaction(txNew, vchSendToData, fCompleted))
     {
         throw CRPCException(RPC_WALLET_ERROR, "Failed to sign transaction");
@@ -1656,6 +1657,39 @@ CRPCResultPtr CRPCMod::RPCSendFrom(CRPCParamPtr param)
     if (!fCompleted)
     {
         throw CRPCException(RPC_WALLET_ERROR, "The signature is not completed");
+    }
+
+    int64 nNewFee = CalcMinTxFee(txNew, from, MIN_TX_FEE);
+    StdTrace("[SendFrom]", "CalcMinTxFee : %lu, old fee: %lu", nNewFee, txNew.nTxFee);
+    if (nNewFee < MIN_TX_FEE)
+    {
+        nNewFee = MIN_TX_FEE;
+    }
+    else
+    {
+        nNewFee = ((nNewFee + MIN_TX_FEE / 2) / MIN_TX_FEE) * MIN_TX_FEE;
+    }
+    if (spParam->dTxfee.IsValid())
+    {
+        int64 nUserTxFee = AmountFromValue(spParam->dTxfee);
+        if (nUserTxFee > nNewFee)
+        {
+            nNewFee = nUserTxFee;
+        }
+    }
+    if (txNew.nTxFee != nNewFee)
+    {
+        StdTrace("[SendFrom]", "old fee : %lu ; new fee : %lu", txNew.nTxFee, nNewFee);
+        txNew = txTemp;
+        txNew.nTxFee = nNewFee;
+        if (!pService->SignTransaction(txNew, vchSendToData, fCompleted))
+        {
+            throw CRPCException(RPC_WALLET_ERROR, "Failed to sign transaction");
+        }
+        if (!fCompleted)
+        {
+            throw CRPCException(RPC_WALLET_ERROR, "The signature is not completed");
+        }
     }
 
     Errno err = pService->SendTransaction(txNew);

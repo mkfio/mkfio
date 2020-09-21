@@ -15,14 +15,23 @@
 
 #include "block.h"
 #include "proto.h"
+#include "template/template.h"
 #include "transaction.h"
 #include "uint256.h"
 
 namespace bigbang
 {
 
-inline int64 CalcMinTxFee(const CTransaction& tx, const uint32 MIN_TX_FEE)
+inline int64 CalcMinTxFee(const CTransaction& tx, const CDestination& destIn, const uint32 MIN_TX_FEE)
 {
+    if (!destIn.IsNull() && destIn.IsTemplate())
+    {
+        uint16 nType = destIn.GetTemplateId().GetType();
+        if (nType == TEMPLATE_DEXORDER || nType == TEMPLATE_DEXMATCH)
+        {
+            return TNS_DEX_MIN_TX_FEE;
+        }
+    }
     return (tx.vchSig.size() + tx.vchData.size()) * 100;
 }
 

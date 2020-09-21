@@ -185,9 +185,9 @@ addnewtemplate dexorder '{"seller_address":"1jv78wjv22hmzcwv07bkkphnkj51y0kjc7g9
 挂单模板地址：21402e7hszzt1jheq3tmhvw1h1npm4c5rqc4qhkep08aeqbm5czpaerj5
 ```
 
-2）生成跨链交易模板地址：
+2）生成撮合模板地址：
 ```
-跨链交易模板地址字段信息：
+撮合模板地址字段信息：
 "match_address": "15cx56x0gtv44bkt21yryg4m6nn81wtc7gkf6c9vwpvq1cgmm8jm7m5kd",
 "match_amount": 15,
 "fee": 0.002,
@@ -201,10 +201,10 @@ addnewtemplate dexorder '{"seller_address":"1jv78wjv22hmzcwv07bkkphnkj51y0kjc7g9
 "buyer_secret_hash":"dfa313257be0216a498d2eb6e5a1939eb6168d4a9e3356cc20fb957d030b1ac5",
 "buyer_valid_height":320
 
-添加跨链交易模板地址命令：
+添加撮合模板地址命令：
 addnewtemplate dexmatch '{"match_address": "15cx56x0gtv44bkt21yryg4m6nn81wtc7gkf6c9vwpvq1cgmm8jm7m5kd","match_amount": 15,"fee": 0.002,"seller_order_address": "21402e7hszzt1jheq3tmhvw1h1npm4c5rqc4qhkep08aeqbm5czpaerj5","seller_address": "1jv78wjv22hmzcwv07bkkphnkj51y0kjc7g9rwdm05erwmr2n8tvh8yjn","seller_deal_address": ["1f2b2n3asbm2rb99fk1c4wp069d0z91enxdz8kmqmq7f0w8tzw64hdevb"],"seller_valid_height": 300,"seller_sect_height": 10,"buyer_order_address":"214066gfxcx75vmnk63dennhx55pzac42qwbrkadd7bzxmw72s2177eb3","buyer_address": "1njqk8wmenyvqs4cz7d8b9pjc6tsdhxtzza050a2n02eqpfcr22ggqg47","buyer_secret_hash":"dfa313257be0216a498d2eb6e5a1939eb6168d4a9e3356cc20fb957d030b1ac5","buyer_valid_height":320}'
 
-跨链交易模板地址：21802xgxyqnajgdb481cvge2vax8c8f2jwp2sqwgjw8y878q64t2rswz9
+撮合模板地址：21802xgxyqnajgdb481cvge2vax8c8f2jwp2sqwgjw8y878q64t2rswz9
 ```
 
 ## 六、交易：
@@ -219,26 +219,26 @@ sendfrom 20g053vhn4ygv9m8pzhevnjvtgbbqhgs66qv31ez39v9xbxvk0ynqmeyf 21402e7hszzt1
 解锁撮合者地址：
 unlockkey 15cx56x0gtv44bkt21yryg4m6nn81wtc7gkf6c9vwpvq1cgmm8jm7m5kd 123
 转帐给撮合模板地址：
-sendfrom 21402e7hszzt1jheq3tmhvw1h1npm4c5rqc4qhkep08aeqbm5czpaerj5 21802xgxyqnajgdb481cvge2vax8c8f2jwp2sqwgjw8y878q64t2rswz9 15 0.06
+sendfrom 21402e7hszzt1jheq3tmhvw1h1npm4c5rqc4qhkep08aeqbm5czpaerj5 21802xgxyqnajgdb481cvge2vax8c8f2jwp2sqwgjw8y878q64t2rswz9 15
 注：交易费最小为0.06
 
 3）产生跨链交易：由跨链交易者产生交易，从撮合模板地址向买方地址转帐。
 解锁跨链交易者地址：
 unlockkey 1f2b2n3asbm2rb99fk1c4wp069d0z91enxdz8kmqmq7f0w8tzw64hdevb 123
 转帐给买方地址：
-sendfrom 21802xgxyqnajgdb481cvge2vax8c8f2jwp2sqwgjw8y878q64t2rswz9 1njqk8wmenyvqs4cz7d8b9pjc6tsdhxtzza050a2n02eqpfcr22ggqg47 14.8203 0.05 -sm=b6103658b60234ade25b7389a08514b6803dff9c636dff92ef0edaa0f37e2eef -ss=6836ba9b8f40f968888a7376f657f97c53cfa8db02872e0f1daf8376cb80b1e7
+sendfrom 21802xgxyqnajgdb481cvge2vax8c8f2jwp2sqwgjw8y878q64t2rswz9 1njqk8wmenyvqs4cz7d8b9pjc6tsdhxtzza050a2n02eqpfcr22ggqg47 14.88018 0.03 -sm=b6103658b60234ade25b7389a08514b6803dff9c636dff92ef0edaa0f37e2eef -ss=6836ba9b8f40f968888a7376f657f97c53cfa8db02872e0f1daf8376cb80b1e7
 转帐给撮合方地址：
-sendfrom 21802xgxyqnajgdb481cvge2vax8c8f2jwp2sqwgjw8y878q64t2rswz9 15cx56x0gtv44bkt21yryg4m6nn81wtc7gkf6c9vwpvq1cgmm8jm7m5kd 0.01485 0.05 -sm=b6103658b60234ade25b7389a08514b6803dff9c636dff92ef0edaa0f37e2eef -ss=6836ba9b8f40f968888a7376f657f97c53cfa8db02872e0f1daf8376cb80b1e7
+sendfrom 21802xgxyqnajgdb481cvge2vax8c8f2jwp2sqwgjw8y878q64t2rswz9 15cx56x0gtv44bkt21yryg4m6nn81wtc7gkf6c9vwpvq1cgmm8jm7m5kd 0.01491 0.03 -sm=b6103658b60234ade25b7389a08514b6803dff9c636dff92ef0edaa0f37e2eef -ss=6836ba9b8f40f968888a7376f657f97c53cfa8db02872e0f1daf8376cb80b1e7
 转帐给跨链交易方地址：
-sendfrom 21802xgxyqnajgdb481cvge2vax8c8f2jwp2sqwgjw8y878q64t2rswz9 1f2b2n3asbm2rb99fk1c4wp069d0z91enxdz8kmqmq7f0w8tzw64hdevb 0.01485 0.05 -sm=b6103658b60234ade25b7389a08514b6803dff9c636dff92ef0edaa0f37e2eef -ss=6836ba9b8f40f968888a7376f657f97c53cfa8db02872e0f1daf8376cb80b1e7
+sendfrom 21802xgxyqnajgdb481cvge2vax8c8f2jwp2sqwgjw8y878q64t2rswz9 1f2b2n3asbm2rb99fk1c4wp069d0z91enxdz8kmqmq7f0w8tzw64hdevb 0.01491 0.03 -sm=b6103658b60234ade25b7389a08514b6803dff9c636dff92ef0edaa0f37e2eef -ss=6836ba9b8f40f968888a7376f657f97c53cfa8db02872e0f1daf8376cb80b1e7
 
 转帐数量计算：
-a）转帐给买方地址的amount计算：(撮合数量-0.05*3)*(1-费率)
-b）转帐给撮合方地址的amount计算：(撮合数量-0.05*3)*(费率/2)
-c）转帐给跨链交易方地址的amount计算：撮合数量 - ((撮合数量-0.05*3)*(1-费率)+0.05) - ((撮合数量-0.05*3)*(费率/2)+0.05) - 0.05     （即：剩余数量-0.05）
+a）转帐给买方地址的amount计算：(撮合数量-0.03*3)*(1-费率)
+b）转帐给撮合方地址的amount计算：(撮合数量-0.03*3)*(费率/2)
+c）转帐给跨链交易方地址的amount计算：撮合数量 - ((撮合数量-0.03*3)*(1-费率)+0.03) - ((撮合数量-0.03*3)*(费率/2)+0.03) - 0.03     （即：剩余数量-0.03）
 注：需要严格按上面的公式计算，否则可能较验失败。
 
-交易费率（必须）：0.05
+交易费率（必须）：0.03
 交易顺序（必须）：转帐给买方地址、转帐给撮合方地址、转帐给跨链交易方地址
 ```
 
@@ -258,10 +258,10 @@ unlockkey 1vszb4dxexw3bry2d2hvd87e8f964r834pr6f1xywdcp7ekcqpsmv08h3 123
 sendfrom 1vszb4dxexw3bry2d2hvd87e8f964r834pr6f1xywdcp7ekcqpsmv08h3 21402e7hszzt1jheq3tmhvw1h1npm4c5rqc4qhkep08aeqbm5czpaerj5 100
 
 unlockkey 15cx56x0gtv44bkt21yryg4m6nn81wtc7gkf6c9vwpvq1cgmm8jm7m5kd 123
-sendfrom 21402e7hszzt1jheq3tmhvw1h1npm4c5rqc4qhkep08aeqbm5czpaerj5 21802xgxyqnajgdb481cvge2vax8c8f2jwp2sqwgjw8y878q64t2rswz9 15 0.06
+sendfrom 21402e7hszzt1jheq3tmhvw1h1npm4c5rqc4qhkep08aeqbm5czpaerj5 21802xgxyqnajgdb481cvge2vax8c8f2jwp2sqwgjw8y878q64t2rswz9 15
 
 unlockkey 1f2b2n3asbm2rb99fk1c4wp069d0z91enxdz8kmqmq7f0w8tzw64hdevb 123
-sendfrom 21802xgxyqnajgdb481cvge2vax8c8f2jwp2sqwgjw8y878q64t2rswz9 1njqk8wmenyvqs4cz7d8b9pjc6tsdhxtzza050a2n02eqpfcr22ggqg47 14.8203 0.05 -sm=b6103658b60234ade25b7389a08514b6803dff9c636dff92ef0edaa0f37e2eef -ss=6836ba9b8f40f968888a7376f657f97c53cfa8db02872e0f1daf8376cb80b1e7
-sendfrom 21802xgxyqnajgdb481cvge2vax8c8f2jwp2sqwgjw8y878q64t2rswz9 15cx56x0gtv44bkt21yryg4m6nn81wtc7gkf6c9vwpvq1cgmm8jm7m5kd 0.01485 0.05 -sm=b6103658b60234ade25b7389a08514b6803dff9c636dff92ef0edaa0f37e2eef -ss=6836ba9b8f40f968888a7376f657f97c53cfa8db02872e0f1daf8376cb80b1e7
-sendfrom 21802xgxyqnajgdb481cvge2vax8c8f2jwp2sqwgjw8y878q64t2rswz9 1f2b2n3asbm2rb99fk1c4wp069d0z91enxdz8kmqmq7f0w8tzw64hdevb 0.01485 0.05 -sm=b6103658b60234ade25b7389a08514b6803dff9c636dff92ef0edaa0f37e2eef -ss=6836ba9b8f40f968888a7376f657f97c53cfa8db02872e0f1daf8376cb80b1e7
+sendfrom 21802xgxyqnajgdb481cvge2vax8c8f2jwp2sqwgjw8y878q64t2rswz9 1njqk8wmenyvqs4cz7d8b9pjc6tsdhxtzza050a2n02eqpfcr22ggqg47 14.88018 0.03 -sm=b6103658b60234ade25b7389a08514b6803dff9c636dff92ef0edaa0f37e2eef -ss=6836ba9b8f40f968888a7376f657f97c53cfa8db02872e0f1daf8376cb80b1e7
+sendfrom 21802xgxyqnajgdb481cvge2vax8c8f2jwp2sqwgjw8y878q64t2rswz9 15cx56x0gtv44bkt21yryg4m6nn81wtc7gkf6c9vwpvq1cgmm8jm7m5kd 0.01491 0.03 -sm=b6103658b60234ade25b7389a08514b6803dff9c636dff92ef0edaa0f37e2eef -ss=6836ba9b8f40f968888a7376f657f97c53cfa8db02872e0f1daf8376cb80b1e7
+sendfrom 21802xgxyqnajgdb481cvge2vax8c8f2jwp2sqwgjw8y878q64t2rswz9 1f2b2n3asbm2rb99fk1c4wp069d0z91enxdz8kmqmq7f0w8tzw64hdevb 0.01491 0.03 -sm=b6103658b60234ade25b7389a08514b6803dff9c636dff92ef0edaa0f37e2eef -ss=6836ba9b8f40f968888a7376f657f97c53cfa8db02872e0f1daf8376cb80b1e7
 ```
