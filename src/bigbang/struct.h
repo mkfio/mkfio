@@ -32,6 +32,14 @@ inline int64 CalcMinTxFee(const CTransaction& tx, const CDestination& destIn, co
             return TNS_DEX_MIN_TX_FEE;
         }
     }
+    if (tx.sendTo.IsTemplate())
+    {
+        uint16 nType = tx.sendTo.GetTemplateId().GetType();
+        if (nType == TEMPLATE_DEXORDER || nType == TEMPLATE_DEXMATCH)
+        {
+            return TNS_DEX_MIN_TX_FEE;
+        }
+    }
     return (tx.vchSig.size() + tx.vchData.size()) * 100;
 }
 
