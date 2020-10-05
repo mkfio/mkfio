@@ -30,6 +30,11 @@ inline int64 GetTime()
     return int64((second_clock::universal_time() - epoch).total_seconds());
 }
 
+inline bool IsDoubleEqual(double a, double b)
+{
+    return std::abs(a - b) < std::abs(std::min(a, b)) * std::numeric_limits<double>::epsilon();
+}
+
 inline int64 GetLocalTimeSeconds()
 {
     using namespace boost::posix_time;
@@ -304,6 +309,22 @@ inline uint64 BSwap64(uint64 n)
 inline double ValueFromToken(uint64 amount)
 {
     return ((double)amount / (double)1000000);
+}
+
+#define DOUBLE_PRECISION 1000000
+
+inline int64 Int64FromDouble(const double dAmount)
+{
+    if (IsDoubleEqual(dAmount, -1.0))
+    {
+        return -1;
+    }
+    return (int64)(dAmount * DOUBLE_PRECISION + 0.5);
+}
+
+inline double DoubleFromInt64(int64 amount)
+{
+    return ((double)amount / (double)DOUBLE_PRECISION);
 }
 
 } // namespace xengine
