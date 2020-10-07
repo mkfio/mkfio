@@ -123,7 +123,7 @@
             "opt": "rpcport",
             "default": 0,
             "format": "-rpcport=port",
-            "desc": "Listen for JSON-RPC connections on <port> (default: 9902 or testnet: 9904))"
+            "desc": "Listen for JSON-RPC connections on <port> (default: 8802 or testnet: 8804))"
         },
         {
             "name": "fRPCListen",
