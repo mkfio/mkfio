@@ -179,7 +179,7 @@ public:
         typedef expr::channel_severity_filter_actor<std::string, severity_level> min_severity_filter;
         min_severity_filter min_severity = expr::channel_severity_filter(channel, severity);
         severity_level sl = debug_ ? debug : info;
-        min_severity["bigbang"] = warn;
+        min_severity["mkf"] = warn;
         min_severity["CDelegate"] = warn;
         min_severity["storage"] = warn;
         auto filter = min_severity || sl <= severity;

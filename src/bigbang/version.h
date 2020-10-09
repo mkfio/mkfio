@@ -10,7 +10,7 @@
 #include <sstream>
 #include <string>
 
-#define VERSION_NAME "Bigbang"
+#define VERSION_NAME "mkf"
 
 #define VERSION_MAJOR 1
 #define VERSION_MINOR 0
