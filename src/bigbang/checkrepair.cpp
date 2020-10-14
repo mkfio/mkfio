@@ -721,14 +721,14 @@ bool CCheckBlockFork::AddBlockTx(const CTransaction& txIn, const CTxContxt& cont
             return false;
         }
     }
-    if (!AddBlockUnspent(CTxOutPoint(txid, 0), CTxOut(txIn)))
+    if (!AddBlockUnspent(CTxOutPoint(txid, 0), CTxOut(txIn), txIn.nType, nHeight))
     {
         StdLog("check", "AddBlockTx: add block unspent 0 fail, txid: %s.", txid.GetHex().c_str());
         return false;
     }
     if (!txIn.IsMintTx())
     {
-        if (!AddBlockUnspent(CTxOutPoint(txid, 1), CTxOut(txIn, contxtIn.destIn, contxtIn.GetValueIn())))
+        if (!AddBlockUnspent(CTxOutPoint(txid, 1), CTxOut(txIn, contxtIn.destIn, contxtIn.GetValueIn()), txIn.nType, nHeight))
         {
             StdLog("check", "AddBlockTx: add block unspent 1 fail, txid: %s.", txid.GetHex().c_str());
             return false;
@@ -750,17 +750,28 @@ bool CCheckBlockFork::AddBlockSpent(const CTxOutPoint& txPoint, const uint256& t
         StdLog("check", "AddBlockSpent: utxo spented, utxo: [%d] %s.", txPoint.n, txPoint.hash.GetHex().c_str());
         return false;
     }
+    if (it->second.destTo.IsNull())
+    {
+        StdLog("check", "AddBlockSpent: destTo is NULL, utxo: [%d] %s.", txPoint.n, txPoint.hash.GetHex().c_str());
+        return false;
+    }
+    mapBlockAddressIndex[it->second.destTo].RemoveUnspent(txPoint);
     it->second.SetSpent(txidSpent, sendTo);
     return true;
 }
 
-bool CCheckBlockFork::AddBlockUnspent(const CTxOutPoint& txPoint, const CTxOut& txOut)
+bool CCheckBlockFork::AddBlockUnspent(const CTxOutPoint& txPoint, const CTxOut& txOut, int nTxType, int nHeight)
 {
     if (!txOut.IsNull())
     {
         if (!mapBlockUnspent.insert(make_pair(txPoint, CCheckTxOut(txOut))).second)
         {
-            StdLog("check", "AddBlockUnspent: Add block unspent fail, utxo: [%d] %s.", txPoint.n, txPoint.hash.GetHex().c_str());
+            StdLog("check", "Add Block Unspent: Add block unspent fail, utxo: [%d] %s.", txPoint.n, txPoint.hash.GetHex().c_str());
+            return false;
+        }
+        if (!mapBlockAddressIndex[txOut.destTo].AddUnspent(txPoint, CUnspentOut(txOut, nTxType, nHeight)))
+        {
+            StdLog("check", "Add Block Unspent: Add address unspent fail, utxo: [%d] %s.", txPoint.n, txPoint.hash.GetHex().c_str());
             return false;
         }
     }
@@ -777,6 +788,23 @@ bool CCheckBlockFork::CheckTxExist(const uint256& txid, int& nHeight)
     }
     nHeight = it->second.txIndex.nBlockHeight;
     return true;
+}
+
+void CCheckBlockFork::ClearNullAddressIndex()
+{
+    auto it = mapBlockAddressIndex.begin();
+    while (it != mapBlockAddressIndex.end())
+    {
+        it->second.ClearNull();
+        if (it->second.IsNull())
+        {
+            mapBlockAddressIndex.erase(it++);
+        }
+        else
+        {
+            ++it;
+        }
+    }
 }
 
 /////////////////////////////////////////////////////////////////////////
@@ -1228,6 +1256,14 @@ bool CCheckBlockWalker::CheckBlockIndex()
     return true;
 }
 
+void CCheckBlockWalker::ClearNullAddressIndex()
+{
+    for (auto& vd : mapCheckFork)
+    {
+        vd.second.ClearNullAddressIndex();
+    }
+}
+
 /////////////////////////////////////////////////////////////////////////
 // CCheckRepairData
 
@@ -1280,6 +1316,8 @@ bool CCheckRepairData::FetchBlockData()
             return false;
         }
         StdLog("check", "Update block tx success, main chain tx count: %ld.", objBlockWalker.nMainChainTxCount);
+
+        objBlockWalker.ClearNullAddressIndex();
     }
     return true;
 }
@@ -1365,6 +1403,37 @@ bool CCheckRepairData::FetchWalletTx()
     return true;
 }
 
+
+bool CCheckRepairData::FetchAddressIndex()
+{
+    CAddressIndexDB dbAddressIndex;
+    if (!dbAddressIndex.Initialize(path(strDataPath)))
+    {
+        StdError("check", "FetchAddressIndex: dbAddress Initialize fail");
+        return false;
+    }
+
+    map<uint256, CCheckBlockFork>::iterator it = objBlockWalker.mapCheckFork.begin();
+    for (; it != objBlockWalker.mapCheckFork.end(); ++it)
+    {
+        if (!dbAddressIndex.AddNewFork(it->first))
+        {
+            StdError("check", "FetchAddressIndex: dbAddress AddNewFork fail.");
+            dbAddressIndex.Deinitialize();
+            return false;
+        }
+        if (!dbAddressIndex.WalkThrough(it->first, mapForkAddressIndexWalker[it->first]))
+        {
+            StdError("check", "FetchAddressIndex: dbAddress WalkThrough fail.");
+            dbAddressIndex.Deinitialize();
+            return false;
+        }
+    }
+
+    dbAddressIndex.Deinitialize();
+    return true;
+}
+
 bool CCheckRepairData::CheckRepairFork()
 {
     vector<pair<uint256, uint256>> vForkUpdate;
@@ -1402,6 +1471,86 @@ bool CCheckRepairData::CheckBlockUnspent()
             fCheckResult = false;
         }
     }
+    return fCheckResult;
+}
+
+bool CCheckRepairData::CheckBlockAddressIndex()
+{
+    CAddressIndexDB dbAddressIndex;
+    if (!dbAddressIndex.Initialize(path(strDataPath)))
+    {
+        StdError("check", "CheckBlockAddressIndex: dbAddress Initialize fail");
+        return false;
+    }
+
+    bool fCheckResult = true;
+    map<uint256, CCheckBlockFork>::iterator mt = objBlockWalker.mapCheckFork.begin();
+    for (; mt != objBlockWalker.mapCheckFork.end(); ++mt)
+    {
+        const uint256& hashFork = mt->first;
+        vector<pair<CDestination, CAddrIndex>> vUpdateAddress;
+        vector<CDestination> vRemoveAddress;
+        CListAddressIndexWalker& addrWalker = mapForkAddressIndexWalker[hashFork];
+        {
+            auto it = addrWalker.mapAddressIndex.begin();
+            while (it != addrWalker.mapAddressIndex.end())
+            {
+                auto nt = mt->second.mapBlockAddressIndex.find(it->first);
+                if (nt == mt->second.mapBlockAddressIndex.end())
+                {
+                    vRemoveAddress.push_back(it->first);
+                    addrWalker.mapAddressIndex.erase(it++);
+                }
+                else
+                {
+                    if (nt->second != it->second)
+                    {
+                        vUpdateAddress.push_back(*it);
+                        it->second = nt->second;
+                    }
+                    ++it;
+                }
+            }
+        }
+        {
+            for (const auto& vd : mt->second.mapBlockAddressIndex)
+            {
+                auto nt = addrWalker.mapAddressIndex.find(vd.first);
+                if (nt == addrWalker.mapAddressIndex.end())
+                {
+                    vUpdateAddress.push_back(vd);
+                    addrWalker.mapAddressIndex[vd.first] = vd.second;
+                }
+            }
+        }
+        if (!vUpdateAddress.empty() || !vRemoveAddress.empty())
+        {
+            if (fOnlyCheck)
+            {
+                fCheckResult = false;
+                StdLog("check", "CheckBlockAddressIndex: Check fail, update: %lu, remove: %lu, fork: %s",
+                       vUpdateAddress.size(), vRemoveAddress.size(), hashFork.GetHex().c_str());
+            }
+            else
+            {
+                if (!dbAddressIndex.AddNewFork(hashFork))
+                {
+                    StdLog("check", "CheckBlockAddressIndex: dbAddressIndex AddNewFork fail.");
+                    dbAddressIndex.Deinitialize();
+                    return false;
+                }
+                if (!dbAddressIndex.RepairAddress(hashFork, vUpdateAddress, vRemoveAddress))
+                {
+                    StdError("check", "CheckBlockAddressIndex: RepairAddress fail, update: %lu, remove: %lu, fork: %s",
+                             vUpdateAddress.size(), vRemoveAddress.size(), hashFork.GetHex().c_str());
+                    dbAddressIndex.Deinitialize();
+                    return false;
+                }
+            }
+        }
+    }
+
+    dbAddressIndex.Deinitialize();
     return fCheckResult;
 }
 
@@ -1875,6 +2024,14 @@ bool CCheckRepairData::CheckRepairData()
     }
     StdLog("check", "Fetch unspent success");
 
+
+    if (!FetchAddressIndex())
+    {
+        StdLog("check", "Fetch address index fail");
+        return false;
+    }
+    StdLog("check", "Fetch address index success");
+
     if (!FetchTxPool())
     {
         StdLog("check", "Fetch txpool data fail");
@@ -1927,6 +2084,16 @@ bool CCheckRepairData::CheckRepairData()
     else
     {
         StdLog("check", "Check block unspent success");
+    }
+
+    StdLog("check", "Check block address index starting");
+    if (!CheckBlockAddressIndex())
+    {
+        StdLog("check", "Check block address index fail");
+    }
+    else
+    {
+        StdLog("check", "Check block address index success");
     }
 
     StdLog("check", "Check wallet tx starting");

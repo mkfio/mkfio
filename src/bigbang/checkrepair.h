@@ -6,6 +6,7 @@
 #define STORAGE_CHECKREPAIR_H
 
 #include "address.h"
+#include "addressindexdb.h"
 #include "block.h"
 #include "blockindexdb.h"
 #include "core.h"
@@ -373,14 +374,16 @@ public:
     void UpdateMaxTrust(CBlockIndex* pBlockIndex);
     bool AddBlockTx(const CTransaction& txIn, const CTxContxt& contxtIn, int nHeight, const uint256& hashAtForkIn, uint32 nFileNoIn, uint32 nOffsetIn);
     bool AddBlockSpent(const CTxOutPoint& txPoint, const uint256& txidSpent, const CDestination& sendTo);
-    bool AddBlockUnspent(const CTxOutPoint& txPoint, const CTxOut& txOut);
+    bool AddBlockUnspent(const CTxOutPoint& txPoint, const CTxOut& txOut, int nTxType, int nHeight);
     bool CheckTxExist(const uint256& txid, int& nHeight);
+    void ClearNullAddressIndex();
 
 public:
     CBlockIndex* pOrigin;
     CBlockIndex* pLast;
     map<uint256, CCheckBlockTx> mapBlockTx;
     map<CTxOutPoint, CCheckTxOut> mapBlockUnspent;
+    map<CDestination, CAddrIndex> mapBlockAddressIndex;
 };
 
 /////////////////////////////////////////////////////////////////////////
@@ -405,6 +408,7 @@ public:
     bool CheckTxExist(const uint256& hashFork, const uint256& txid, int& nHeight);
     bool GetBlockWalletTx(const set<CDestination>& setAddress, vector<CWalletTx>& vWalletTx);
     bool CheckBlockIndex();
+    void ClearNullAddressIndex();
 
 public:
     bool fOnlyCheck;
@@ -436,9 +440,11 @@ protected:
     bool FetchTxPool();
     bool FetchWalletAddress();
     bool FetchWalletTx();
+    bool FetchAddressIndex();
 
     bool CheckRepairFork();
     bool CheckBlockUnspent();
+    bool CheckBlockAddressIndex();
     bool CheckWalletTx(vector<CWalletTx>& vAddTx, vector<uint256>& vRemoveTx);
     bool CheckBlockIndex();
     bool CheckTxIndex();
@@ -459,6 +465,7 @@ protected:
     CCheckForkManager objForkManager;
     CCheckBlockWalker objBlockWalker;
     map<uint256, CCheckForkUnspentWalker> mapForkUnspentWalker;
+    map<uint256, CListAddressIndexWalker> mapForkAddressIndexWalker;
     CCheckDBAddrWalker objWalletAddressWalker;
     CCheckWalletTxWalker objWalletTxWalker;
     CCheckTxPoolData objTxPoolData;

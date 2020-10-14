@@ -52,11 +52,18 @@ bool CBlockDB::Initialize(const boost::filesystem::path& pathData)
         return false;
     }*/
 
+    if (!dbAddressIndex.Initialize(pathData))
+    {
+        return false;
+    }
+
     return LoadFork();
 }
 
 void CBlockDB::Deinitialize()
 {
+
+    dbAddressIndex.Deinitialize();
     //dbDelegate.Deinitialize();
     dbUnspent.Deinitialize();
     dbTxIndex.Deinitialize();
@@ -66,6 +73,8 @@ void CBlockDB::Deinitialize()
 
 bool CBlockDB::RemoveAll()
 {
+
+    dbAddressIndex.Clear();
     //dbDelegate.Clear();
     dbUnspent.Clear();
     dbTxIndex.Clear();
@@ -111,12 +120,23 @@ bool CBlockDB::AddNewFork(const uint256& hash)
         return false;
     }
 
+
+    if (!dbAddressIndex.AddNewFork(hash))
+    {
+        dbFork.RemoveFork(hash);
+        return false;
+    }
     return true;
 }
 
 bool CBlockDB::RemoveFork(const uint256& hash)
 {
     if (!dbUnspent.RemoveFork(hash))
+    {
+        return false;
+    }
+
+    if (!dbAddressIndex.RemoveFork(hash))
     {
         return false;
     }
@@ -132,7 +152,7 @@ bool CBlockDB::ListFork(vector<pair<uint256, uint256>>& vFork)
 
 bool CBlockDB::UpdateFork(const uint256& hash, const uint256& hashRefBlock, const uint256& hashForkBased,
                           const vector<pair<uint256, CTxIndex>>& vTxNew, const vector<uint256>& vTxDel,
-                          const vector<CTxUnspent>& vAddNew, const vector<CTxOutPoint>& vRemove)
+                          const vector<CTxUnspent>& vAddNew, const vector<CTxUnspent>& vRemove)
 {
     if (!dbUnspent.Exists(hash))
     {
@@ -158,13 +178,16 @@ bool CBlockDB::UpdateFork(const uint256& hash, const uint256& hashRefBlock, cons
     {
         return false;
     }
-    //dbTxIndex.Flush(hash);
 
     if (!dbUnspent.Update(hash, vAddNew, vRemove))
     {
         return false;
     }
-    //dbUnspent.Flush(hash);
+
+    if (!dbAddressIndex.Update(hash, vAddNew, vRemove))
+    {
+        return false;
+    }
 
     return true;
 }
@@ -227,6 +250,11 @@ bool CBlockDB::RetrieveEnroll(int height, const vector<uint256>& vBlockRange,
     return true; //dbDelegate.RetrieveEnrollTx(height, vBlockRange, mapEnrollTxPos);
 }
 
+bool CBlockDB::RetrieveAddressUnspent(const uint256& hashFork, const CDestination& dest, map<CTxOutPoint, CUnspentOut>& mapUnspent)
+{
+    return dbAddressIndex.RetrieveAddressUnspent(hashFork, dest, mapUnspent);
+}
+
 bool CBlockDB::LoadFork()
 {
     vector<pair<uint256, uint256>> vFork;
@@ -243,6 +271,11 @@ bool CBlockDB::LoadFork()
         }
 
         if (!dbUnspent.AddNewFork(vFork[i].first))
+        {
+            return false;
+        }
+
+        if (!dbAddressIndex.AddNewFork(vFork[i].first))
         {
             return false;
         }

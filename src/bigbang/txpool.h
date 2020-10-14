@@ -149,6 +149,72 @@ public:
         uint256 txidNextTx;
     };
 
+    class CSpentEx : public CUnspentOut
+    {
+    public:
+        CSpentEx()
+          : txidNextTx(uint64(0)) {}
+        CSpentEx(const CTxOut& output, int nTxType, int nHeightIn)
+          : CUnspentOut(output, nTxType, nHeightIn), txidNextTx(uint64(0)) {}
+        CSpentEx(const CUnspentOut& output)
+          : CUnspentOut(output), txidNextTx(uint64(0)) {}
+        CSpentEx(const uint256& txidNextTxIn)
+          : txidNextTx(txidNextTxIn) {}
+        void SetSpent(const uint256& txidNextTxIn)
+        {
+            *this = CSpentEx(txidNextTxIn);
+        }
+        void SetUnspent(const CUnspentOut& output)
+        {
+            *this = CSpentEx(output);
+        }
+        bool IsSpent() const
+        {
+            return (txidNextTx != 0);
+        };
+
+    public:
+        uint256 txidNextTx;
+    };
+
+    class CAddrUnspent
+    {
+    public:
+        std::map<CTxOutPoint, CSpentEx> mapTxUnspent;
+        int64 nUnspentValue;
+        int64 nSpentValue;
+
+    public:
+        CAddrUnspent()
+        {
+            nUnspentValue = 0;
+            nSpentValue = 0;
+        }
+        bool AddTxUnspent(const CTxOutPoint& out, const CUnspentOut& unspent)
+        {
+            if (mapTxUnspent.find(out) == mapTxUnspent.end())
+            {
+                mapTxUnspent[out].SetUnspent(unspent);
+                nUnspentValue += unspent.nAmount;
+                return true;
+            }
+            return false;
+        }
+        void SetTxSpent(const CTxOutPoint& out, const uint256& txidNext)
+        {
+            mapTxUnspent[out].SetSpent(txidNext);
+        }
+        void RemoveTxUnspent(const CTxOutPoint& out)
+        {
+            auto it = mapTxUnspent.find(out);
+            if (it != mapTxUnspent.end())
+            {
+                nUnspentValue -= it->second.nAmount;
+                mapTxUnspent.erase(it);
+            }
+        }
+    };
+
 public:
     std::size_t Count() const
     {
@@ -212,17 +278,28 @@ public:
         CPooledTx* pTx = Get(out.hash);
         if (pTx != nullptr)
         {
-            mapSpent[out].SetUnspent(pTx->GetOutput(out.n));
+            CTxOut unspent = pTx->GetOutput(out.n);
+            mapSpent[out].SetUnspent(unspent);
+            if (!unspent.destTo.IsNull())
+            {
+                mapAddressUnspent[unspent.destTo].AddTxUnspent(out, CUnspentOut(unspent, pTx->nType, -1));
+            }
         }
         else
         {
-            mapSpent.erase(out);
+            RemoveSpent(out);
         }
     }
     void SetSpent(const CTxOutPoint& out, const uint256& txidNextTxIn)
     {
+        auto it = mapSpent.find(out);
+        if (it != mapSpent.end() && !it->second.destTo.IsNull())
+        {
+            mapAddressUnspent[it->second.destTo].SetTxSpent(out, txidNextTxIn);
+        }
         mapSpent[out].SetSpent(txidNextTxIn);
     }
+    void RemoveSpent(const CTxOutPoint& out);
     bool AddTxIndex(const uint256& txid, CPooledTx& tx);
     bool AddNew(const uint256& txid, CPooledTx& tx);
     void Remove(const uint256& txid)
@@ -274,14 +351,18 @@ public:
     }
     void InvalidateSpent(const CTxOutPoint& out, CTxPoolView& viewInvolvedTx);
     void ArrangeBlockTx(std::vector<CTransaction>& vtx, int64& nTotalTxFee, int64 nBlockTime, std::size_t nMaxSize);
+    bool GetAddressUnspent(const CDestination& dest, std::map<CTxOutPoint, CUnspentOut>& mapUnspent);
 
 private:
     void GetAllPrevTxLink(const CPooledTxLink& link, std::vector<CPooledTxLink>& prevLinks, CPooledCertTxLinkSet& setCertTxLink);
     bool AddArrangeBlockTx(std::vector<CTransaction>& vtx, int64& nTotalTxFee, int64 nBlockTime, std::size_t nMaxSize, std::size_t& nTotalSize, std::set<uint256>& setUnTx, CPooledTx* ptx);
 
+    bool AddAddressUnspent(const uint256& txid, const CPooledTx& tx);
+
 public:
     CPooledTxLinkSet setTxLinkIndex;
     std::map<CTxOutPoint, CSpent> mapSpent;
+    std::map<CDestination, CAddrUnspent> mapAddressUnspent;
     uint256 hashLastBlock;
     int64 nLastBlockTime;
 };
@@ -398,6 +479,7 @@ public:
     bool FetchInputs(const uint256& hashFork, const CTransaction& tx, std::vector<CTxOut>& vUnspent) override;
     bool SynchronizeBlockChain(const CBlockChainUpdate& update, CTxSetChange& change) override;
     void AddDestDelegate(const CDestination& destDeleage) override;
+    bool FetchAddressUnspent(const uint256& hashFork, const CDestination& dest, std::map<CTxOutPoint, CUnspentOut>& mapUnspent) override;
 
 protected:
     bool HandleInitialize() override;

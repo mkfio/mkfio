@@ -230,9 +230,13 @@ CRPCMod::CRPCMod()
         //
         ("getbalance", &CRPCMod::RPCGetBalance)
         //
+        ("getbalanceex", &CRPCMod::RPCGetBalanceEx)
+        //
         ("listtransaction", &CRPCMod::RPCListTransaction)
         //
         ("sendfrom", &CRPCMod::RPCSendFrom)
+        //
+        ("sendfromex", &CRPCMod::RPCSendFromEx)
         //
         ("createtransaction", &CRPCMod::RPCCreateTransaction)
         //
@@ -269,6 +273,8 @@ CRPCMod::CRPCMod()
         ("aesdecrypt", &CRPCMod::RPCAesDecrypt)
         //
         ("listunspent", &CRPCMod::RPCListUnspent)
+        //
+        ("listunspentex", &CRPCMod::RPCListUnspentEx)
         /* Mint */
         ("getwork", &CRPCMod::RPCGetWork)
         //
@@ -1483,9 +1489,58 @@ CRPCResultPtr CRPCMod::RPCGetBalance(CRPCParamPtr param)
     for (const CDestination& dest : vDest)
     {
         CWalletBalance balance;
-        if (pService->GetBalance(dest, hashFork, balance))
+        if (pService->GetBalanceEx(dest, hashFork, balance))
         {
             CGetBalanceResult::CBalance b;
+            b.strAddress = CAddress(dest).ToString();
+            b.dAvail = ValueFromAmount(balance.nAvailable);
+            b.dLocked = ValueFromAmount(balance.nLocked);
+            b.dUnconfirmed = ValueFromAmount(balance.nUnconfirmed);
+            spResult->vecBalance.push_back(b);
+        }
+    }
+
+    return spResult;
+}
+
+CRPCResultPtr CRPCMod::RPCGetBalanceEx(CRPCParamPtr param)
+{
+    auto spParam = CastParamPtr<CGetBalanceExParam>(param);
+
+    //getbalanceex (-f="fork") (-a="address")
+    uint256 hashFork;
+    if (!GetForkHashOfDef(spParam->strFork, hashFork))
+    {
+        throw CRPCException(RPC_INVALID_PARAMETER, "Invalid fork");
+    }
+
+    if (!pService->HaveFork(hashFork))
+    {
+        throw CRPCException(RPC_INVALID_PARAMETER, "Unknown fork");
+    }
+
+    vector<CDestination> vDest;
+    if (spParam->strAddress.IsValid())
+    {
+        CAddress address(spParam->strAddress);
+        if (address.IsNull())
+        {
+            throw CRPCException(RPC_INVALID_PARAMETER, "Invalid address");
+        }
+        vDest.push_back(static_cast<CDestination&>(address));
+    }
+    else
+    {
+        ListDestination(vDest);
+    }
+
+    auto spResult = MakeCGetBalanceExResultPtr();
+    for (const CDestination& dest : vDest)
+    {
+        CWalletBalance balance;
+        if (pService->GetBalance(dest, hashFork, balance))
+        {
+            CGetBalanceExResult::CBalance b;
             b.strAddress = CAddress(dest).ToString();
             b.dAvail = ValueFromAmount(balance.nAvailable);
             b.dLocked = ValueFromAmount(balance.nLocked);
@@ -1541,6 +1596,178 @@ CRPCResultPtr CRPCMod::RPCSendFrom(CRPCParamPtr param)
 {
     //sendfrom <"from"> <"to"> <$amount$> ($txfee$) (-f="fork") (-d="data")
     auto spParam = CastParamPtr<CSendFromParam>(param);
+    CAddress from(spParam->strFrom);
+    if (from.IsNull())
+    {
+        throw CRPCException(RPC_INVALID_PARAMETER, "Invalid from address");
+    }
+
+    CAddress to(spParam->strTo);
+    if (to.IsNull())
+    {
+        throw CRPCException(RPC_INVALID_PARAMETER, "Invalid to address");
+    }
+
+    int64 nAmount = AmountFromValue(spParam->dAmount);
+
+    uint256 hashFork;
+    if (!GetForkHashOfDef(spParam->strFork, hashFork))
+    {
+        throw CRPCException(RPC_INVALID_PARAMETER, "Invalid fork");
+    }
+    if (!pService->HaveFork(hashFork))
+    {
+        throw CRPCException(RPC_INVALID_PARAMETER, "Unknown fork");
+    }
+
+    vector<unsigned char> vchData;
+    if (spParam->strData.IsValid())
+    {
+        auto strDataTmp = spParam->strData;
+        vchData = ParseHexString(strDataTmp);
+    }
+    CTransaction txNew;
+    int64 nTxFee = MIN_TX_FEE * 3; // CalcMinTxFee(txNew, MIN_TX_FEE);
+    if (spParam->dTxfee.IsValid())
+    {
+        nTxFee = AmountFromValue(spParam->dTxfee);
+    }
+
+    if (from.IsTemplate() && from.GetTemplateId().GetType() == TEMPLATE_PAYMENT)
+    {
+        nAmount -= nTxFee;
+    }
+
+    auto strErr = pService->CreateTransactionEx(hashFork, from, to, nAmount, nTxFee, vchData, txNew);
+    if (strErr)
+    {
+        throw CRPCException(RPC_WALLET_ERROR, std::string("Failed to create transaction: ") + *strErr);
+    }
+
+    bool fCompleted = false;
+    if (spParam->strSign_M.IsValid() && spParam->strSign_S.IsValid())
+    {
+        if (from.IsNull() || from.IsPubKey())
+        {
+            throw CRPCException(RPC_INVALID_PARAMETER, "Invalid from address,must be a template address");
+        }
+        else if (from.IsTemplate())
+        {
+            CTemplateId tid = from.GetTemplateId();
+            uint16 nType = tid.GetType();
+            if (nType != TEMPLATE_EXCHANGE && nType != TEMPLATE_DEXMATCH)
+            {
+                throw CRPCException(RPC_INVALID_PARAMETER, "Invalid from address,must be a template address");
+            }
+            if (spParam->strSign_M == "" || spParam->strSign_S == "")
+            {
+                throw CRPCException(RPC_INVALID_PARAMETER, "Both SS and SM parameter cannot be null");
+            }
+            vector<unsigned char> vsm = ParseHexString(spParam->strSign_M);
+            vector<unsigned char> vss = ParseHexString(spParam->strSign_S);
+            if (nType == TEMPLATE_EXCHANGE)
+            {
+                txNew.vchSig.clear();
+                CODataStream ds(txNew.vchSig);
+                ds << vsm << vss << hashFork << pService->GetForkHeight(hashFork);
+            }
+            else
+            {
+                txNew.vchData.clear();
+                CODataStream ds(txNew.vchData);
+                vector<unsigned char> vDataHead;
+                vDataHead.resize(21);
+                ds << vDataHead << vsm << vss;
+            }
+        }
+        else
+        {
+            throw CRPCException(RPC_INVALID_PARAMETER, "Invalid from address");
+        }
+    }
+
+    if (from.IsTemplate() && from.GetTemplateId().GetType() == TEMPLATE_PAYMENT)
+    {
+        txNew.vchSig.clear();
+        CODataStream ds(txNew.vchSig);
+        ds << pService->GetForkHeight(hashFork) << (txNew.nTxFee + txNew.nAmount);
+    }
+
+    vector<uint8> vchFromData;
+    if (from.IsTemplate() && spParam->strFromdata.IsValid())
+    {
+        vchFromData = ParseHexString(spParam->strFromdata);
+    }
+
+    vector<uint8> vchSendToData;
+    if (to.IsTemplate() && spParam->strSendtodata.IsValid())
+    {
+        vchSendToData = ParseHexString(spParam->strSendtodata);
+    }
+
+    CTransaction txTemp = txNew;
+    if (!pService->SignTransaction(txNew, vchFromData, vchSendToData, fCompleted))
+    {
+        throw CRPCException(RPC_WALLET_ERROR, "Failed to sign transaction");
+    }
+    if (!fCompleted)
+    {
+        throw CRPCException(RPC_WALLET_ERROR, "The signature is not completed");
+    }
+
+    int64 nNewFee = CalcMinTxFee(txNew, from, MIN_TX_FEE);
+    StdTrace("[SendFrom]", "CalcMinTxFee : %lu, old fee: %lu", nNewFee, txNew.nTxFee);
+    if (nNewFee < MIN_TX_FEE)
+    {
+        nNewFee = MIN_TX_FEE;
+    }
+    else
+    {
+        nNewFee = ((nNewFee + MIN_TX_FEE / 2) / MIN_TX_FEE) * MIN_TX_FEE;
+    }
+    if (spParam->dTxfee.IsValid())
+    {
+        int64 nUserTxFee = AmountFromValue(spParam->dTxfee);
+        if (nUserTxFee > nNewFee)
+        {
+            nNewFee = nUserTxFee;
+        }
+    }
+    if (txNew.nTxFee != nNewFee)
+    {
+        StdTrace("[SendFrom]", "old fee : %lu ; new fee : %lu", txNew.nTxFee, nNewFee);
+        txNew = txTemp;
+        txNew.nTxFee = nNewFee;
+        if (!pService->SignTransaction(txNew, vchFromData, vchSendToData, fCompleted))
+        {
+            throw CRPCException(RPC_WALLET_ERROR, "Failed to sign transaction");
+        }
+        if (!fCompleted)
+        {
+            throw CRPCException(RPC_WALLET_ERROR, "The signature is not completed");
+        }
+    }
+
+    Errno err = pService->SendTransaction(txNew);
+    if (err != OK)
+    {
+        throw CRPCException(RPC_TRANSACTION_REJECTED, string("Tx rejected : ")
+                                                          + ErrorString(err));
+    }
+    std::stringstream ss;
+    for (auto& obj : txNew.vInput)
+    {
+        ss << (int)obj.prevout.n << ":" << obj.prevout.hash.GetHex().c_str() << ";";
+    }
+
+    StdDebug("[SendFrom][DEBUG]", "txNew hash:%s; input:%s", txNew.GetHash().GetHex().c_str(), ss.str().c_str());
+    return MakeCSendFromResultPtr(txNew.GetHash().GetHex());
+}
+
+CRPCResultPtr CRPCMod::RPCSendFromEx(CRPCParamPtr param)
+{
+    //sendfromex <"from"> <"to"> <$amount$> ($txfee$) (-f="fork") (-d="data")
+    auto spParam = CastParamPtr<CSendFromExParam>(param);
     CAddress from(spParam->strFrom);
     if (from.IsNull())
     {
@@ -1645,7 +1872,7 @@ CRPCResultPtr CRPCMod::RPCSendFrom(CRPCParamPtr param)
     }
 
     CTransaction txTemp = txNew;
-    if (!pService->SignTransaction(txNew, vchSendToData, fCompleted))
+    if (!pService->SignTransaction(txNew, vector<uint8>(), vchSendToData, fCompleted))
     {
         throw CRPCException(RPC_WALLET_ERROR, "Failed to sign transaction");
     }
@@ -1655,7 +1882,7 @@ CRPCResultPtr CRPCMod::RPCSendFrom(CRPCParamPtr param)
     }
 
     int64 nNewFee = CalcMinTxFee(txNew, from, MIN_TX_FEE);
-    StdTrace("[SendFrom]", "CalcMinTxFee : %lu, old fee: %lu", nNewFee, txNew.nTxFee);
+    StdTrace("[SendFromEx]", "CalcMinTxFee : %lu, old fee: %lu", nNewFee, txNew.nTxFee);
     if (nNewFee < MIN_TX_FEE)
     {
         nNewFee = MIN_TX_FEE;
@@ -1674,10 +1901,10 @@ CRPCResultPtr CRPCMod::RPCSendFrom(CRPCParamPtr param)
     }
     if (txNew.nTxFee != nNewFee)
     {
-        StdTrace("[SendFrom]", "old fee : %lu ; new fee : %lu", txNew.nTxFee, nNewFee);
+        StdTrace("[SendFromEx]", "old fee : %lu ; new fee : %lu", txNew.nTxFee, nNewFee);
         txNew = txTemp;
         txNew.nTxFee = nNewFee;
-        if (!pService->SignTransaction(txNew, vchSendToData, fCompleted))
+        if (!pService->SignTransaction(txNew, vector<uint8>(), vchSendToData, fCompleted))
         {
             throw CRPCException(RPC_WALLET_ERROR, "Failed to sign transaction");
         }
@@ -1699,8 +1926,8 @@ CRPCResultPtr CRPCMod::RPCSendFrom(CRPCParamPtr param)
         ss << (int)obj.prevout.n << ":" << obj.prevout.hash.GetHex().c_str() << ";";
     }
 
-    StdDebug("[SendFrom][DEBUG]", "txNew hash:%s; input:%s", txNew.GetHash().GetHex().c_str(), ss.str().c_str());
-    return MakeCSendFromResultPtr(txNew.GetHash().GetHex());
+    StdDebug("[SendFromEx][DEBUG]", "txNew hash:%s; input:%s", txNew.GetHash().GetHex().c_str(), ss.str().c_str());
+    return MakeCSendFromExResultPtr(txNew.GetHash().GetHex());
 }
 
 CRPCResultPtr CRPCMod::RPCCreateTransaction(CRPCParamPtr param)
@@ -1790,7 +2017,7 @@ CRPCResultPtr CRPCMod::RPCSignTransaction(CRPCParamPtr param)
     }
 
     bool fCompleted = false;
-    if (!pService->SignTransaction(rawTx, vchSendToData, fCompleted))
+    if (!pService->SignTransaction(rawTx, vector<uint8>(), vchSendToData, fCompleted))
     {
         throw CRPCException(RPC_WALLET_ERROR, "Failed to sign transaction");
     }
@@ -2506,6 +2733,125 @@ CRPCResultPtr CRPCMod::RPCListUnspent(CRPCParamPtr param)
         mapDest.emplace(std::make_pair(static_cast<CDestination>(i), std::vector<CTxUnspent>()));
     }
 
+    int64 nAmount = 0;
+    if (!IsDoubleNonPositiveNumber(spParam->dAmount))
+    {
+        nAmount = AmountFromValue(spParam->dAmount);
+    }
+    for (int i = 0; i < vAddr.size(); i++)
+    {
+        Errno err = pService->ListForkAddressUnspent(fork, static_cast<CDestination&>(vAddr[i]), spParam->nMax,
+                                                     nAmount, mapDest[static_cast<CDestination>(vAddr[i])]);
+        if (err != OK)
+        {
+            if (err == ERR_WALLET_INSUFFICIENT_FUNDS)
+            {
+                throw CRPCException(RPC_WALLET_INSUFFICIENT_FUNDS, "Not enough funds in wallet or account.");
+            }
+            else
+            {
+                throw CRPCException(RPC_INVALID_ADDRESS_OR_KEY, "Acquiring unspent list failed.");
+            }
+        }
+    }
+
+    auto spResult = MakeCListUnspentResultPtr();
+    double dTotal = 0.0f;
+    for (auto& iAddr : mapDest)
+    {
+        CAddress dest(iAddr.first);
+
+        typename CListUnspentResult::CAddresses a;
+        a.strAddress = dest.ToString();
+
+        double dSum = 0.0f;
+        for (const auto& unspent : iAddr.second)
+        {
+            CUnspentData data = UnspentToJSON(unspent);
+            a.vecUnspents.push_back(data);
+            dSum += data.dAmount;
+        }
+
+        a.dSum = dSum;
+
+        spResult->vecAddresses.push_back(a);
+
+        dTotal += dSum;
+    }
+
+    spResult->dTotal = dTotal;
+
+    return spResult;
+}
+
+CRPCResultPtr CRPCMod::RPCListUnspentEx(CRPCParamPtr param)
+{
+    auto lmdImport = [](const string& pathFile, vector<CAddress>& addresses) -> bool {
+        ifstream inFile(pathFile);
+
+        if (!inFile)
+        {
+            return false;
+        }
+
+        // iterate addresses from input file
+        const uint32 MAX_LISTUNSPENT_INPUT = 10000;
+        uint32 nCount = 1;
+        string strAddr;
+        while (getline(inFile, strAddr) && nCount <= MAX_LISTUNSPENT_INPUT)
+        {
+            boost::trim(strAddr);
+            if (strAddr.size() != CAddress::ADDRESS_LEN)
+            {
+                continue;
+            }
+
+            CAddress addr(strAddr);
+            if (!addr.IsNull())
+            {
+                addresses.emplace_back(addr);
+                ++nCount;
+            }
+        }
+
+        auto last = unique(addresses.begin(), addresses.end());
+        addresses.erase(last, addresses.end());
+
+        return true;
+    };
+
+    auto spParam = CastParamPtr<CListUnspentExParam>(param);
+
+    uint256 fork;
+    if (!GetForkHashOfDef(spParam->strFork, fork))
+    {
+        throw CRPCException(RPC_INVALID_PARAMETER, "Invalid fork");
+    }
+
+    vector<CAddress> vAddr;
+
+    CAddress addr(spParam->strAddress);
+    if (!addr.IsNull())
+    {
+        vAddr.emplace_back(addr);
+    }
+
+    if (spParam->strFile.IsValid() && !lmdImport(spParam->strFile, vAddr))
+    {
+        throw CRPCException(RPC_INVALID_PARAMETER, "Invalid import file");
+    }
+
+    if (vAddr.empty())
+    {
+        throw CRPCException(RPC_INVALID_ADDRESS_OR_KEY, "Available address as argument should be provided.");
+    }
+
+    std::map<CDestination, std::vector<CTxUnspent>> mapDest;
+    for (const auto& i : vAddr)
+    {
+        mapDest.emplace(std::make_pair(static_cast<CDestination>(i), std::vector<CTxUnspent>()));
+    }
+
     if (vAddr.size() > 1)
     {
         if (!pService->ListForkUnspentBatch(fork, spParam->nMax, mapDest))
@@ -2522,13 +2868,13 @@ CRPCResultPtr CRPCMod::RPCListUnspent(CRPCParamPtr param)
         }
     }
 
-    auto spResult = MakeCListUnspentResultPtr();
+    auto spResult = MakeCListUnspentExResultPtr();
     double dTotal = 0.0f;
     for (auto& iAddr : mapDest)
     {
         CAddress dest(iAddr.first);
 
-        typename CListUnspentResult::CAddresses a;
+        typename CListUnspentExResult::CAddresses a;
         a.strAddress = dest.ToString();
 
         double dSum = 0.0f;

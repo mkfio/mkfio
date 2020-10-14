@@ -5,6 +5,8 @@
 #ifndef STORAGE_BLOCKDB_H
 #define STORAGE_BLOCKDB_H
 
+
+#include "addressindexdb.h"
 #include "block.h"
 #include "blockindexdb.h"
 #include "delegatedb.h"
@@ -35,7 +37,7 @@ public:
     bool ListFork(std::vector<std::pair<uint256, uint256>>& vFork);
     bool UpdateFork(const uint256& hash, const uint256& hashRefBlock, const uint256& hashForkBased,
                     const std::vector<std::pair<uint256, CTxIndex>>& vTxNew, const std::vector<uint256>& vTxDel,
-                    const std::vector<CTxUnspent>& vAddNew, const std::vector<CTxOutPoint>& vRemove);
+                    const std::vector<CTxUnspent>& vAddNew, const std::vector<CTxUnspent>& vRemove);
     bool AddNewBlock(const CBlockOutline& outline);
     bool RemoveBlock(const uint256& hash);
     bool UpdateDelegateContext(const uint256& hash, const CDelegateContext& ctxtDelegate);
@@ -48,6 +50,7 @@ public:
     bool RetrieveEnroll(const uint256& hash, std::map<int, std::map<CDestination, CDiskPos>>& mapEnrollTxPos);
     bool RetrieveEnroll(int height, const std::vector<uint256>& vBlockRange,
                         std::map<CDestination, CDiskPos>& mapEnrollTxPos);
+    bool RetrieveAddressUnspent(const uint256& hashFork, const CDestination& dest, std::map<CTxOutPoint, CUnspentOut>& mapUnspent);
 
 protected:
     bool LoadFork();
@@ -58,6 +61,7 @@ protected:
     CTxIndexDB dbTxIndex;
     CUnspentDB dbUnspent;
     //CDelegateDB dbDelegate;
+    CAddressIndexDB dbAddressIndex;
 };
 
 } // namespace storage
