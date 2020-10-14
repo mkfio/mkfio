@@ -12,7 +12,7 @@ VOLUME ["${HOME}"]
 COPY entrypoint.sh /sbin/
 RUN chmod 755 /sbin/entrypoint.sh
 COPY build/bigbang* /usr/bin/
-COPY bigbang.conf /bigbang.conf
+COPY mkf.conf /mkf.conf
 EXPOSE 8801 8802 8805
 ENTRYPOINT ["/sbin/entrypoint.sh"]
-CMD ["bigbang"]
+CMD ["mkf"]
