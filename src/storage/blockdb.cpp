@@ -120,7 +120,6 @@ bool CBlockDB::AddNewFork(const uint256& hash)
         return false;
     }
 
-
     if (!dbAddressIndex.AddNewFork(hash))
     {
         dbFork.RemoveFork(hash);
@@ -163,6 +162,10 @@ bool CBlockDB::UpdateFork(const uint256& hash, const uint256& hashRefBlock, cons
     if (hashForkBased != hash && hashForkBased != 0)
     {
         if (!dbUnspent.Copy(hashForkBased, hash))
+        {
+            return false;
+        }
+        if (!dbAddressIndex.Copy(hashForkBased, hash))
         {
             return false;
         }
