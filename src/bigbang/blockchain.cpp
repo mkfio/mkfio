@@ -62,7 +62,7 @@ bool CBlockChain::HandleInvoke()
         return false;
     }
 
-    if (!CheckContainer())
+    /*if (!CheckContainer())
     {
         cntrBlock.Clear();
         Log("Block container is invalid,try rebuild from block storage");
@@ -72,7 +72,7 @@ bool CBlockChain::HandleInvoke()
             cntrBlock.Clear();
             Error("Failed to rebuild Block container,reconstruct all");
         }
-    }
+    }*/
 
     if (cntrBlock.IsEmpty())
     {
