@@ -5,8 +5,7 @@
 #ifndef STORAGE_BLOCKDB_H
 #define STORAGE_BLOCKDB_H
 
-
-#include "addressindexdb.h"
+#include "addressunspentdb.h"
 #include "block.h"
 #include "blockindexdb.h"
 #include "delegatedb.h"
@@ -37,7 +36,7 @@ public:
     bool ListFork(std::vector<std::pair<uint256, uint256>>& vFork);
     bool UpdateFork(const uint256& hash, const uint256& hashRefBlock, const uint256& hashForkBased,
                     const std::vector<std::pair<uint256, CTxIndex>>& vTxNew, const std::vector<uint256>& vTxDel,
-                    const std::vector<CTxUnspent>& vAddNew, const std::vector<CTxUnspent>& vRemove);
+                    const std::vector<CTxUnspent>& vAddNewUnspent, const std::vector<CTxUnspent>& vRemoveUnspent);
     bool AddNewBlock(const CBlockOutline& outline);
     bool RemoveBlock(const uint256& hash);
     bool UpdateDelegateContext(const uint256& hash, const CDelegateContext& ctxtDelegate);
@@ -61,7 +60,7 @@ protected:
     CTxIndexDB dbTxIndex;
     CUnspentDB dbUnspent;
     //CDelegateDB dbDelegate;
-    CAddressIndexDB dbAddressIndex;
+    CAddressUnspentDB dbAddressUnspent;
 };
 
 } // namespace storage

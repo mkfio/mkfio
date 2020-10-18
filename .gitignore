@@ -17,8 +17,8 @@ bin/
 cmake-build-debug/
 cmake-build-release/
 
-bigbang.exe
-bigbang-*
+mkf.exe
+mkf-*
 CMakeSettings.json
 
 G*

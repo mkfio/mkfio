@@ -91,7 +91,7 @@ bool CBlockChain::HandleInvoke()
         CBlock block;
         if (!FindPreviousCheckPointBlock(block))
         {
-            StdError("BlockChain", "Find CheckPoint Error when the node starting, you should purge data(bigbang -purge) to resync blockchain");
+            StdError("BlockChain", "Find CheckPoint Error when the node starting, you should purge data(mkf -purge) to resync blockchain");
             return false;
         }
     }
@@ -885,7 +885,6 @@ bool CBlockChain::FindPreviousCheckPointBlock(CBlock& block)
 
     return true;
 }
-
 
 bool CBlockChain::GetAddressUnspent(const uint256& hashFork, const CDestination& dest, map<CTxOutPoint, CUnspentOut>& mapUnspent)
 {

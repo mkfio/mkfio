@@ -904,7 +904,6 @@ bool CTxPool::SynchronizeBlockChain(const CBlockChainUpdate& update, CTxSetChang
         for (int i = 0; i < block.vtx.size(); ++i)
         {
             const CTransaction& tx = block.vtx[i];
-            const CTxContxt& txContxt = block.vTxContxt[i];
             uint256 txid = tx.GetHash();
             if (!update.setTxUpdate.count(txid))
             {
@@ -915,9 +914,9 @@ bool CTxPool::SynchronizeBlockChain(const CBlockChainUpdate& update, CTxSetChang
                 if (AddNew(txView, txid, tx, update.hashFork, update.nLastBlockHeight) == OK)
                 {
                     if (spent0 != 0)
-                        txView.SetSpent(CTxOutPoint(txid, 0), txContxt.destIn, spent0);
+                        txView.SetSpent(CTxOutPoint(txid, 0), tx.sendTo, spent0);
                     if (spent1 != 0)
-                        txView.SetSpent(CTxOutPoint(txid, 1), txContxt.destIn, spent1);
+                        txView.SetSpent(CTxOutPoint(txid, 1), block.vTxContxt[i].destIn, spent1);
 
                     change.mapTxUpdate.insert(make_pair(txid, -1));
                 }
@@ -981,7 +980,7 @@ bool CTxPool::FetchAddressUnspent(const uint256& hashFork, const CDestination& d
     if (!pBlockChain->GetAddressUnspent(hashFork, dest, mapUnspent))
     {
         StdError("CTxPool", "Fetch address unspent: Get address unspent fail");
-        //return false;
+        return false;
     }
     return mapPoolView[hashFork].GetAddressUnspent(dest, mapUnspent);
 }
