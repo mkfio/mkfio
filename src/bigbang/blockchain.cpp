@@ -62,7 +62,7 @@ bool CBlockChain::HandleInvoke()
         return false;
     }
 
-    if (!CheckContainer())
+    /*if (!CheckContainer())
     {
         cntrBlock.Clear();
         Log("Block container is invalid,try rebuild from block storage");
@@ -72,7 +72,7 @@ bool CBlockChain::HandleInvoke()
             cntrBlock.Clear();
             Error("Failed to rebuild Block container,reconstruct all");
         }
-    }
+    }*/
 
     if (cntrBlock.IsEmpty())
     {
@@ -91,7 +91,7 @@ bool CBlockChain::HandleInvoke()
         CBlock block;
         if (!FindPreviousCheckPointBlock(block))
         {
-            StdError("BlockChain", "Find CheckPoint Error when the node starting, you should purge data(bigbang -purge) to resync blockchain");
+            StdError("BlockChain", "Find CheckPoint Error when the node starting, you should purge data(mkf -purge) to resync blockchain");
             return false;
         }
     }

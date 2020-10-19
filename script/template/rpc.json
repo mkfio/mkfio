@@ -246,6 +246,10 @@
                     "deal_address": {
                         "type": "string",
                         "desc": "deal address"
+                    },
+                    "timestamp": {
+                        "type": "uint",
+                        "desc": "timestamp"
                     }
                 }
             },
@@ -514,6 +518,10 @@
                     "deal_address": {
                         "type": "string",
                         "desc": "deal address"
+                    },
+                    "timestamp": {
+                        "type": "uint",
+                        "desc": "timestamp"
                     }
                 }
             },
@@ -879,7 +887,7 @@
     "stop": {
         "type": "command",
         "name": "Stop",
-        "desc": "Stop bigbang server.",
+        "desc": "Stop mkf server.",
         "request": {
             "type": "object",
             "content": {}
@@ -896,14 +904,14 @@
             },
             {
                 "request": "curl -d '{\"id\":1,\"method\":\"stop\",\"jsonrpc\":\"2.0\",\"params\":{}}' http://127.0.0.1:8802",
-                "response": "{\"id\":1,\"jsonrpc\":\"2.0\",\"result\":\"bigbang server stopping\"}"
+                "response": "{\"id\":1,\"jsonrpc\":\"2.0\",\"result\":\"mkf server stopping\"}"
             }
         ]
     },
     "version": {
         "type": "command",
         "name": "Version",
-        "desc": "Get bigbang server version.",
+        "desc": "Get mkf server version.",
         "request": {
             "type": "object",
             "content": {}
@@ -911,7 +919,7 @@
         "response": {
             "type": "string",
             "name": "version",
-            "desc": "bigbang version"
+            "desc": "mkf version"
         },
         "example": [
             {
@@ -920,7 +928,7 @@
             },
             {
                 "request": "curl -d '{\"id\":0,\"method\":\"version\",\"jsonrpc\":\"2.0\",\"params\":{}}' http://127.0.0.1:8802",
-                "response": "{\"id\":0,\"jsonrpc\":\"2.0\",\"result\":\"Bigbang server version is v0.1.0\"}"
+                "response": "{\"id\":0,\"jsonrpc\":\"2.0\",\"result\":\"Mkf server version is v0.1.0\"}"
             }
         ]
     },
@@ -3106,7 +3114,7 @@
         },
         "example": [
             {
-                "request": "bigbang-cli makesha256",
+                "request": "mkf-cli makesha256",
                 "response": "{\"hexdata\" : \"381cdfe25a6fde17ee1b9fc905e30c832d5bb981405fdae15a3acb1c420b2f5e\", \"sha256\" : \"5e2ab85020823529d3ee2d8c4c41af4d10c205aa8cb45b139d0e7054e73c11d4\"}"
             },
             {
@@ -3144,7 +3152,7 @@
         },
         "example": [
             {
-                "request": "bigbang-cli aesencrypt 1965p604xzdrffvg90ax9bk0q3xyqn5zz2vc9zpbe3wdswzazj7d144mm 1jv78wjv22hmzcwv07bkkphnkj51y0kjc7g9rwdm05erwmr2n8tvh8yjn 381cdfe25a6fde17ee1b9fc905e30c832d5bb981405fdae15a3acb1c420b2f5e",
+                "request": "mkf-cli aesencrypt 1965p604xzdrffvg90ax9bk0q3xyqn5zz2vc9zpbe3wdswzazj7d144mm 1jv78wjv22hmzcwv07bkkphnkj51y0kjc7g9rwdm05erwmr2n8tvh8yjn 381cdfe25a6fde17ee1b9fc905e30c832d5bb981405fdae15a3acb1c420b2f5e",
                 "response": "06839cf364696762f980640a618d49981a8ab103306605336881eaa112e3693e99325fdd73b9052253de02107e4a373c"
             },
             {
@@ -3187,7 +3195,7 @@
         },
         "example": [
             {
-                "request": "bigbang-cli aesdecrypt 1jv78wjv22hmzcwv07bkkphnkj51y0kjc7g9rwdm05erwmr2n8tvh8yjn 1965p604xzdrffvg90ax9bk0q3xyqn5zz2vc9zpbe3wdswzazj7d144mm 06839cf364696762f980640a618d49981a8ab103306605336881eaa112e3693e99325fdd73b9052253de02107e4a373c",
+                "request": "mkf-cli aesdecrypt 1jv78wjv22hmzcwv07bkkphnkj51y0kjc7g9rwdm05erwmr2n8tvh8yjn 1965p604xzdrffvg90ax9bk0q3xyqn5zz2vc9zpbe3wdswzazj7d144mm 06839cf364696762f980640a618d49981a8ab103306605336881eaa112e3693e99325fdd73b9052253de02107e4a373c",
                 "response": "381cdfe25a6fde17ee1b9fc905e30c832d5bb981405fdae15a3acb1c420b2f5e"
             },
             {

@@ -38,7 +38,7 @@ public:
     }
 
 public:
-    CTransaction tx;
+    const CTransaction& tx;
     CTxContxt txContxt;
     CTxIndex txIndex;
     uint256 hashAtFork;
