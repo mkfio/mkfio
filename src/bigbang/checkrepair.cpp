@@ -1427,6 +1427,7 @@ bool CCheckRepairData::CheckBlockAddressUnspent()
                     {
                         StdLog("check", "CheckBlockAddressUnspent: Find block address unspent fail, address: %s, fork: %s",
                                CAddress(it->first.dest).ToString().c_str(), hashFork.GetHex().c_str());
+                        vRemoveAddress.push_back(it->first);
                         addrWalker.mapAddressUnspent.erase(it++);
                     }
                     else
