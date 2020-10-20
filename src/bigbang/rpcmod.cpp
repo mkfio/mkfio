@@ -1572,7 +1572,7 @@ CRPCResultPtr CRPCMod::RPCSendFrom(CRPCParamPtr param)
         vchData = ParseHexString(strDataTmp);
     }
     CTransaction txNew;
-    int64 nTxFee = MIN_TX_FEE * 3; // CalcMinTxFee(txNew, MIN_TX_FEE);
+    int64 nTxFee = MIN_TX_FEE;
     if (spParam->dTxfee.IsValid())
     {
         nTxFee = AmountFromValue(spParam->dTxfee);
@@ -1618,11 +1618,14 @@ CRPCResultPtr CRPCMod::RPCSendFrom(CRPCParamPtr param)
             }
             else
             {
-                txNew.vchData.clear();
+                txNew.vchSig.clear();
+                CODataStream ds(txNew.vchSig);
+                ds << vsm << vss;
+                /*txNew.vchData.clear();
                 CODataStream ds(txNew.vchData);
                 vector<unsigned char> vDataHead;
                 vDataHead.resize(21);
-                ds << vDataHead << vsm << vss;
+                ds << vDataHead << vsm << vss;*/
             }
         }
         else
@@ -1653,7 +1656,7 @@ CRPCResultPtr CRPCMod::RPCSendFrom(CRPCParamPtr param)
     {
         throw CRPCException(RPC_WALLET_ERROR, "The signature is not completed");
     }
-
+    /*
     int64 nNewFee = CalcMinTxFee(txNew, from, MIN_TX_FEE);
     StdTrace("[SendFrom]", "CalcMinTxFee : %lu, old fee: %lu", nNewFee, txNew.nTxFee);
     if (nNewFee < MIN_TX_FEE)
@@ -1686,7 +1689,7 @@ CRPCResultPtr CRPCMod::RPCSendFrom(CRPCParamPtr param)
             throw CRPCException(RPC_WALLET_ERROR, "The signature is not completed");
         }
     }
-
+*/
     Errno err = pService->SendTransaction(txNew);
     if (err != OK)
     {
@@ -1739,12 +1742,12 @@ CRPCResultPtr CRPCMod::RPCCreateTransaction(CRPCParamPtr param)
         vchData = ParseHexString(spParam->strData);
     }
 
-    int64 nTxFee = MIN_TX_FEE * 3; // CalcMinTxFee(txNew, MIN_TX_FEE);
+    int64 nTxFee = MIN_TX_FEE;
     if (spParam->dTxfee.IsValid())
     {
         nTxFee = AmountFromValue(spParam->dTxfee);
 
-        int64 nFee = MIN_TX_FEE * 3; //CalcMinTxFee(txNew, MIN_TX_FEE);
+        int64 nFee = MIN_TX_FEE;
         if (nTxFee < nFee)
         {
             nTxFee = nFee;

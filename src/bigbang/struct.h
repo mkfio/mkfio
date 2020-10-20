@@ -22,25 +22,35 @@
 namespace bigbang
 {
 
-inline int64 CalcMinTxFee(const CTransaction& tx, const CDestination& destIn, const uint32 MIN_TX_FEE)
+static const int NEW_DATA_CALC_HEITHG = 0;
+
+inline int64 CalcMinTxFee(const CTransaction& tx, const int nHeight, const uint32 MIN_TX_FEE)
 {
-    if (!destIn.IsNull() && destIn.IsTemplate())
+    if (nHeight < NEW_DATA_CALC_HEITHG)
     {
-        uint16 nType = destIn.GetTemplateId().GetType();
-        if (nType == TEMPLATE_DEXORDER || nType == TEMPLATE_DEXMATCH)
+        return (tx.vchSig.size() + tx.vchData.size()) * 100;
+    }
+    else
+    {
+        int64 nVchData = tx.vchData.size();
+        if (0 == nVchData)
         {
-            return TNS_DEX_MIN_TX_FEE;
+            return MIN_TX_FEE;
+        }
+        uint32_t multiplier = nVchData / 200;
+        if (nVchData % 200 > 0)
+        {
+            multiplier++;
+        }
+        if (multiplier > 5)
+        {
+            return MIN_TX_FEE + MIN_TX_FEE * 10 + (multiplier - 5) * MIN_TX_FEE * 4;
+        }
+        else
+        {
+            return MIN_TX_FEE + multiplier * MIN_TX_FEE * 2;
         }
     }
-    if (tx.sendTo.IsTemplate())
-    {
-        uint16 nType = tx.sendTo.GetTemplateId().GetType();
-        if (nType == TEMPLATE_DEXORDER || nType == TEMPLATE_DEXMATCH)
-        {
-            return TNS_DEX_MIN_TX_FEE;
-        }
-    }
-    return (tx.vchSig.size() + tx.vchData.size()) * 100;
 }
 
 // Status

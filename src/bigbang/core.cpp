@@ -348,7 +348,7 @@ Errno CCoreProtocol::VerifyBlockTx(const CTransaction& tx, const CTxContxt& txCo
     if (!MoneyRange(tx.nTxFee)
         || (tx.nType != CTransaction::TX_TOKEN && tx.nTxFee != 0)
         || (tx.nType == CTransaction::TX_TOKEN
-            && (tx.nTxFee < CalcMinTxFee(tx, destIn, MIN_TX_FEE))))
+            && (tx.nTxFee < CalcMinTxFee(tx, pIndexPrev->GetBlockHeight() + 1, MIN_TX_FEE))))
     {
         return DEBUG(ERR_TRANSACTION_OUTPUT_INVALID, "txfee invalid %ld", tx.nTxFee);
     }
@@ -442,7 +442,7 @@ Errno CCoreProtocol::VerifyTransaction(const CTransaction& tx, const vector<CTxO
     if (!MoneyRange(tx.nTxFee)
         || (tx.nType != CTransaction::TX_TOKEN && tx.nTxFee != 0)
         || (tx.nType == CTransaction::TX_TOKEN
-            && (tx.nTxFee < CalcMinTxFee(tx, destIn, MIN_TX_FEE))))
+            && (tx.nTxFee < CalcMinTxFee(tx, nForkHeight + 1, MIN_TX_FEE))))
     {
         return DEBUG(ERR_TRANSACTION_OUTPUT_INVALID, "txfee invalid %ld", tx.nTxFee);
     }
@@ -815,13 +815,22 @@ Errno CCoreProtocol::VerifyDexMatchTx(const CTransaction& tx, int64 nValueIn, in
             }
         }
 
+        set<CDestination> setSubDest;
+        vector<uint8> vchSigOut;
+        if (!ptrMatch->GetSignDestination(tx, uint256(), 0, vchSig, setSubDest, vchSigOut))
+        {
+            Log("Verify dex match tx: get sign data fail, tx: %s", tx.GetHash().GetHex().c_str());
+            return ERR_TRANSACTION_SIGNATURE_INVALID;
+        }
+
         vector<uint8> vms;
         vector<uint8> vss;
+        vector<uint8> vchSigSub;
         try
         {
             vector<uint8> head;
-            xengine::CIDataStream is(tx.vchData);
-            is >> head >> vms >> vss;
+            xengine::CIDataStream is(vchSigOut);
+            is >> vms >> vss >> vchSigSub;
         }
         catch (std::exception& e)
         {
