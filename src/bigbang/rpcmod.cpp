@@ -1848,11 +1848,14 @@ CRPCResultPtr CRPCMod::RPCSendFromWallet(CRPCParamPtr param)
             }
             else
             {
-                txNew.vchData.clear();
+                txNew.vchSig.clear();
+                CODataStream ds(txNew.vchSig);
+                ds << vsm << vss;
+                /*txNew.vchData.clear();
                 CODataStream ds(txNew.vchData);
                 vector<unsigned char> vDataHead;
                 vDataHead.resize(21);
-                ds << vDataHead << vsm << vss;
+                ds << vDataHead << vsm << vss;*/
             }
         }
         else
@@ -1889,7 +1892,7 @@ CRPCResultPtr CRPCMod::RPCSendFromWallet(CRPCParamPtr param)
     {
         throw CRPCException(RPC_WALLET_ERROR, "The signature is not completed");
     }
-
+    /*
     int64 nNewFee = CalcMinTxFee(txNew, from, MIN_TX_FEE);
     StdTrace("[SendFromEx]", "CalcMinTxFee : %lu, old fee: %lu", nNewFee, txNew.nTxFee);
     if (nNewFee < MIN_TX_FEE)
@@ -1922,7 +1925,7 @@ CRPCResultPtr CRPCMod::RPCSendFromWallet(CRPCParamPtr param)
             throw CRPCException(RPC_WALLET_ERROR, "The signature is not completed");
         }
     }
-
+*/
     Errno err = pService->SendTransaction(txNew);
     if (err != OK)
     {
