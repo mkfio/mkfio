@@ -22,11 +22,11 @@
 namespace bigbang
 {
 
-static const int NEW_DATA_CALC_HEITHG = 0;
+static const int NEW_CALC_DATA_HEIGTH = 0;
 
 inline int64 CalcMinTxFee(const CTransaction& tx, const int nHeight, const uint32 MIN_TX_FEE)
 {
-    if (nHeight < NEW_DATA_CALC_HEITHG)
+    if (nHeight < NEW_CALC_DATA_HEIGTH)
     {
         return (tx.vchSig.size() + tx.vchData.size()) * 100;
     }

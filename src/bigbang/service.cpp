@@ -490,7 +490,7 @@ bool CService::SignSignature(const crypto::CPubKey& pubkey, const uint256& hash,
     return pWallet->Sign(pubkey, hash, vchSig);
 }
 
-bool CService::SignTransaction(CTransaction& tx, const vector<uint8>& vchSendToData, bool& fCompleted)
+bool CService::SignTransaction(CTransaction& tx, const vector<uint8>& vchSendToData, const vector<uint8>& vchSignExtraData, bool& fCompleted)
 {
     vector<CTxOut> vUnspent;
     if (!pTxPool->FetchInputs(pCoreProtocol->GetGenesisBlockHash(), tx, vUnspent) || vUnspent.empty())
@@ -501,7 +501,7 @@ bool CService::SignTransaction(CTransaction& tx, const vector<uint8>& vchSendToD
 
     const CDestination& destIn = vUnspent[0].destTo;
     int32 nForkHeight = GetForkHeight(pCoreProtocol->GetGenesisBlockHash());
-    if (!pWallet->SignTransaction(destIn, tx, vchSendToData, pCoreProtocol->GetGenesisBlockHash(), nForkHeight, fCompleted))
+    if (!pWallet->SignTransaction(destIn, tx, vchSendToData, vchSignExtraData, pCoreProtocol->GetGenesisBlockHash(), nForkHeight, fCompleted))
     {
         StdError("CService", "SignTransaction: SignTransaction fail, txid: %s, destIn: %s", tx.GetHash().GetHex().c_str(), destIn.ToString().c_str());
         return false;
@@ -609,7 +609,7 @@ bool CService::SignOfflineTransaction(const CDestination& destIn, CTransaction& 
     }
 
     int32 nForkHeight = GetForkHeight(hashFork);
-    if (!pWallet->SignTransaction(destIn, tx, vector<uint8>(), hashFork, nForkHeight, fCompleted))
+    if (!pWallet->SignTransaction(destIn, tx, vector<uint8>(), vector<uint8>(), hashFork, nForkHeight, fCompleted))
     {
         StdError("CService", "SignOfflineTransaction: SignTransaction fail, txid: %s, destIn: %s", tx.GetHash().GetHex().c_str(), destIn.ToString().c_str());
         return false;

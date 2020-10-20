@@ -39,27 +39,18 @@ bool CCheckForkUnspentWalker::CheckForkUnspent(map<CTxOutPoint, CCheckTxOut>& ma
         map<CTxOutPoint, CCheckTxOut>::iterator it = mapBlockForkUnspent.begin();
         for (; it != mapBlockForkUnspent.end(); ++it)
         {
-            if (!it->second.IsSpent())
+            map<CTxOutPoint, CCheckTxOut>::iterator mt = mapForkUnspent.find(it->first);
+            if (mt == mapForkUnspent.end())
             {
-                map<CTxOutPoint, CCheckTxOut>::iterator mt = mapForkUnspent.find(it->first);
-                if (mt == mapForkUnspent.end())
-                {
-                    StdLog("check", "Check block unspent: find utxo fail, utxo: [%d] %s.", it->first.n, it->first.hash.GetHex().c_str());
-                    mapForkUnspent.insert(*it);
-                    vAddUpdate.push_back(CTxUnspent(it->first, static_cast<const CTxOut&>(it->second)));
-                }
-                else if (mt->second.IsSpent())
-                {
-                    StdLog("check", "Check block unspent: is spent, utxo: [%d] %s.", it->first.n, it->first.hash.GetHex().c_str());
-                    mt->second = it->second;
-                    vAddUpdate.push_back(CTxUnspent(it->first, static_cast<const CTxOut&>(it->second)));
-                }
-                else if (it->second != mt->second)
-                {
-                    StdLog("check", "Check block unspent: txout error, utxo: [%d] %s.", it->first.n, it->first.hash.GetHex().c_str());
-                    mt->second = it->second;
-                    vAddUpdate.push_back(CTxUnspent(it->first, static_cast<const CTxOut&>(it->second)));
-                }
+                StdLog("check", "Check block unspent: find utxo fail, utxo: [%d] %s.", it->first.n, it->first.hash.GetHex().c_str());
+                mapForkUnspent.insert(*it);
+                vAddUpdate.push_back(CTxUnspent(it->first, static_cast<const CTxOut&>(it->second)));
+            }
+            else if (it->second != mt->second)
+            {
+                StdLog("check", "Check block unspent: txout error, utxo: [%d] %s.", it->first.n, it->first.hash.GetHex().c_str());
+                mt->second = it->second;
+                vAddUpdate.push_back(CTxUnspent(it->first, static_cast<const CTxOut&>(it->second)));
             }
         }
     }
@@ -68,29 +59,19 @@ bool CCheckForkUnspentWalker::CheckForkUnspent(map<CTxOutPoint, CCheckTxOut>& ma
         map<CTxOutPoint, CCheckTxOut>::iterator it = mapForkUnspent.begin();
         for (; it != mapForkUnspent.end();)
         {
-            if (!it->second.IsSpent())
+            map<CTxOutPoint, CCheckTxOut>::iterator mt = mapBlockForkUnspent.find(it->first);
+            if (mt == mapBlockForkUnspent.end())
             {
-                map<CTxOutPoint, CCheckTxOut>::iterator mt = mapBlockForkUnspent.find(it->first);
-                if (mt == mapBlockForkUnspent.end())
-                {
-                    StdLog("check", "Check db unspent: find utxo fail, utxo: [%d] %s.", it->first.n, it->first.hash.GetHex().c_str());
-                    vRemove.push_back(it->first);
-                    mapForkUnspent.erase(it++);
-                    continue;
-                }
-                else if (mt->second.IsSpent())
-                {
-                    StdLog("check", "Check db unspent: is spent, utxo: [%d] %s.", it->first.n, it->first.hash.GetHex().c_str());
-                    vRemove.push_back(it->first);
-                    mapForkUnspent.erase(it++);
-                    continue;
-                }
-                else if (it->second != mt->second)
-                {
-                    StdLog("check", "Check db unspent: txout error, utxo: [%d] %s.", it->first.n, it->first.hash.GetHex().c_str());
-                    it->second = mt->second;
-                    vAddUpdate.push_back(CTxUnspent(it->first, static_cast<const CTxOut&>(it->second)));
-                }
+                StdLog("check", "Check db unspent: find utxo fail, utxo: [%d] %s.", it->first.n, it->first.hash.GetHex().c_str());
+                vRemove.push_back(it->first);
+                mapForkUnspent.erase(it++);
+                continue;
+            }
+            else if (it->second != mt->second)
+            {
+                StdLog("check", "Check db unspent: txout error, utxo: [%d] %s.", it->first.n, it->first.hash.GetHex().c_str());
+                it->second = mt->second;
+                vAddUpdate.push_back(CTxUnspent(it->first, static_cast<const CTxOut&>(it->second)));
             }
             ++it;
         }
@@ -295,12 +276,7 @@ bool CCheckWalletForkUnspent::AddWalletSpent(const CTxOutPoint& txPoint, const u
         StdError("check", "AddWalletSpent find fail, utxo: [%d] %s.", txPoint.n, txPoint.hash.GetHex().c_str());
         return false;
     }
-    if (it->second.IsSpent())
-    {
-        StdError("check", "AddWalletSpent spent, utxo: [%d] %s.", txPoint.n, txPoint.hash.GetHex().c_str());
-        return false;
-    }
-    it->second.SetSpent(txidSpent, sendTo);
+    mapWalletUnspent.erase(it);
     return true;
 }
 
@@ -333,11 +309,6 @@ bool CCheckWalletForkUnspent::CheckWalletUnspent(const CTxOutPoint& point, const
     if (mt == mapWalletUnspent.end())
     {
         StdLog("check", "CheckWalletUnspent: find unspent fail, utxo: [%d] %s.", point.n, point.hash.GetHex().c_str());
-        return false;
-    }
-    if (mt->second.IsSpent())
-    {
-        StdLog("check", "CheckWalletUnspent: spented, utxo: [%d] %s.", point.n, point.hash.GetHex().c_str());
         return false;
     }
     if (mt->second != out)
@@ -542,12 +513,7 @@ bool CCheckForkTxPool::Spent(const CTxOutPoint& point, const uint256& txidSpent,
         StdError("check", "TxPool Spent: find fail, utxo: [%d] %s", point.n, point.hash.GetHex().c_str());
         return false;
     }
-    if (it->second.IsSpent())
-    {
-        StdError("check", "TxPool Spent: spented, utxo: [%d] %s", point.n, point.hash.GetHex().c_str());
-        return false;
-    }
-    it->second.SetSpent(txidSpent, sendTo);
+    mapTxPoolUnspent.erase(it);
     return true;
 }
 
@@ -575,11 +541,6 @@ bool CCheckForkTxPool::CheckTxPoolUnspent(const CTxOutPoint& point, const CCheck
     if (it == mapTxPoolUnspent.end())
     {
         StdLog("check", "TxPool CheckTxPoolUnspent: find fail, utxo: [%d] %s", point.n, point.hash.GetHex().c_str());
-        return false;
-    }
-    if (it->second.IsSpent())
-    {
-        StdLog("check", "TxPool CheckTxPoolUnspent: spented, utxo: [%d] %s", point.n, point.hash.GetHex().c_str());
         return false;
     }
     if (it->second != out)
@@ -745,12 +706,7 @@ bool CCheckBlockFork::AddBlockSpent(const CTxOutPoint& txPoint, const uint256& t
         StdLog("check", "AddBlockSpent: utxo find fail, utxo: [%d] %s.", txPoint.n, txPoint.hash.GetHex().c_str());
         return false;
     }
-    if (it->second.IsSpent())
-    {
-        StdLog("check", "AddBlockSpent: utxo spented, utxo: [%d] %s.", txPoint.n, txPoint.hash.GetHex().c_str());
-        return false;
-    }
-    it->second.SetSpent(txidSpent, sendTo);
+    mapBlockUnspent.erase(it);
     return true;
 }
 
@@ -1555,7 +1511,7 @@ bool CCheckRepairData::CheckWalletTx(vector<CWalletTx>& vAddTx, vector<uint256>&
             map<CTxOutPoint, CCheckTxOut>::iterator it = fork.mapWalletUnspent.begin();
             for (; it != fork.mapWalletUnspent.end(); ++it)
             {
-                if (!it->second.IsSpent() && !objTxPoolData.CheckTxPoolUnspent(hashFork, it->first, it->second))
+                if (!objTxPoolData.CheckTxPoolUnspent(hashFork, it->first, it->second))
                 {
                     StdLog("check", "Check wallet unspent 1: spent fail, height: %d, utxo: [%d] %s.",
                            objWalletTxWalker.GetTxAtBlockHeight(hashFork, it->first.hash), it->first.n, it->first.hash.GetHex().c_str());
@@ -1573,7 +1529,7 @@ bool CCheckRepairData::CheckWalletTx(vector<CWalletTx>& vAddTx, vector<uint256>&
             map<CTxOutPoint, CCheckTxOut>::iterator it = fork.mapTxPoolUnspent.begin();
             for (; it != fork.mapTxPoolUnspent.end(); ++it)
             {
-                if (!it->second.IsSpent() && objWalletAddressWalker.CheckAddress(it->second.destTo))
+                if (objWalletAddressWalker.CheckAddress(it->second.destTo))
                 {
                     if (!objWalletTxWalker.CheckWalletUnspent(hashFork, it->first, it->second))
                     {

@@ -348,7 +348,7 @@ Errno CCoreProtocol::VerifyBlockTx(const CTransaction& tx, const CTxContxt& txCo
     if (!MoneyRange(tx.nTxFee)
         || (tx.nType != CTransaction::TX_TOKEN && tx.nTxFee != 0)
         || (tx.nType == CTransaction::TX_TOKEN
-            && (tx.nTxFee < CalcMinTxFee(tx, pIndexPrev->GetBlockHeight() + 1, MIN_TX_FEE))))
+            && (tx.nTxFee < CalcMinTxFee(tx, nForkHeight, MIN_TX_FEE))))
     {
         return DEBUG(ERR_TRANSACTION_OUTPUT_INVALID, "txfee invalid %ld", tx.nTxFee);
     }
@@ -363,7 +363,7 @@ Errno CCoreProtocol::VerifyBlockTx(const CTransaction& tx, const CTxContxt& txCo
         {
         case TEMPLATE_DEXORDER:
         {
-            Errno err = VerifyDexOrderTx(tx, destIn, nValueIn, pIndexPrev->GetBlockHeight() + 1);
+            Errno err = VerifyDexOrderTx(tx, destIn, nValueIn, nForkHeight);
             if (err != OK)
             {
                 return DEBUG(err, "invalid dex order tx");
@@ -372,7 +372,7 @@ Errno CCoreProtocol::VerifyBlockTx(const CTransaction& tx, const CTxContxt& txCo
         }
         case TEMPLATE_DEXMATCH:
         {
-            Errno err = VerifyDexMatchTx(tx, nValueIn, pIndexPrev->GetBlockHeight() + 1);
+            Errno err = VerifyDexMatchTx(tx, nValueIn, nForkHeight);
             if (err != OK)
             {
                 return DEBUG(err, "invalid dex match tx");
