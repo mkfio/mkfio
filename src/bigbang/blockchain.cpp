@@ -456,7 +456,7 @@ Errno CBlockChain::AddNewBlock(const CBlock& block, CBlockChainUpdate& update)
         return ERR_SYS_STORAGE_ERROR;
     }
 
-    view.AddTx(block.txMint.GetHash(), block.txMint);
+    view.AddTx(block.txMint.GetHash(), block.txMint, block.GetBlockHeight());
 
     CBlockEx blockex(block);
     vector<CTxContxt>& vTxContxt = blockex.vTxContxt;
@@ -492,7 +492,7 @@ Errno CBlockChain::AddNewBlock(const CBlock& block, CBlockChainUpdate& update)
         }
 
         vTxContxt.push_back(txContxt);
-        view.AddTx(txid, tx, txContxt.destIn, txContxt.GetValueIn());
+        view.AddTx(txid, tx, block.GetBlockHeight(), txContxt.destIn, txContxt.GetValueIn());
 
         StdTrace("BlockChain", "AddNewBlock: verify tx success, new tx: %s, new block: %s", txid.GetHex().c_str(), hash.GetHex().c_str());
 
@@ -902,6 +902,11 @@ bool CBlockChain::FindPreviousCheckPointBlock(CBlock& block)
     }
 
     return true;
+}
+
+bool CBlockChain::GetAddressUnspent(const uint256& hashFork, const CDestination& dest, map<CTxOutPoint, CUnspentOut>& mapUnspent)
+{
+    return cntrBlock.RetrieveAddressUnspent(hashFork, dest, mapUnspent);
 }
 
 } // namespace bigbang

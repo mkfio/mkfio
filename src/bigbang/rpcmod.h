@@ -108,8 +108,10 @@ private:
     rpc::CRPCResultPtr RPCValidateAddress(rpc::CRPCParamPtr param);
     rpc::CRPCResultPtr RPCResyncWallet(rpc::CRPCParamPtr param);
     rpc::CRPCResultPtr RPCGetBalance(rpc::CRPCParamPtr param);
+    rpc::CRPCResultPtr RPCGetBalanceWallet(rpc::CRPCParamPtr param);
     rpc::CRPCResultPtr RPCListTransaction(rpc::CRPCParamPtr param);
     rpc::CRPCResultPtr RPCSendFrom(rpc::CRPCParamPtr param);
+    rpc::CRPCResultPtr RPCSendFromWallet(rpc::CRPCParamPtr param);
     rpc::CRPCResultPtr RPCCreateTransaction(rpc::CRPCParamPtr param);
     rpc::CRPCResultPtr RPCSignTransaction(rpc::CRPCParamPtr param);
     rpc::CRPCResultPtr RPCSignMessage(rpc::CRPCParamPtr param);
@@ -129,6 +131,7 @@ private:
     rpc::CRPCResultPtr RPCAesEncrypt(rpc::CRPCParamPtr param);
     rpc::CRPCResultPtr RPCAesDecrypt(rpc::CRPCParamPtr param);
     rpc::CRPCResultPtr RPCListUnspent(rpc::CRPCParamPtr param);
+    rpc::CRPCResultPtr RPCListUnspentOld(rpc::CRPCParamPtr param);
     /* Mint */
     rpc::CRPCResultPtr RPCGetWork(rpc::CRPCParamPtr param);
     rpc::CRPCResultPtr RPCSubmitWork(rpc::CRPCParamPtr param);

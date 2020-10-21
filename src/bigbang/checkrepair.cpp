@@ -682,14 +682,14 @@ bool CCheckBlockFork::AddBlockTx(const CTransaction& txIn, const CTxContxt& cont
             return false;
         }
     }
-    if (!AddBlockUnspent(CTxOutPoint(txid, 0), CTxOut(txIn)))
+    if (!AddBlockUnspent(CTxOutPoint(txid, 0), CTxOut(txIn), txIn.nType, nHeight))
     {
         StdLog("check", "AddBlockTx: add block unspent 0 fail, txid: %s.", txid.GetHex().c_str());
         return false;
     }
     if (!txIn.IsMintTx())
     {
-        if (!AddBlockUnspent(CTxOutPoint(txid, 1), CTxOut(txIn, contxtIn.destIn, contxtIn.GetValueIn())))
+        if (!AddBlockUnspent(CTxOutPoint(txid, 1), CTxOut(txIn, contxtIn.destIn, contxtIn.GetValueIn()), txIn.nType, nHeight))
         {
             StdLog("check", "AddBlockTx: add block unspent 1 fail, txid: %s.", txid.GetHex().c_str());
             return false;
@@ -710,13 +710,13 @@ bool CCheckBlockFork::AddBlockSpent(const CTxOutPoint& txPoint, const uint256& t
     return true;
 }
 
-bool CCheckBlockFork::AddBlockUnspent(const CTxOutPoint& txPoint, const CTxOut& txOut)
+bool CCheckBlockFork::AddBlockUnspent(const CTxOutPoint& txPoint, const CTxOut& txOut, int nTxType, int nHeight)
 {
     if (!txOut.IsNull())
     {
-        if (!mapBlockUnspent.insert(make_pair(txPoint, CCheckTxOut(txOut))).second)
+        if (!mapBlockUnspent.insert(make_pair(txPoint, CCheckTxOut(txOut, nTxType, nHeight))).second)
         {
-            StdLog("check", "AddBlockUnspent: Add block unspent fail, utxo: [%d] %s.", txPoint.n, txPoint.hash.GetHex().c_str());
+            StdLog("check", "Add Block Unspent: Add block unspent fail, utxo: [%d] %s.", txPoint.n, txPoint.hash.GetHex().c_str());
             return false;
         }
     }
@@ -1321,6 +1321,36 @@ bool CCheckRepairData::FetchWalletTx()
     return true;
 }
 
+bool CCheckRepairData::FetchAddressUnspent()
+{
+    CAddressUnspentDB dbAddressUnspent;
+    if (!dbAddressUnspent.Initialize(path(strDataPath)))
+    {
+        StdError("check", "FetchAddressUnspent: dbAddress Initialize fail");
+        return false;
+    }
+
+    map<uint256, CCheckBlockFork>::iterator it = objBlockWalker.mapCheckFork.begin();
+    for (; it != objBlockWalker.mapCheckFork.end(); ++it)
+    {
+        if (!dbAddressUnspent.AddNewFork(it->first))
+        {
+            StdError("check", "FetchAddressUnspent: dbAddress AddNewFork fail.");
+            dbAddressUnspent.Deinitialize();
+            return false;
+        }
+        if (!dbAddressUnspent.WalkThrough(it->first, mapForkAddressUnspentWalker[it->first]))
+        {
+            StdError("check", "FetchAddressUnspent: dbAddress WalkThrough fail.");
+            dbAddressUnspent.Deinitialize();
+            return false;
+        }
+    }
+
+    dbAddressUnspent.Deinitialize();
+    return true;
+}
+
 bool CCheckRepairData::CheckRepairFork()
 {
     vector<pair<uint256, uint256>> vForkUpdate;
@@ -1358,6 +1388,108 @@ bool CCheckRepairData::CheckBlockUnspent()
             fCheckResult = false;
         }
     }
+    return fCheckResult;
+}
+
+bool CCheckRepairData::CheckBlockAddressUnspent()
+{
+    CAddressUnspentDB dbAddressUnspent;
+    if (!dbAddressUnspent.Initialize(path(strDataPath)))
+    {
+        StdError("check", "CheckBlockAddressUnspent: dbAddress Initialize fail");
+        return false;
+    }
+
+    bool fCheckResult = true;
+    map<uint256, CCheckBlockFork>::iterator mt = objBlockWalker.mapCheckFork.begin();
+    for (; mt != objBlockWalker.mapCheckFork.end(); ++mt)
+    {
+        const uint256& hashFork = mt->first;
+        const CCheckBlockFork& checkBlockFork = mt->second;
+        vector<pair<CAddrUnspentKey, CUnspentOut>> vUpdateAddress;
+        vector<CAddrUnspentKey> vRemoveAddress;
+        CGetAddressUnspentWalker& addrWalker = mapForkAddressUnspentWalker[hashFork];
+        {
+            auto it = addrWalker.mapAddressUnspent.begin();
+            while (it != addrWalker.mapAddressUnspent.end())
+            {
+                auto bt = checkBlockFork.mapBlockUnspent.find(it->first.out);
+                if (bt == checkBlockFork.mapBlockUnspent.end())
+                {
+                    StdLog("check", "CheckBlockAddressUnspent: Find block address unspent fail, address: %s, fork: %s",
+                           CAddress(it->first.dest).ToString().c_str(), hashFork.GetHex().c_str());
+                    vRemoveAddress.push_back(it->first);
+                    addrWalker.mapAddressUnspent.erase(it++);
+                }
+                else
+                {
+                    if (it->first.dest != bt->second.destTo)
+                    {
+                        StdLog("check", "CheckBlockAddressUnspent: Find block address unspent fail, address: %s, fork: %s",
+                               CAddress(it->first.dest).ToString().c_str(), hashFork.GetHex().c_str());
+                        vRemoveAddress.push_back(it->first);
+                        addrWalker.mapAddressUnspent.erase(it++);
+                    }
+                    else
+                    {
+                        CUnspentOut unspent(static_cast<const CTxOut&>(bt->second), bt->second.nTxType, bt->second.nHeight);
+                        if (it->second != unspent)
+                        {
+                            StdLog("check", "CheckBlockAddressUnspent: db address unspent error, address: %s, fork: %s",
+                                   CAddress(it->first.dest).ToString().c_str(), hashFork.GetHex().c_str());
+                            CAddrUnspentKey out(bt->second.destTo, bt->first);
+                            vUpdateAddress.push_back(make_pair(out, unspent));
+                            it->second = unspent;
+                        }
+                        ++it;
+                    }
+                }
+            }
+        }
+        {
+            for (const auto& vd : checkBlockFork.mapBlockUnspent)
+            {
+                CAddrUnspentKey out(vd.second.destTo, vd.first);
+                if (addrWalker.mapAddressUnspent.find(out) == addrWalker.mapAddressUnspent.end())
+                {
+                    StdLog("check", "CheckBlockAddressUnspent: db address unspent missing data, address: %s, fork: %s",
+                           CAddress(vd.second.destTo).ToString().c_str(), hashFork.GetHex().c_str());
+
+                    CUnspentOut unspent(static_cast<const CTxOut&>(vd.second), vd.second.nTxType, vd.second.nHeight);
+                    vUpdateAddress.push_back(make_pair(out, unspent));
+                    addrWalker.mapAddressUnspent[out] = unspent;
+                }
+            }
+        }
+        if (!vUpdateAddress.empty() || !vRemoveAddress.empty())
+        {
+            StdLog("check", "CheckBlockAddressUnspent: Check fail, update: %lu, remove: %lu, fork: %s",
+                   vUpdateAddress.size(), vRemoveAddress.size(), hashFork.GetHex().c_str());
+            if (fOnlyCheck)
+            {
+                fCheckResult = false;
+            }
+            else
+            {
+                if (!dbAddressUnspent.AddNewFork(hashFork))
+                {
+                    StdLog("check", "CheckBlockAddressUnspent: dbAddressUnspent AddNewFork fail.");
+                    dbAddressUnspent.Deinitialize();
+                    return false;
+                }
+                if (!dbAddressUnspent.RepairAddressUnspent(hashFork, vUpdateAddress, vRemoveAddress))
+                {
+                    StdError("check", "CheckBlockAddressUnspent: RepairAddressUnspent fail, update: %lu, remove: %lu, fork: %s",
+                             vUpdateAddress.size(), vRemoveAddress.size(), hashFork.GetHex().c_str());
+                    dbAddressUnspent.Deinitialize();
+                    return false;
+                }
+                StdLog("check", "CheckBlockAddressUnspent: Repair address unspent success, fork: %s", hashFork.GetHex().c_str());
+            }
+        }
+    }
+
+    dbAddressUnspent.Deinitialize();
     return fCheckResult;
 }
 
@@ -1831,6 +1963,13 @@ bool CCheckRepairData::CheckRepairData()
     }
     StdLog("check", "Fetch unspent success");
 
+    if (!FetchAddressUnspent())
+    {
+        StdLog("check", "Fetch address unspent fail");
+        return false;
+    }
+    StdLog("check", "Fetch address unspent success");
+
     if (!FetchTxPool())
     {
         StdLog("check", "Fetch txpool data fail");
@@ -1883,6 +2022,16 @@ bool CCheckRepairData::CheckRepairData()
     else
     {
         StdLog("check", "Check block unspent success");
+    }
+
+    StdLog("check", "Check block address index starting");
+    if (!CheckBlockAddressUnspent())
+    {
+        StdLog("check", "Check block address index fail");
+    }
+    else
+    {
+        StdLog("check", "Check block address index success");
     }
 
     StdLog("check", "Check wallet tx starting");

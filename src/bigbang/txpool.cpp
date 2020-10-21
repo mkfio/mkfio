@@ -55,6 +55,19 @@ public:
 //////////////////////////////
 // CTxPoolView
 
+void CTxPoolView::RemoveSpent(const CTxOutPoint& out)
+{
+    auto it = mapSpent.find(out);
+    if (it != mapSpent.end())
+    {
+        if (!it->second.destTo.IsNull())
+        {
+            mapAddressUnspent[it->second.destTo].RemoveTxUnspent(out);
+        }
+        mapSpent.erase(it);
+    }
+}
+
 bool CTxPoolView::AddTxIndex(const uint256& txid, CPooledTx& tx)
 {
     CPooledTxLinkSetByTxHash& idxTx = setTxLinkIndex.get<0>();
@@ -201,6 +214,11 @@ bool CTxPoolView::AddNew(const uint256& txid, CPooledTx& tx)
         }
     }
 
+    if (!AddAddressUnspent(txid, tx))
+    {
+        return false;
+    }
+
     return true;
 }
 
@@ -225,7 +243,7 @@ void CTxPoolView::InvalidateSpent(const CTxOutPoint& out, CTxPoolView& viewInvol
             }
             else
             {
-                mapSpent.erase(out0);
+                RemoveSpent(out0);
             }
             CTxOutPoint out1(txidNextTx, 1);
             if (IsSpent(out1))
@@ -234,14 +252,14 @@ void CTxPoolView::InvalidateSpent(const CTxOutPoint& out, CTxPoolView& viewInvol
             }
             else
             {
-                mapSpent.erase(out1);
+                RemoveSpent(out1);
             }
             viewInvolvedTx.AddNew(txidNextTx, *pNextTx);
             setTxLinkIndex.erase(txidNextTx);
         }
         else
         {
-            mapSpent.erase(vOutPoint[i]);
+            RemoveSpent(vOutPoint[i]);
         }
     }
 }
@@ -320,6 +338,31 @@ bool CTxPoolView::AddArrangeBlockTx(vector<CTransaction>& vtx, int64& nTotalTxFe
     return true;
 }
 
+bool CTxPoolView::AddAddressUnspent(const uint256& txid, const CPooledTx& tx)
+{
+    CAddrUnspent& addrDestIn = mapAddressUnspent[tx.destIn];
+    CAddrUnspent& addrSendTo = mapAddressUnspent[tx.sendTo];
+
+    for (std::size_t i = 0; i < tx.vInput.size(); i++)
+    {
+        addrDestIn.SetTxSpent(tx.vInput[i].prevout);
+    }
+
+    CTxOut output;
+    output = tx.GetOutput(0);
+    if (!output.IsNull())
+    {
+        addrSendTo.SetTxUnspent(CTxOutPoint(txid, 0), CUnspentOut(output, tx.nType, -1));
+    }
+
+    output = tx.GetOutput(1);
+    if (!output.IsNull())
+    {
+        addrDestIn.SetTxUnspent(CTxOutPoint(txid, 1), CUnspentOut(output, tx.nType, -1));
+    }
+    return true;
+}
+
 void CTxPoolView::ArrangeBlockTx(vector<CTransaction>& vtx, int64& nTotalTxFee, int64 nBlockTime, size_t nMaxSize)
 {
     size_t nTotalSize = 0;
@@ -336,6 +379,26 @@ void CTxPoolView::ArrangeBlockTx(vector<CTransaction>& vtx, int64& nTotalTxFee, 
             return;
         }
     }
+}
+
+bool CTxPoolView::GetAddressUnspent(const CDestination& dest, std::map<CTxOutPoint, CUnspentOut>& mapUnspent)
+{
+    std::map<CDestination, CAddrUnspent>::const_iterator it = mapAddressUnspent.find(dest);
+    if (it != mapAddressUnspent.end())
+    {
+        for (const auto& vd : it->second.mapTxUnspent)
+        {
+            if (vd.second.IsNull())
+            {
+                mapUnspent.erase(vd.first);
+            }
+            else
+            {
+                mapUnspent.insert(vd);
+            }
+        }
+    }
+    return true;
 }
 
 //////////////////////////////
@@ -851,9 +914,9 @@ bool CTxPool::SynchronizeBlockChain(const CBlockChainUpdate& update, CTxSetChang
                 if (AddNew(txView, txid, tx, update.hashFork, update.nLastBlockHeight) == OK)
                 {
                     if (spent0 != 0)
-                        txView.SetSpent(CTxOutPoint(txid, 0), spent0);
+                        txView.SetSpent(CTxOutPoint(txid, 0), tx.sendTo, spent0);
                     if (spent1 != 0)
-                        txView.SetSpent(CTxOutPoint(txid, 1), spent1);
+                        txView.SetSpent(CTxOutPoint(txid, 1), block.vTxContxt[i].destIn, spent1);
 
                     change.mapTxUpdate.insert(make_pair(txid, -1));
                 }
@@ -909,6 +972,17 @@ bool CTxPool::SynchronizeBlockChain(const CBlockChainUpdate& update, CTxSetChang
 void CTxPool::AddDestDelegate(const CDestination& destDeleage)
 {
     //certTxDest.AddDelegate(destDeleage);
+}
+
+bool CTxPool::FetchAddressUnspent(const uint256& hashFork, const CDestination& dest, map<CTxOutPoint, CUnspentOut>& mapUnspent)
+{
+    boost::shared_lock<boost::shared_mutex> rlock(rwAccess);
+    if (!pBlockChain->GetAddressUnspent(hashFork, dest, mapUnspent))
+    {
+        StdError("CTxPool", "Fetch address unspent: Get address unspent fail");
+        return false;
+    }
+    return mapPoolView[hashFork].GetAddressUnspent(dest, mapUnspent);
 }
 
 bool CTxPool::LoadData()
