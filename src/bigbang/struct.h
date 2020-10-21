@@ -22,7 +22,11 @@
 namespace bigbang
 {
 
+#ifdef BIGBANG_TESTNET
 static const int NEW_CALC_DATA_HEIGTH = 0;
+#else
+static const int NEW_CALC_DATA_HEIGTH = 73477;
+#endif
 
 inline int64 CalcMinTxFee(const CTransaction& tx, const int nHeight, const uint32 MIN_TX_FEE)
 {
