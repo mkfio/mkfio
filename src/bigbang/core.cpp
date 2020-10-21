@@ -35,6 +35,12 @@ static const int64 BBCP_TOKEN_INIT = 1000000000;
 static const int64 BBCP_YEAR_INC_REWARD_TOKEN = 50;
 static const int64 BBCP_INIT_REWARD_TOKEN = BBCP_TOKEN_INIT;
 
+#ifdef BIGBANG_TESTNET
+static const int DEX_START_HEIGHT = 0;
+#else
+static const int DEX_START_HEIGHT = 73225;
+#endif
+
 namespace bigbang
 {
 ///////////////////////////////
@@ -355,6 +361,16 @@ Errno CCoreProtocol::VerifyBlockTx(const CTransaction& tx, const CTxContxt& txCo
     if (nValueIn < tx.nAmount + tx.nTxFee)
     {
         return DEBUG(ERR_TRANSACTION_INPUT_INVALID, "valuein is not enough (%ld : %ld)\n", nValueIn, tx.nAmount + tx.nTxFee);
+    }
+
+    CTemplateId tid;
+    if (tx.sendTo.GetTemplateId(tid)
+        && (tid.GetType() == TEMPLATE_DEXORDER || tid.GetType() == TEMPLATE_DEXMATCH)
+        && nForkHeight < DEX_START_HEIGHT)
+    {
+        StdLog("Core", "VerifyBlockTx: sendto is dex address, sendto: %s, destIn: %s, txid: %s",
+               CAddress(tx.sendTo).ToString().c_str(), CAddress(destIn).ToString().c_str(), tx.GetHash().GetHex().c_str());
+        return OK;
     }
 
     if (destIn.IsTemplate())
