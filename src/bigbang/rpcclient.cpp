@@ -43,7 +43,7 @@ static string LocalCommandUsage(const string& command = "")
 }
 
 static CRPCClient* pClient = nullptr;
-static const char* prompt = "bigbang> ";
+static const char* prompt = "mkf> ";
 
 ///////////////////////////////
 // CRPCClient

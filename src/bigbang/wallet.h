@@ -31,18 +31,7 @@ public:
             {
                 nTotalValue += out.GetAmount();
                 out.AddRef();
-                StdTrace("CWalletCoins", "Push: insert success, TotalValue: %ld, RefCount: %d, utxo: [%d] %s",
-                         nTotalValue, out.spWalletTx->GetRefCount(), out.n, out.spWalletTx->txid.GetHex().c_str());
             }
-            else
-            {
-                StdTrace("CWalletCoins", "Push: insert fail, TotalValue: %ld, RefCount: %d, utxo: [%d] %s",
-                         nTotalValue, out.spWalletTx->GetRefCount(), out.n, out.spWalletTx->txid.GetHex().c_str());
-            }
-        }
-        else
-        {
-            StdTrace("CWalletCoins", "Push: out is null, utxo: [%d] %s", out.n, out.spWalletTx->txid.GetHex().c_str());
         }
     }
     void Pop(const CWalletTxOut& out)
@@ -53,18 +42,7 @@ public:
             {
                 nTotalValue -= out.GetAmount();
                 out.Release();
-                StdTrace("CWalletCoins", "Pop: erase success, TotalValue: %ld, RefCount: %d, utxo: [%d] %s",
-                         nTotalValue, out.spWalletTx->GetRefCount(), out.n, out.spWalletTx->txid.GetHex().c_str());
             }
-            else
-            {
-                StdTrace("CWalletCoins", "Pop: erase fail, TotalValue: %ld, RefCount: %d, utxo: [%d] %s",
-                         nTotalValue, out.spWalletTx->GetRefCount(), out.n, out.spWalletTx->txid.GetHex().c_str());
-            }
-        }
-        else
-        {
-            StdTrace("CWalletCoins", "Pop: out is null, utxo: [%d] %s", out.n, out.spWalletTx->txid.GetHex().c_str());
         }
     }
 
@@ -166,6 +144,8 @@ public:
     bool Unlock(const crypto::CPubKey& pubkey, const crypto::CCryptoString& strPassphrase, int64 nTimeout) override;
     void AutoLock(uint32 nTimerId, const crypto::CPubKey& pubkey);
     bool Sign(const crypto::CPubKey& pubkey, const uint256& hash, std::vector<uint8>& vchSig) override;
+    bool AesEncrypt(const crypto::CPubKey& pubkeyLocal, const crypto::CPubKey& pubkeyRemote, const std::vector<uint8>& vMessage, std::vector<uint8>& vCiphertext) override;
+    bool AesDecrypt(const crypto::CPubKey& pubkeyLocal, const crypto::CPubKey& pubkeyRemote, const std::vector<uint8>& vCiphertext, std::vector<uint8>& vMessage) override;
     /* Template */
     bool LoadTemplate(CTemplatePtr ptr);
     void GetTemplateIds(std::set<CTemplateId>& setTemplateId) const override;
@@ -178,7 +158,7 @@ public:
     std::size_t GetTxCount() override;
     bool ListTx(const uint256& hashFork, const CDestination& dest, int nOffset, int nCount, std::vector<CWalletTx>& vWalletTx) override;
     bool GetBalance(const CDestination& dest, const uint256& hashFork, int nForkHeight, CWalletBalance& balance) override;
-    bool SignTransaction(const CDestination& destIn, CTransaction& tx, const vector<uint8>& vchSendToData, const int32 nForkHeight, bool& fCompleted) override;
+    bool SignTransaction(const CDestination& destIn, CTransaction& tx, const vector<uint8>& vchSendToData, const vector<uint8>& vchSignExtraData, const uint256& hashFork, const int32 nForkHeight, bool& fCompleted) override;
     bool ArrangeInputs(const CDestination& destIn, const uint256& hashFork, int nForkHeight, CTransaction& tx) override;
     bool ListForkUnspent(const uint256& hashFork, const CDestination& dest, uint32 nMax, std::vector<CTxUnspent>& vUnspent) override;
     /* Update */
@@ -212,8 +192,8 @@ protected:
                     std::set<crypto::CPubKey>& setSignedKey);
     bool SignMultiPubKey(const std::set<crypto::CPubKey>& setPubKey, const uint256& hash, const uint256& hashAnchor,
                          std::vector<uint8>& vchSig, std::set<crypto::CPubKey>& setSignedKey);
-    bool SignDestination(const CDestination& destIn, const CTransaction& tx, const uint256& hash,
-                         std::vector<uint8>& vchSig, const int32 nForkHeight,
+    bool SignDestination(const CDestination& destIn, const CTransaction& tx, const uint256& hash, std::vector<uint8>& vchSig,
+                         const vector<uint8>& vchSignExtraData, const uint256& hashFork, const int32 nForkHeight,
                          std::set<crypto::CPubKey>& setSignedKey, bool& fCompleted);
     void UpdateAutoLock(const std::set<crypto::CPubKey>& setSignedKey);
     bool UpdateFork();
@@ -224,6 +204,7 @@ protected:
     void RemoveWalletTx(std::shared_ptr<CWalletTx>& spWalletTx, const uint256& hashFork);
     bool SyncWalletTx(CTxFilter& txFilter);
     bool InspectWalletTx(int nCheckDepth);
+    bool GetSendToDestRecorded(const CTransaction& tx, const std::vector<uint8>& vchSendToData, std::vector<uint8>& vchDestData);
 
 protected:
     storage::CWalletDB dbWallet;
@@ -296,6 +277,14 @@ public:
     {
         return false;
     }
+    virtual bool AesEncrypt(const crypto::CPubKey& pubkeyLocal, const crypto::CPubKey& pubkeyRemote, const std::vector<uint8>& vMessage, std::vector<uint8>& vCiphertext) override
+    {
+        return false;
+    }
+    virtual bool AesDecrypt(const crypto::CPubKey& pubkeyLocal, const crypto::CPubKey& pubkeyRemote, const std::vector<uint8>& vCiphertext, std::vector<uint8>& vMessage) override
+    {
+        return false;
+    }
     /* Template */
     virtual void GetTemplateIds(std::set<CTemplateId>& setTemplateId) const override {}
     virtual bool Have(const CTemplateId& tid) const override
@@ -325,7 +314,7 @@ public:
         return false;
     }
     virtual bool SignTransaction(const CDestination& destIn, CTransaction& tx, const vector<uint8>& vchSendToData,
-                                 const int32 nForkHeight, bool& fCompleted) override
+                                 const vector<uint8>& vchSignExtraData, const uint256& hashFork, const int32 nForkHeight, bool& fCompleted) override
     {
         return false;
     }

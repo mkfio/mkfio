@@ -30,6 +30,21 @@ inline int64 GetTime()
     return int64((second_clock::universal_time() - epoch).total_seconds());
 }
 
+inline bool IsDoubleEqual(double a, double b)
+{
+    return std::abs(a - b) < std::abs(std::min(a, b)) * std::numeric_limits<double>::epsilon();
+}
+
+inline bool IsDoubleNonPositiveNumber(double a)
+{
+    return (a < std::numeric_limits<double>::epsilon());
+}
+
+inline bool IsNumber(const std::string& s)
+{
+    return !s.empty() && std::find_if(s.begin(), s.end(), [](unsigned char c) { return !std::isdigit(c); }) == s.end();
+}
+
 inline int64 GetLocalTimeSeconds()
 {
     using namespace boost::posix_time;

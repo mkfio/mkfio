@@ -13,6 +13,6 @@ COPY entrypoint.sh /sbin/
 RUN chmod 755 /sbin/entrypoint.sh
 COPY build/bigbang* /usr/bin/
 COPY mkf.conf /mkf.conf
-EXPOSE 9901 9902 9905
+EXPOSE 8801 8802 8805
 ENTRYPOINT ["/sbin/entrypoint.sh"]
 CMD ["mkf"]
