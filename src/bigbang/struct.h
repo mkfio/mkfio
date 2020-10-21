@@ -15,15 +15,46 @@
 
 #include "block.h"
 #include "proto.h"
+#include "template/template.h"
 #include "transaction.h"
 #include "uint256.h"
 
 namespace bigbang
 {
 
-inline int64 CalcMinTxFee(const CTransaction& tx, const uint32 MIN_TX_FEE)
+#ifdef BIGBANG_TESTNET
+static const int NEW_CALC_DATA_HEIGTH = 0;
+#else
+static const int NEW_CALC_DATA_HEIGTH = 73477;
+#endif
+
+inline int64 CalcMinTxFee(const CTransaction& tx, const int nHeight, const uint32 MIN_TX_FEE)
 {
-    return (tx.vchSig.size() + tx.vchData.size()) * 100;
+    if (nHeight < NEW_CALC_DATA_HEIGTH)
+    {
+        return (tx.vchSig.size() + tx.vchData.size()) * 100;
+    }
+    else
+    {
+        int64 nVchData = tx.vchData.size();
+        if (0 == nVchData)
+        {
+            return MIN_TX_FEE;
+        }
+        uint32_t multiplier = nVchData / 200;
+        if (nVchData % 200 > 0)
+        {
+            multiplier++;
+        }
+        if (multiplier > 5)
+        {
+            return MIN_TX_FEE + MIN_TX_FEE * 10 + (multiplier - 5) * MIN_TX_FEE * 4;
+        }
+        else
+        {
+            return MIN_TX_FEE + multiplier * MIN_TX_FEE * 2;
+        }
+    }
 }
 
 // Status

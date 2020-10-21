@@ -33,6 +33,8 @@ protected:
     bool HandleInitialize() override;
     Errno Debug(const Errno& err, const char* pszFunc, const char* pszFormat, ...);
     bool CheckBlockSignature(const CBlock& block);
+    Errno VerifyDexOrderTx(const CTransaction& tx, const CDestination& destIn, int64 nValueIn, int nHeight);
+    Errno VerifyDexMatchTx(const CTransaction& tx, int64 nValueIn, int nHeight);
 
 protected:
     uint256 hashGenesisBlock;
