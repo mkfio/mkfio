@@ -21,19 +21,19 @@ else
 	exit -1
 fi
 
-app="bigbang"
+app="mkf"
 
 logfile="./txtest.log"
 if [ ! -f "$logfile" ]; then
   touch $logfile
 fi
 
-# check if bigbang has run right now, otherwise start it up.
+# check if mkf has run right now, otherwise start it up.
 instance=$(ps aux | grep "$app" | grep -v "console" | grep -v "grep" | grep -v ".log" | wc -l)
 if [ "$instance" -le 1 ]; then
     $app -daemon -debug
 	echo $(date -Iseconds)     bigbang has started. | tee -a $logfile
-    echo 'Waiting for bigbang daemon running up...' | tee -a $logfile
+    echo 'Waiting for mkf daemon running up...' | tee -a $logfile
     sleep 10
 fi
 

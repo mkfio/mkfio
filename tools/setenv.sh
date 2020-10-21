@@ -12,9 +12,9 @@ if [ "$1" = "m" ]; then
 	subdir=".multiverse"
 	macsubdir="Multiverse"
 elif [ "$1" = "b" ]; then
-	app="bigbang"
-	subdir=".bigbang"
-	macsubdir="Bigbang"
+	app="mkf"
+	subdir=".mkf"
+	macsubdir="mkf"
 else
 	echo "there is no parameter like this, please try again."
 	exit -1

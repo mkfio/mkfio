@@ -1,6 +1,6 @@
 #!/bin/bash
 
-app="bigbang"
+app="mkf"
 
 logfile="./txtest.log"
 if [ ! -f "$logfile" ]; then

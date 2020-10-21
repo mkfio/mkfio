@@ -72,7 +72,7 @@ CBbEntry::~CBbEntry()
 
 bool CBbEntry::Initialize(int argc, char* argv[])
 {
-    if (!config.Load(argc, argv, GetDefaultDataDir(), "bigbang.conf") || !config.PostLoad())
+    if (!config.Load(argc, argv, GetDefaultDataDir(), "mkf.conf") || !config.PostLoad())
     {
         cerr << "Failed to load/parse arguments and config file\n";
         return false;
@@ -148,15 +148,15 @@ bool CBbEntry::Initialize(int argc, char* argv[])
         {
             return false;
         }
-        cout << "bigbang server starting\n";
+        cout << "mkf server starting\n";
     }
 
     // log
     if ((config.GetModeType() == EModeType::SERVER || config.GetModeType() == EModeType::MINER)
-        && log.SetLogFilePath((pathData / "bigbang.log").string())
+        && log.SetLogFilePath((pathData / "mkf.log").string())
         && !InitLog(pathData, config.GetConfig()->fDebug, config.GetConfig()->fDaemon, config.GetConfig()->nLogFileSize, config.GetConfig()->nLogHistorySize))
     {
-        cerr << "Failed to open log file : " << (pathData / "bigbang.log") << "\n";
+        cerr << "Failed to open log file : " << (pathData / "mkf.log") << "\n";
         return false;
     }
 
@@ -169,24 +169,24 @@ bool CBbEntry::Initialize(int argc, char* argv[])
         {
             if (config.GetConfig()->fOnlyCheck)
             {
-                StdError("Bigbang", "Check data fail.");
+                StdError("mkf", "Check data fail.");
             }
             else
             {
-                StdError("Bigbang", "Check and repair data fail.");
+                StdError("mkf", "Check and repair data fail.");
             }
             return false;
         }
         if (config.GetConfig()->fOnlyCheck)
         {
-            StdLog("Bigbang", "Check data complete.");
+            StdLog("mkf", "Check data complete.");
             return false;
         }
-        StdLog("Bigbang", "Check and repair data complete.");
+        StdLog("mkf", "Check and repair data complete.");
     }
 
 #if !defined(WIN32) && !defined(__APPLE__)
-    StdLog("Bigbang", "malloc_trim: %d.", malloc_trim(0));
+    StdLog("mkf", "malloc_trim: %d.", malloc_trim(0));
 #endif
 
     // docker
@@ -195,7 +195,7 @@ bool CBbEntry::Initialize(int argc, char* argv[])
         cerr << "Failed to initialize docker\n";
         return false;
     }
-    StdLog("BigbangStartup", "Initialize: bigbang version is v%s, git commit id: %s", VERSION_STR.c_str(), GetGitVersion());
+    StdLog("MkfStartup", "Initialize: mkf version is v%s, git commit id: %s", VERSION_STR.c_str(), GetGitVersion());
 
     // modules
     return InitializeModules(config.GetModeType());
