@@ -115,36 +115,42 @@ protected:
 class CBlockView
 {
 public:
-    class CUnspent : public CTxOut
+    class CViewUnspent
     {
     public:
-        int nOpt;
+        CTxOut output;
         int nTxType;
         int nHeight;
 
+        bool fSpent;
+        int nOpt;
+
     public:
-        CUnspent()
-          : nOpt(0), nTxType(-1), nHeight(-1) {}
-        void Enable(const CTxOut& output, int nTxTypeIn, int nHeightIn)
+        CViewUnspent()
+          : nTxType(-1), nHeight(-1), fSpent(false), nOpt(0) {}
+        void Enable(const CTxOut& outputIn, int nTxTypeIn, int nHeightIn)
         {
-            destTo = output.destTo;
-            nAmount = output.nAmount;
-            nTxTime = output.nTxTime;
-            nLockUntil = output.nLockUntil;
+            output = outputIn;
             nTxType = nTxTypeIn;
             nHeight = nHeightIn;
+            fSpent = false;
             nOpt++;
         }
-        void Disable()
+        void Disable(const CTxOut& outputIn, int nTxTypeIn, int nHeightIn)
         {
-            SetNull();
-            nTxType = -1;
-            nHeight = -1;
+            output = outputIn;
+            nTxType = nTxTypeIn;
+            nHeight = nHeightIn;
+            fSpent = true;
             nOpt--;
         }
         bool IsModified() const
         {
             return (nOpt != 0);
+        }
+        bool IsSpent() const
+        {
+            return fSpent;
         }
     };
     CBlockView();
@@ -167,12 +173,8 @@ public:
     bool ExistsTx(const uint256& txid) const;
     bool RetrieveTx(const uint256& txid, CTransaction& tx);
     bool RetrieveUnspent(const CTxOutPoint& out, CTxOut& unspent);
-    void AddTx(const uint256& txid, const CTransaction& tx, int nHeight, const CDestination& destIn = CDestination(), int64 nValueIn = 0);
-    /*void AddTx(const uint256& txid, const CAssembledTx& tx)
-    {
-        AddTx(txid, tx, tx.destIn, tx.nValueIn);
-    }*/
-    void RemoveTx(const uint256& txid, const CTransaction& tx, const CTxContxt& txContxt = CTxContxt());
+    void AddTx(const uint256& txid, const CTransaction& tx, int nHeight, const CTxContxt& txContxt);
+    void RemoveTx(const uint256& txid, const CTransaction& tx, int nHeight, const CTxContxt& txContxt);
     void AddBlock(const uint256& hash, const CBlockEx& block);
     void RemoveBlock(const uint256& hash, const CBlockEx& block);
     void GetUnspentChanges(std::vector<CTxUnspent>& vAddNewUnspent, std::vector<CTxUnspent>& vRemoveUnspent);
@@ -189,7 +191,7 @@ protected:
     uint256 hashFork;
     bool fCommittable;
     std::map<uint256, CTransaction> mapTx;
-    std::map<CTxOutPoint, CUnspent> mapUnspent;
+    std::map<CTxOutPoint, CViewUnspent> mapUnspent;
     std::vector<uint256> vTxRemove;
     std::vector<uint256> vTxAddNew;
     std::list<std::pair<uint256, CBlockEx>> vBlockAddNew;

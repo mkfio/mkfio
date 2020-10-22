@@ -1416,7 +1416,8 @@ bool CCheckRepairData::CheckBlockAddressUnspent()
                 auto bt = checkBlockFork.mapBlockUnspent.find(it->first.out);
                 if (bt == checkBlockFork.mapBlockUnspent.end())
                 {
-                    StdLog("check", "CheckBlockAddressUnspent: Find block address unspent fail, address: %s, fork: %s",
+                    StdLog("check", "CheckBlockAddressUnspent: Find block address unspent fail, unspent: [%d] %s, address: %s, fork: %s",
+                           it->first.out.n, it->first.out.hash.GetHex().c_str(),
                            CAddress(it->first.dest).ToString().c_str(), hashFork.GetHex().c_str());
                     vRemoveAddress.push_back(it->first);
                     addrWalker.mapAddressUnspent.erase(it++);
@@ -1425,8 +1426,9 @@ bool CCheckRepairData::CheckBlockAddressUnspent()
                 {
                     if (it->first.dest != bt->second.destTo)
                     {
-                        StdLog("check", "CheckBlockAddressUnspent: Find block address unspent fail, address: %s, fork: %s",
-                               CAddress(it->first.dest).ToString().c_str(), hashFork.GetHex().c_str());
+                        StdLog("check", "CheckBlockAddressUnspent: address error, unspent: [%d] %s, db address: %s, block address: %s, fork: %s",
+                               it->first.out.n, it->first.out.hash.GetHex().c_str(),
+                               CAddress(it->first.dest).ToString().c_str(), CAddress(bt->second.destTo).ToString().c_str(), hashFork.GetHex().c_str());
                         vRemoveAddress.push_back(it->first);
                         addrWalker.mapAddressUnspent.erase(it++);
                     }

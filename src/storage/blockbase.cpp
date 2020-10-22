@@ -125,36 +125,39 @@ bool CBlockView::RetrieveTx(const uint256& txid, CTransaction& tx)
 
 bool CBlockView::RetrieveUnspent(const CTxOutPoint& out, CTxOut& unspent)
 {
-    map<CTxOutPoint, CUnspent>::const_iterator it = mapUnspent.find(out);
+    map<CTxOutPoint, CViewUnspent>::const_iterator it = mapUnspent.find(out);
     if (it != mapUnspent.end())
     {
-        if ((*it).second.IsNull())
+        if ((*it).second.IsSpent())
         {
-            StdTrace("CBlockView", "RetrieveUnspent: unspent is null, txout: [%d]:%s", out.n, out.hash.GetHex().c_str());
+            StdTrace("CBlockView", "RetrieveUnspent: unspent is spent, unspent: [%d]:%s", out.n, out.hash.GetHex().c_str());
             return false;
         }
-        unspent = (*it).second;
+        unspent = it->second.output;
     }
     else
     {
         if (!pBlockBase->GetTxUnspent(hashFork, out, unspent))
         {
-            StdTrace("CBlockView", "RetrieveUnspent: BlockBase GetTxUnspent fail, txout: [%d]:%s, hashFork: %s",
-                     out.n, out.hash.GetHex().c_str(), hashFork.GetHex().c_str());
+            StdTrace("CBlockView", "RetrieveUnspent: Blockchain unspent don't exist, unspent: [%d]:%s", out.n, out.hash.GetHex().c_str());
             return false;
         }
     }
     return true;
 }
 
-void CBlockView::AddTx(const uint256& txid, const CTransaction& tx, int nHeight, const CDestination& destIn, int64 nValueIn)
+void CBlockView::AddTx(const uint256& txid, const CTransaction& tx, int nHeight, const CTxContxt& txContxt)
 {
     mapTx[txid] = tx;
     vTxAddNew.push_back(txid);
 
+    const CDestination& destIn = txContxt.destIn;
+    int64 nValueIn = txContxt.GetValueIn();
+
     for (int i = 0; i < tx.vInput.size(); i++)
     {
-        mapUnspent[tx.vInput[i].prevout].Disable();
+        const CTxInContxt& txin = txContxt.vin[i];
+        mapUnspent[tx.vInput[i].prevout].Disable(CTxOut(destIn, txin.nAmount, txin.nTxTime, txin.nLockUntil), -1, -1);
     }
     CTxOut output0(tx);
     if (!output0.IsNull())
@@ -168,7 +171,7 @@ void CBlockView::AddTx(const uint256& txid, const CTransaction& tx, int nHeight,
     }
 }
 
-void CBlockView::RemoveTx(const uint256& txid, const CTransaction& tx, const CTxContxt& txContxt)
+void CBlockView::RemoveTx(const uint256& txid, const CTransaction& tx, int nHeight, const CTxContxt& txContxt)
 {
     mapTx[txid].SetNull();
     vTxRemove.push_back(txid);
@@ -177,8 +180,17 @@ void CBlockView::RemoveTx(const uint256& txid, const CTransaction& tx, const CTx
         const CTxInContxt& in = txContxt.vin[i];
         mapUnspent[tx.vInput[i].prevout].Enable(CTxOut(txContxt.destIn, in.nAmount, in.nTxTime, in.nLockUntil), -1, -1);
     }
-    mapUnspent[CTxOutPoint(txid, 0)].Disable();
-    mapUnspent[CTxOutPoint(txid, 1)].Disable();
+
+    CTxOut output0(tx);
+    if (!output0.IsNull())
+    {
+        mapUnspent[CTxOutPoint(txid, 0)].Disable(output0, tx.nType, nHeight);
+    }
+    CTxOut output1(tx, txContxt.destIn, txContxt.GetValueIn());
+    if (!output1.IsNull())
+    {
+        mapUnspent[CTxOutPoint(txid, 1)].Disable(output1, tx.nType, nHeight);
+    }
 }
 
 void CBlockView::AddBlock(const uint256& hash, const CBlockEx& block)
@@ -196,13 +208,13 @@ void CBlockView::GetUnspentChanges(vector<CTxUnspent>& vAddNewUnspent, vector<CT
     vAddNewUnspent.reserve(mapUnspent.size());
     vRemoveUnspent.reserve(mapUnspent.size());
 
-    for (map<CTxOutPoint, CUnspent>::iterator it = mapUnspent.begin(); it != mapUnspent.end(); ++it)
+    for (map<CTxOutPoint, CViewUnspent>::iterator it = mapUnspent.begin(); it != mapUnspent.end(); ++it)
     {
         const CTxOutPoint& out = (*it).first;
-        CUnspent& unspent = (*it).second;
+        CViewUnspent& unspent = (*it).second;
         if (unspent.IsModified())
         {
-            if (!unspent.IsNull())
+            if (!unspent.IsSpent())
             {
                 if (unspent.nTxType == -1 || unspent.nHeight == -1)
                 {
@@ -219,11 +231,11 @@ void CBlockView::GetUnspentChanges(vector<CTxUnspent>& vAddNewUnspent, vector<CT
                         StdError("CBlockView", "Get Unspent Changes: RetrieveTx fail, tx: %s", out.hash.GetHex().c_str());
                     }
                 }
-                vAddNewUnspent.push_back(CTxUnspent(out, static_cast<const CTxOut&>(unspent), unspent.nTxType, unspent.nHeight));
+                vAddNewUnspent.push_back(CTxUnspent(out, unspent.output, unspent.nTxType, unspent.nHeight));
             }
             else
             {
-                vRemoveUnspent.push_back(CTxUnspent(out, static_cast<const CTxOut&>(unspent), unspent.nTxType, unspent.nHeight));
+                vRemoveUnspent.push_back(CTxUnspent(out, unspent.output, unspent.nTxType, unspent.nHeight));
             }
         }
     }
@@ -883,7 +895,7 @@ bool CBlockBase::GetBlockView(const uint256& hash, CBlockView& view, bool fCommi
                 StdTrace("BlockBase",
                          "Chain rollback attempt[removed tx]: %s",
                          block.vtx[j].GetHash().ToString().c_str());
-                view.RemoveTx(block.vtx[j].GetHash(), block.vtx[j], block.vTxContxt[j]);
+                view.RemoveTx(block.vtx[j].GetHash(), block.vtx[j], block.GetBlockHeight(), block.vTxContxt[j]);
                 ++nTxRemoved;
             }
             if (!block.txMint.IsNull())
@@ -891,7 +903,7 @@ bool CBlockBase::GetBlockView(const uint256& hash, CBlockView& view, bool fCommi
                 StdTrace("BlockBase",
                          "Chain rollback attempt[removed mint tx]: %s",
                          block.txMint.GetHash().ToString().c_str());
-                view.RemoveTx(block.txMint.GetHash(), block.txMint);
+                view.RemoveTx(block.txMint.GetHash(), block.txMint, block.GetBlockHeight(), CTxContxt());
                 ++nTxRemoved;
             }
             view.RemoveBlock(p->GetBlockHash(), block);
@@ -922,7 +934,7 @@ bool CBlockBase::GetBlockView(const uint256& hash, CBlockView& view, bool fCommi
                          vPath[i]->GetBlockHash().ToString().c_str());
                 return false;
             }
-            view.AddTx(block.txMint.GetHash(), block.txMint, block.GetBlockHeight());
+            view.AddTx(block.txMint.GetHash(), block.txMint, block.GetBlockHeight(), CTxContxt());
             ++nTxAdded;
             for (int j = 0; j < block.vtx.size(); j++)
             {
@@ -930,7 +942,7 @@ bool CBlockBase::GetBlockView(const uint256& hash, CBlockView& view, bool fCommi
                          "Chain rollback attempt[added tx]: %s",
                          block.vtx[j].GetHash().ToString().c_str());
                 const CTxContxt& txContxt = block.vTxContxt[j];
-                view.AddTx(block.vtx[j].GetHash(), block.vtx[j], block.GetBlockHeight(), txContxt.destIn, txContxt.GetValueIn());
+                view.AddTx(block.vtx[j].GetHash(), block.vtx[j], block.GetBlockHeight(), txContxt);
                 ++nTxAdded;
             }
             view.AddBlock(vPath[i]->GetBlockHash(), block);
