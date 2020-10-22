@@ -456,7 +456,7 @@ Errno CBlockChain::AddNewBlock(const CBlock& block, CBlockChainUpdate& update)
         return ERR_SYS_STORAGE_ERROR;
     }
 
-    view.AddTx(block.txMint.GetHash(), block.txMint, block.GetBlockHeight());
+    view.AddTx(block.txMint.GetHash(), block.txMint, block.GetBlockHeight(), CTxContxt());
 
     CBlockEx blockex(block);
     vector<CTxContxt>& vTxContxt = blockex.vTxContxt;
@@ -492,7 +492,7 @@ Errno CBlockChain::AddNewBlock(const CBlock& block, CBlockChainUpdate& update)
         }
 
         vTxContxt.push_back(txContxt);
-        view.AddTx(txid, tx, block.GetBlockHeight(), txContxt.destIn, txContxt.GetValueIn());
+        view.AddTx(txid, tx, block.GetBlockHeight(), txContxt);
 
         StdTrace("BlockChain", "AddNewBlock: verify tx success, new tx: %s, new block: %s", txid.GetHex().c_str(), hash.GetHex().c_str());
 
