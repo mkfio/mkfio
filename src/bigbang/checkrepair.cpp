@@ -139,12 +139,24 @@ bool CCheckForkManager::UpdateForkLast(const string& strDataPath, const vector<p
     }
     for (const auto& data : vForkLast)
     {
-        if (!dbFork.UpdateFork(data.first, data.second))
+        if (data.second != 0)
         {
-            StdError("check", "Update fork last: update fail, fork: %s, last: %s",
-                     data.first.GetHex().c_str(), data.second.GetHex().c_str());
-            dbFork.Deinitialize();
-            return false;
+            if (!dbFork.UpdateFork(data.first, data.second))
+            {
+                StdError("check", "Update fork last: update fail, fork: %s, last: %s",
+                         data.first.GetHex().c_str(), data.second.GetHex().c_str());
+                dbFork.Deinitialize();
+                return false;
+            }
+        }
+        else
+        {
+            if (!dbFork.RemoveFork(data.first))
+            {
+                StdError("check", "Remove fork last: remove fail, fork: %s", data.first.GetHex().c_str());
+                dbFork.Deinitialize();
+                return false;
+            }
         }
     }
     dbFork.Deinitialize();
@@ -1355,7 +1367,7 @@ bool CCheckRepairData::CheckRepairFork()
 {
     vector<pair<uint256, uint256>> vForkUpdate;
     map<uint256, CCheckForkStatus>::iterator it = objForkManager.mapForkStatus.begin();
-    for (; it != objForkManager.mapForkStatus.end(); ++it)
+    while (it != objForkManager.mapForkStatus.end())
     {
         map<uint256, CCheckBlockFork>::iterator mt = objBlockWalker.mapCheckFork.find(it->first);
         if (mt != objBlockWalker.mapCheckFork.end() && mt->second.pLast != nullptr)
@@ -1368,6 +1380,15 @@ bool CCheckRepairData::CheckRepairFork()
                        mt->second.pLast->GetBlockHash().GetHex().c_str());
                 vForkUpdate.push_back(make_pair(it->first, mt->second.pLast->GetBlockHash()));
             }
+            ++it;
+        }
+        else
+        {
+            StdLog("check", "Check fork last: find fork fail, fork: %s, fork last: %s",
+                   it->first.GetHex().c_str(),
+                   it->second.hashLastBlock.GetHex().c_str());
+            vForkUpdate.push_back(make_pair(it->first, uint256()));
+            objForkManager.mapForkStatus.erase(it++);
         }
     }
     if (!fOnlyCheck && !vForkUpdate.empty())
