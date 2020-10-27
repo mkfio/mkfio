@@ -41,6 +41,16 @@ static const int DEX_START_HEIGHT = 0;
 static const int DEX_START_HEIGHT = 73225;
 #endif
 
+#ifdef BIGBANG_TESTNET
+static const int MATCH_VERIFY_ERROR_HEIGHT1 = 0;
+static const int MATCH_VERIFY_ERROR_HEIGHT2 = 0;
+static const int MATCH_VERIFY_ERROR_HEIGHT3 = 0;
+#else
+static const int MATCH_VERIFY_ERROR_HEIGHT1 = 80867;
+static const int MATCH_VERIFY_ERROR_HEIGHT2 = 80982;
+static const int MATCH_VERIFY_ERROR_HEIGHT3 = 80985;
+#endif
+
 namespace bigbang
 {
 ///////////////////////////////
@@ -420,6 +430,14 @@ Errno CCoreProtocol::VerifyBlockTx(const CTransaction& tx, const CTxContxt& txCo
         {
             return DEBUG(ERR_TRANSACTION_SIGNATURE_INVALID, "invalid signature\n");
         }
+    }
+
+    if (destIn.IsTemplate() && destIn.GetTemplateId().GetType() == TEMPLATE_DEXMATCH
+        && (nForkHeight == MATCH_VERIFY_ERROR_HEIGHT1
+            || nForkHeight == MATCH_VERIFY_ERROR_HEIGHT2
+            || nForkHeight == MATCH_VERIFY_ERROR_HEIGHT3))
+    {
+        nForkHeight -= 1;
     }
 
     if (!destIn.VerifyTxSignature(tx.GetSignatureHash(), tx.nType, /*tx.hashAnchor*/ GetGenesisBlockHash(), tx.sendTo, vchSig, nForkHeight, fork))
