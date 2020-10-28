@@ -1,3 +1,9 @@
+# Version 1.1.1 (2020-10-28)
+
+### Features
+* Fix match transaction verify bug
+
+
 # Version 1.1.0 (2020-10-21)
 
 ### Features
