@@ -41,6 +41,12 @@ static const int DEX_START_HEIGHT = 0;
 static const int DEX_START_HEIGHT = 73225;
 #endif
 
+//#ifdef BIGBANG_TESTNET
+//static const int MATCH_VERIFY_ERROR_HEIGHT = 0;
+//#else
+//static const int MATCH_VERIFY_ERROR_HEIGHT = 82867;
+//#endif
+
 namespace bigbang
 {
 ///////////////////////////////
@@ -422,6 +428,12 @@ Errno CCoreProtocol::VerifyBlockTx(const CTransaction& tx, const CTxContxt& txCo
         }
     }
 
+    //if (destIn.IsTemplate() && destIn.GetTemplateId().GetType() == TEMPLATE_DEXMATCH
+    //    && nForkHeight < MATCH_VERIFY_ERROR_HEIGHT)
+    //{
+    nForkHeight -= 1;
+    //}
+
     if (!destIn.VerifyTxSignature(tx.GetSignatureHash(), tx.nType, /*tx.hashAnchor*/ GetGenesisBlockHash(), tx.sendTo, vchSig, nForkHeight, fork))
     {
         return DEBUG(ERR_TRANSACTION_SIGNATURE_INVALID, "invalid signature\n");
@@ -499,7 +511,7 @@ Errno CCoreProtocol::VerifyTransaction(const CTransaction& tx, const vector<CTxO
         return DEBUG(ERR_TRANSACTION_SIGNATURE_INVALID, "invalid recoreded destination");
     }
 
-    if (!destIn.VerifyTxSignature(tx.GetSignatureHash(), tx.nType, /*tx.hashAnchor*/ GetGenesisBlockHash(), tx.sendTo, vchSig, nForkHeight, fork))
+    if (!destIn.VerifyTxSignature(tx.GetSignatureHash(), tx.nType, /*tx.hashAnchor*/ GetGenesisBlockHash(), tx.sendTo, vchSig, nForkHeight + 1, fork))
     {
         return DEBUG(ERR_TRANSACTION_SIGNATURE_INVALID, "invalid signature\n");
     }
