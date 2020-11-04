@@ -874,7 +874,6 @@ CRPCResultPtr CRPCMod::RPCGetTxPool(CRPCParamPtr param)
 {
     auto spParam = CastParamPtr<CGetTxPoolParam>(param);
 
-    //gettxpool (-f="fork") (-d|-nod*detail*)
     uint256 hashFork;
     if (!GetForkHashOfDef(spParam->strFork, hashFork))
     {
@@ -886,6 +885,15 @@ CRPCResultPtr CRPCMod::RPCGetTxPool(CRPCParamPtr param)
         throw CRPCException(RPC_INVALID_PARAMETER, "Unknown fork");
     }
 
+    CAddress address;
+    if (spParam->strAddress.IsValid())
+    {
+        address = CAddress(spParam->strAddress);
+        if (address.IsNull())
+        {
+            throw CRPCException(RPC_INVALID_PARAMETER, "Invalid address");
+        }
+    }
     bool fDetail = spParam->fDetail.IsValid() ? bool(spParam->fDetail) : false;
     int64 nGetOffset = spParam->nGetoffset.IsValid() ? int64(spParam->nGetoffset) : 0;
     int64 nGetCount = spParam->nGetcount.IsValid() ? int64(spParam->nGetcount) : 20;
@@ -907,7 +915,7 @@ CRPCResultPtr CRPCMod::RPCGetTxPool(CRPCParamPtr param)
     else
     {
         vector<CTxInfo> vTxPool;
-        pService->ListTxPool(hashFork, vTxPool, nGetOffset, nGetCount);
+        pService->ListTxPool(hashFork, address, vTxPool, nGetOffset, nGetCount);
 
         for (const CTxInfo& txinfo : vTxPool)
         {
