@@ -21,7 +21,8 @@ public:
     virtual Errno ValidateBlock(const CBlock& block) override;
     virtual Errno ValidateOrigin(const CBlock& block, const CProfile& parentProfile, CProfile& forkProfile) override;
 
-    virtual Errno VerifyBlockTx(const CTransaction& tx, const CTxContxt& txContxt, CBlockIndex* pIndexPrev, int nForkHeight, const uint256& fork) override;
+    virtual Errno VerifyTx(const CTransaction& tx, const CDestination& destIn, const int64 nValueIn, int nForkHeight, const uint256& fork) override;
+    virtual Errno VerifyBlockTx(const CTransaction& tx, const CTxContxt& txContxt, int nForkHeight, const uint256& fork) override;
     virtual Errno VerifyTransaction(const CTransaction& tx, const std::vector<CTxOut>& vPrevOutput, int nForkHeight, const uint256& fork) override;
 
     virtual Errno VerifyProofOfWork(const CBlock& block, const CBlockIndex* pIndexPrev) override;

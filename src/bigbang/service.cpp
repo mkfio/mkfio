@@ -785,7 +785,9 @@ Errno CService::SubmitWork(const vector<unsigned char>& vchWorkData,
 
     if (block.hashMerkle != block.CalcMerkleTreeRoot())
     {
-        StdError("CService", "SubmitWork: hashMerkle is not correct");
+        StdError("CService", "SubmitWork: hashMerkle is not correct, vtx size: %lu, hashPrev: %s, block.hashMerkle: %s, block calc: %s",
+                 block.vtx.size(), block.hashPrev.GetHex().c_str(),
+                 block.hashMerkle.GetHex().c_str(), block.CalcMerkleTreeRoot().GetHex().c_str());
         return FAILED;
     }
 

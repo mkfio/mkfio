@@ -477,7 +477,7 @@ Errno CBlockChain::AddNewBlock(const CBlock& block, CBlockChainUpdate& update)
         }
         if (!pTxPool->Exists(txid))
         {
-            err = pCoreProtocol->VerifyBlockTx(tx, txContxt, pIndexPrev, pIndexPrev->nHeight + 1, pIndexPrev->GetOriginHash());
+            err = pCoreProtocol->VerifyBlockTx(tx, txContxt, pIndexPrev->nHeight + 1, pIndexPrev->GetOriginHash());
             if (err != OK)
             {
                 Log("AddNewBlock Verify BlockTx Error(%s) : %s ", ErrorString(err), txid.ToString().c_str());

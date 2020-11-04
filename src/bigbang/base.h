@@ -41,7 +41,8 @@ public:
     virtual Errno ValidateBlock(const CBlock& block) = 0;
     virtual Errno ValidateOrigin(const CBlock& block, const CProfile& parentProfile, CProfile& forkProfile) = 0;
     virtual Errno VerifyProofOfWork(const CBlock& block, const CBlockIndex* pIndexPrev) = 0;
-    virtual Errno VerifyBlockTx(const CTransaction& tx, const CTxContxt& txContxt, CBlockIndex* pIndexPrev, int nForkHeight, const uint256& fork) = 0;
+    virtual Errno VerifyTx(const CTransaction& tx, const CDestination& destIn, const int64 nValueIn, int nForkHeight, const uint256& fork) = 0;
+    virtual Errno VerifyBlockTx(const CTransaction& tx, const CTxContxt& txContxt, int nForkHeight, const uint256& fork) = 0;
     virtual Errno VerifyTransaction(const CTransaction& tx, const std::vector<CTxOut>& vPrevOutput, int nForkHeight, const uint256& fork) = 0;
     virtual bool GetBlockTrust(const CBlock& block, uint256& nChainTrust) = 0;
     virtual bool GetProofOfWorkTarget(const CBlockIndex* pIndexPrev, int nAlgo, uint32_t& nBits, int64& nReward) = 0;
