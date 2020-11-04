@@ -887,13 +887,15 @@ CRPCResultPtr CRPCMod::RPCGetTxPool(CRPCParamPtr param)
     }
 
     bool fDetail = spParam->fDetail.IsValid() ? bool(spParam->fDetail) : false;
-
-    vector<pair<uint256, size_t>> vTxPool;
-    pService->GetTxPool(hashFork, vTxPool);
+    int64 nGetOffset = spParam->nGetoffset.IsValid() ? int64(spParam->nGetoffset) : 0;
+    int64 nGetCount = spParam->nGetcount.IsValid() ? int64(spParam->nGetcount) : 20;
 
     auto spResult = MakeCGetTxPoolResultPtr();
     if (!fDetail)
     {
+        vector<pair<uint256, size_t>> vTxPool;
+        pService->GetTxPool(hashFork, vTxPool);
+
         size_t nTotalSize = 0;
         for (std::size_t i = 0; i < vTxPool.size(); i++)
         {
@@ -904,9 +906,14 @@ CRPCResultPtr CRPCMod::RPCGetTxPool(CRPCParamPtr param)
     }
     else
     {
-        for (std::size_t i = 0; i < vTxPool.size(); i++)
+        vector<CTxInfo> vTxPool;
+        pService->ListTxPool(hashFork, vTxPool, nGetOffset, nGetCount);
+
+        for (const CTxInfo& txinfo : vTxPool)
         {
-            spResult->vecList.push_back({ vTxPool[i].first.GetHex(), vTxPool[i].second });
+            spResult->vecList.push_back({ txinfo.txid.GetHex(), txinfo.nTxType, CAddress(txinfo.destFrom).ToString(),
+                                          CAddress(txinfo.destTo).ToString(), ValueFromAmount(txinfo.nAmount),
+                                          ValueFromAmount(txinfo.nTxFee), txinfo.nSize });
         }
     }
 
