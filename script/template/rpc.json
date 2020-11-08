@@ -1547,7 +1547,7 @@
                                     "desc": "txid"
                                 },
                                 "txtype": {
-                                    "type": "int",
+                                    "type": "string",
                                     "desc": "tx type"
                                 },
                                 "from": {

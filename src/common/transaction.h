@@ -142,15 +142,19 @@ public:
     {
         return (nType == TX_GENESIS || nType == TX_WORK);
     }
-    std::string GetTypeString() const
+    static std::string GetTypeStringStatic(const uint16 nTxType)
     {
-        if (nType == TX_TOKEN)
+        if (nTxType == TX_TOKEN)
             return std::string("token");
-        if (nType == TX_GENESIS)
+        if (nTxType == TX_GENESIS)
             return std::string("genesis");
-        if (nType == TX_WORK)
+        if (nTxType == TX_WORK)
             return std::string("work");
         return std::string("undefined");
+    }
+    std::string GetTypeString() const
+    {
+        return GetTypeStringStatic(nType);
     }
     int64 GetTxTime() const
     {
